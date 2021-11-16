@@ -33,6 +33,10 @@
     transform-origin: left;
     height: 10px;
 }
+.wire-hover{
+    box-shadow: 0 0 1px 1px inset yellow, 0px 0px 1px 1px yellow;
+    cursor: pointer;
+}
 .wire-1{
     width:331px;
     top: 36.1px;

@@ -4,5 +4,4 @@ $(function(){
     let sablon = $(".simple-wires")
     const ujWires = $(sablon).prependTo(szuloELem)
     const wires = new Wire(ujWires,id)
-    
 })
