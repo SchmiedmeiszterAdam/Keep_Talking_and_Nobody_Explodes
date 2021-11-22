@@ -22,21 +22,17 @@ class Bomba {
         if (szamol === this.modules.length) {
         }
     }
-    createModules(moduleTemplate,moduleName) {
-        if (id === timeModulePosition) {
+    createModules(moduleTemplate, moduleName) {
+        if (id > 4) {
+            this.gyerek = $("#hatresz")
+        }
+        if (id === timeModulePosition || timeModulePosition === 5) {
             const time = $("#templates #ido-modul").prependTo(this.gyerek)
             new Time(time)
         }
-        else {
-            if(id > 6){
-                this.gyerek = $("#hatresz")
-            }
-            const newModule = $(moduleTemplate).clone().prependTo(this.gyerek)
-            const module = new moduleName(newModule, id,this)
-            this.modules.push(module)
-            console.log(moduleTemplate,moduleName)
-        }
-        console.log(id)
+        const newModule = $(moduleTemplate).clone().prependTo(this.gyerek)
+        const module = new moduleName(newModule, id, this)
+        this.modules.push(module)     
         id++
     }
 }
