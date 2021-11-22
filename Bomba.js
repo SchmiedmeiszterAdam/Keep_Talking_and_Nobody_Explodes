@@ -1,5 +1,7 @@
-let modulePossibilitys = [{ "template": "#templates .simple-wires", "className": Wire },
-{ "template": "#templates .memory", "className": Memory }
+let modulePossibilitys = [/*{ "template": "#templates .simple-wires", "className": Wire },
+{ "template": "#templates .whos-on-first", "className": WhosOnFirst },*/
+{ "template": "#templates .keypads", "className": Keypad }/*,
+{ "template": "#templates .memory", "className": Memory }*/
 ]
 let timeModulePosition = Math.floor(Math.random() * modulePossibilitys.length)
 let id = 0
