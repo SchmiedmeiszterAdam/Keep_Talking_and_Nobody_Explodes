@@ -82,10 +82,8 @@ class WhosOnFirst extends Modul {
                 this.jelzo3.css("background", "rgb(176,235,129)")
                 break
         }
-        console.log(this.fazis)
         if (this.fazis === 3) {
             this.setTeljesitve()
-            console.log(this.teljesitve)
         }
         else {
             this.gombFeliratAdas()
@@ -128,7 +126,6 @@ class WhosOnFirst extends Modul {
         }
 
         //A már eldöntött gombra rátesszük a jó tulajdonságát
-        console.log(joTomb[i - 1])
         for (let h = 0; h < this.gombok.length; h++) {
             if (this.gombok[h].getSzoveg() === joTomb[i - 1]) {
                 this.gombok[h].setJo()

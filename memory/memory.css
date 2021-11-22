@@ -1,7 +1,5 @@
 @charset "utf-8";
-.memory{
-    width: 95%;
-    height: 95%;
+.memory{ 
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;

@@ -40,7 +40,6 @@ class Memory extends Modul {
         this.kijelzoFeliratozas()
         this.gombokLetrehozasa()
         this.stage++
-        console.log(this.stage)
     }
     rossz() {
         this.stage = 0
@@ -118,9 +117,6 @@ class Memory extends Modul {
                     }
                     break
             }
-
-
-            console.log(this.voltPoziciok, this.voltSzamok)
         }
     }
     stage1(pozicio) {

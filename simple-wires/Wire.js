@@ -37,7 +37,6 @@ class Wire extends Modul {
                 break
         }
         this.wires[joDrot].setJoDrot()
-        console.log(joDrot)
     }
     harmas() {
         if (this.nincsSzin("red")) {

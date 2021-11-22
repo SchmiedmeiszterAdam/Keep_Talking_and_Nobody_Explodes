@@ -35,7 +35,6 @@ class Keypad extends Modul {
                 }
             }
         }
-        console.log(this.gombokSorrendben)
     }
 
     osszesPiros() {
