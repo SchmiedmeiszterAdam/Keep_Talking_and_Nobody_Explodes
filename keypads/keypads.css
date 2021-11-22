@@ -1,6 +1,6 @@
 @charset "utf-8";
 .keypads-tarolo{
-    width:65%;
+    width:80%;
     /*szelésség/magasság egymáshoz viszonyulása*/
     aspect-ratio: 1/1; 
     background:black;

@@ -23,7 +23,7 @@ main {
 
 #bomba {
     width: 1300px;
-    height: 650px;
+    aspect-ratio: 3/2;
     background-color: black;
     position: relative;
 }
@@ -43,7 +43,7 @@ main {
 
 .modul {
     width: calc(100% - 20px);
-    height: calc(100% - 20px);
+    aspect-ratio: 1/1;
     margin: 10px;
     background-color: rgb(138, 144, 156);
     position: relative;
