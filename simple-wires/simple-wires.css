@@ -1,4 +1,4 @@
-.bal-sor,.jobb-sor{
+.bal-sor, .jobb-sor {
     position: absolute;
     width: 15%;
     display: flex;
@@ -8,62 +8,89 @@
     background-color: rgb(52, 56, 76);
     bottom: 5px;
 }
-.csatlakozo{
+
+.csatlakozo {
     width: 50%;
     aspect-ratio: 1/1;
     background-color: rgb(92, 100, 105);
     border-radius: 6px;
 }
-.bal-sor{
+
+.bal-sor {
     height: 95%;
     left: 20px;
 }
-.jobb-sor{
+
+.jobb-sor {
     height: 80%;
     right: 10px;
 }
-.wires{
+
+.wires {
     width: 100%;
     height: 100%;
     position: relative;
 }
-.wire{
+
+.wire {
     position: absolute;
     left: 48px;
     transform-origin: left;
     height: 10px;
 }
-.wire-hover{
+
+.wire-hover {
     box-shadow: 0 0 1px 1px inset yellow, 0px 0px 1px 1px yellow;
     cursor: pointer;
 }
-.wire-1{
-    width:331px;
+
+.wire-1 {
+    width: 331px;
     top: 36.1px;
     transform: rotate(6.86deg);
 }
-.wire-2{
-    width:80%;
+
+.wire-2 {
+    width: 80%;
     top: 81.8px;
     transform: rotate(5.82deg);
 }
-.wire-3{
-    width:80%;
+
+.wire-3 {
+    width: 80%;
     top: 127.6px;
     transform: rotate(4.7deg);
 }
-.wire-4{
-    width:80%;
+
+.wire-4 {
+    width: 80%;
     top: 173.5px;
     transform: rotate(3.5deg);
 }
-.wire-5{
-    width:80%;
+
+.wire-5 {
+    width: 80%;
     top: 219.3px;
     transform: rotate(2.25deg);
 }
-.wire-6{
-    width:80%;
+
+.wire-6 {
+    width: 80%;
     top: 265px;
     transform: rotate(1.2deg);
+}
+
+.wire-seged {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.wire-elvagva {
+    position: absolute;
+    width: 10%;
+    height: 200%;
+    background-color: rgb(138, 144, 156);
+    top: -25%;
+    left: 45%;
 }

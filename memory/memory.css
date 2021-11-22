@@ -1,0 +1,54 @@
+@charset "utf-8";
+.memory{
+    width: 95%;
+    height: 95%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+.memory-bal{
+    width: 80%;
+    height: 100%;
+}
+.memory-jobb{
+    width: 15%;
+    height: 75%;
+    margin-bottom: 10px;
+    display:flex;
+    align-items: flex-end;
+}
+.memory-statusz-jelzo-tarolo{
+    height:100%;
+    width:100%;
+    background-color: rgb(33,31,36);
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.memory-kijelzo-tarolo{
+    width:100%;
+    height:60%;
+    background-color: black;
+
+}
+.memory-statusz-jelzo{
+    width:60%;
+    height: 10%;
+    background-color: rgb(29,19,27);
+}
+.memory-gombok{
+    width:100%;
+    height:40%;
+    background-color: seagreen;
+    display:flex;
+
+}
+.memory-gomb{
+    width:100%;
+    height:100%;
+    background-color: orchid;
+}
+.memory-kijelzo{
+color:white;
+}
