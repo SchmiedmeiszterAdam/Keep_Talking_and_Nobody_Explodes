@@ -7,10 +7,20 @@ $(function () {
     let bombTemplate = $("#bomba")
     let bombA = $(bombTemplate).appendTo("main")
     let bomb = new Bomba(bombA)
-    bomb.createModules($("#templates .simple-wires"), Wire)
-    bomb.createModules($("#templates .whos-on-first"), WhosOnFirst)
-    bomb.createModules($("#templates .keypads"), Keypad)
-    bomb.createModules($("#templates .keypads"), Keypad)
-    bomb.createModules($("#templates .memory"), Memory)
-    bomb.createModules($("#templates .memory"), Memory)
+    bomb.createModule($("#templates .simple-wires"), Wire)
+    bomb.createModule($("#templates .whos-on-first"), WhosOnFirst)
+    bomb.createModule($("#templates .keypads"), Keypad)
+    bomb.createModule($("#templates .keypads"), Keypad)
+    bomb.createModule($("#templates .memory"), Memory)
+    bomb.createModule($("#templates .memory"), Memory)
+    if(bomb.countModules() < 6){
+        for (let i = 0; i < 5-bomb.countModules(); i++) {
+            bomb.gyerek.append("<div class = 'ures'></div>")
+        }
+    }
+    else{
+        for (let i = 0; i < 11-bomb.countModules(); i++) {
+            bomb.gyerek.append("<div class = 'ures'></div>")
+        }
+    }
 })

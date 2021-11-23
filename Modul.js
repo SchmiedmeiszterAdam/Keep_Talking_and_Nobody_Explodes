@@ -35,6 +35,7 @@ class Modul {
         return this.aktiv
     }
     setTeljesitve() {
+        this.szulo.ellenorzes()
         this.teljesitve = true
         this.led.css("background-color","green")
     }

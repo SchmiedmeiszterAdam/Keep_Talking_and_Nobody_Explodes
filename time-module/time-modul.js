@@ -1,6 +1,8 @@
+let idoIras
 class Time {
-    constructor(elem) {
+    constructor(elem,szulo) {
         this.elem = elem
+        this.szulo = szulo
         this.szamolas()
     }
     szamolas() {
@@ -16,7 +18,7 @@ class Time {
             idoKijelzes()
         }, 2000)
         function idoKijelzes() {
-            let idoIras = setInterval(function () {
+            idoIras = setInterval(function () {
                 masodperc--
                 if (masodperc === -1) {
                     ido--
@@ -33,5 +35,8 @@ class Time {
                 }
             }, 1000)
         }
+    }
+    stop(){
+        clearInterval(idoIras)
     }
 }

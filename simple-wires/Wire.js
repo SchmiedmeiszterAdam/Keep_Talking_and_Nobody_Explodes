@@ -158,6 +158,7 @@ class OneWire {
             if (!this.elvagva) {
                 if (this.getJoDrot()) {
                     this.szulo.led.css("background-color", "green")
+                    this.elem.removeClass("wire-hover")
                     this.szulo.setTeljesitve()
                 }
                 else if (!this.szulo.getTeljesitve()) {
