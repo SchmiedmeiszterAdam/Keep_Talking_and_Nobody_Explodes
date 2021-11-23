@@ -32,9 +32,6 @@ class Bomba {
         this.modules.push(module)     
         this.moduleSzam++
     }
-    countModules(){
-        return this.moduleSzam
-    }
     fault(){
         this.strikes++
         this.faultCheck()
