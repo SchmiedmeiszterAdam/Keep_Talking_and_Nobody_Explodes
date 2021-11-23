@@ -9,6 +9,7 @@ class Wire extends Modul {
     constructor(elem, id,szulo) {
         super(elem, id,szulo)
         this.wires = []
+        this.bombaSerialNumber = this.bomba.getSerialNumber()
         let db = Math.floor(Math.random() * 4) + 3
         let szuloELem = $(this.elem.find('.wires'))
         for (let i = 1; i <= db; i++) {
@@ -131,7 +132,7 @@ class Wire extends Modul {
         this.wires[this.wires.length - 1].getColor() === szin
     }
     szeriszamParosParatlan() {
-        let utolso = window.serialNumber.substr(window.serialNumber.length - 1)
+        let utolso = this.bombaSerialNumber.substr(this.bombaSerialNumber.length - 1)
         if (utolso % 2 === 0) {
             return "paros"
         }
@@ -160,14 +161,15 @@ class OneWire {
                 }
                 else if (!this.szulo.getTeljesitve()) {
                     this.szulo.led.css("background-color", "red")
+                    this.szulo.sendFault()
                 }
                 if(this.szulo.getTeljesitve() && !this.getJoDrot()){
                     this.szulo.led.css("background-color", "red")
                     setTimeout(()=>{this.szulo.led.css("background-color", "green")},1000)
+                    this.szulo.sendFault()
                 }
                 this.elem.append("<div class = 'wire-seged'><div class = 'wire-elvagva'></div></div>")
                 this.elvagva = true
-                console.log("ELVÁGTAM")
             }
 
         })

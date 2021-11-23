@@ -63,6 +63,7 @@ class KeypadButton {
                 else {
                     this.szulo.kattintasSzamol = 0
                     this.szulo.osszesPiros()
+                    this.szulo.sendFault()
                 }
             }
         })

@@ -15,12 +15,12 @@ $(function () {
     //bomb.createModule($("#templates .memory"), Memory)
     if(bomb.countModules() < 6){
         for (let i = 0; i < 5-bomb.countModules(); i++) {
-            bomb.gyerek.append("<div class = 'ures'></div>")
+            $("#templates .ures").clone().appendTo(bomb.gyerek)
         }
     }
     else{
         for (let i = 0; i < 11-bomb.countModules(); i++) {
-            bomb.gyerek.append("<div class = 'ures'></div>")
+            $("#templates .ures").clone().appendTo(bomb.gyerek)
         }
     }
 })

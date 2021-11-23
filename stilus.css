@@ -63,3 +63,45 @@ main {
     background-color: rgb(97, 65, 65);
     border-radius: 50%;
 }
+.ures{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.ures-pocok{
+    position: absolute;
+    background-color: rgb(143,70,38);
+    box-shadow: 0 0 2px 1px black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.ures-tarolo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(148,73,39);
+}
+.ures-csik{
+    width: calc(100% / 17);
+    height: 100%;
+    background-color: rgb(194,101,55);
+}
+.ures-pocok-1{
+    top: -5px;
+    left: -5px;
+}
+.ures-pocok-2{
+    bottom: -5px;
+    left: -5px;
+}
+.ures-pocok-3{
+    bottom: -5px;
+    right: -5px;
+}
+.ures-pocok-4{
+    top: -5px;
+    right: -5px;
+}

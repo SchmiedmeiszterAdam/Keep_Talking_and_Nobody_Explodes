@@ -42,4 +42,7 @@ class Modul {
     getTeljesitve() {
         return this.teljesitve
     }
+    sendFault(){
+        this.bomba.fault()
+    }
 }

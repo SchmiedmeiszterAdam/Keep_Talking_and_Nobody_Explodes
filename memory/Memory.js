@@ -42,6 +42,7 @@ class Memory extends Modul {
         this.stage++
     }
     rossz() {
+        this.sendFault()
         this.stage = 0
         this.ujStage()
         this.voltPoziciok = []

@@ -168,6 +168,7 @@ class WhosOnFirstButton {
 
                 }
                 else {
+                    this.szulo.sendFault()
                     this.szulo.fazis = 0
                     this.szulo.gombFeliratAdas()
                     this.szulo.joEldontes()
