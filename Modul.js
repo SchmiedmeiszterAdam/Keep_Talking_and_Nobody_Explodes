@@ -1,7 +1,7 @@
 class Modul {
-    constructor(elem,id,szulo) {
+    constructor(elem,id,bomba) {
         this.teljesitve = false
-        this.szulo = szulo
+        this.bomba = bomba
         this.elem = elem
         this.id = id
         this.aktiv = false
@@ -35,7 +35,7 @@ class Modul {
         return this.aktiv
     }
     setTeljesitve() {
-        this.szulo.ellenorzes()
+        this.bomba.modulesCheck()
         this.teljesitve = true
         this.led.css("background-color","green")
     }

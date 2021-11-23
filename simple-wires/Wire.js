@@ -16,9 +16,7 @@ class Wire extends Modul {
             const wire = new OneWire(ujWire, i - 1,this)
             this.wires.push(wire)
         }
-        
         this.elvagandoDrotKivalasztasa()
-
     }
 
     elvagandoDrotKivalasztasa() {
@@ -158,7 +156,6 @@ class OneWire {
             if (!this.elvagva) {
                 if (this.getJoDrot()) {
                     this.szulo.led.css("background-color", "green")
-                    this.elem.removeClass("wire-hover")
                     this.szulo.setTeljesitve()
                 }
                 else if (!this.szulo.getTeljesitve()) {
@@ -170,6 +167,7 @@ class OneWire {
                 }
                 this.elem.append("<div class = 'wire-seged'><div class = 'wire-elvagva'></div></div>")
                 this.elvagva = true
+                console.log("ELVÁGTAM")
             }
 
         })
