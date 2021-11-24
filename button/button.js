@@ -1,10 +1,12 @@
+buttonColors =["white","blue","red","yellow"]
+buttonTexts = ["ABORT","HOLD","DETONATE","PRESS"]
 class Button extends Modul {
     constructor(elem, id, szulo) {
         super(elem, id, szulo)
         this.indicator = this.elem.find(".button-color-indicator")
-        this.indicatorColor = "blue"
-        this.color = "white"
-        this.buttonText = "ABORT"
+        this.indicatorColor = buttonColors[Math.floor(Math.random()*buttonColors.length)]
+        this.color = buttonColors[Math.floor(Math.random()*buttonColors.length)]
+        this.buttonText = buttonTexts[Math.floor(Math.random()*buttonTexts.length)]
         this.button = this.elem.find(".button-button")
         this.buttonIsDown = false
         this.text = this.elem.find(".button-text")
@@ -16,46 +18,34 @@ class Button extends Modul {
         this.decision()
 
         this.button.on("mousedown", () => {
-            this.timeoutId = setTimeout(()=>{this.pushedDown}, 1000);
+            this.timeoutId = setTimeout(() => { this.pushedDown() }, 1000);
         }).on("mouseup", () => {
             this.released()
-
         })
     }
-    decision(){
-        if(this.color === "blue" && this.buttonText === "ABORT"){
+    decision() {
+        if (this.color === "blue" && this.buttonText === "ABORT") {
             this.solution = "hold"
         }
-        else if(this.bomba.batteries > 1 && this.buttonText === "DETONATE"){
+        else if (this.bomba.batteries > 1 && this.buttonText === "DETONATE") {
             this.solution = "relase"
         }
-        else if(this.indicatorColor === "white" && this.bomba.car === "lit"){
+        else if (this.indicatorColor === "white" && this.bomba.car === "lit") {
             this.solution = "hold"
         }
-        else if(this.bomba.batteries > 2 && this.bomba.frk === "lit"){
+        else if (this.bomba.batteries > 2 && this.bomba.frk === "lit") {
             this.solution = "relase"
         }
-        else if(this.color === "blue"){
+        else if (this.color === "yellow") {
             this.solution = "hold"
         }
-        else if(this.color === "red" && this.buttonText === "HOLD"){
+        else if (this.color === "red" && this.buttonText === "HOLD") {
             this.solution = "relase"
         }
-        else{
+        else {
             this.solution = "hold"
         }
     }
-    // var timeoutId = 0;
-    // var i = true
-    // $('#bomba').on('mousedown', function () {
-    //     timeoutId = setTimeout(()=>{
-    //         i = false
-    //         console.log(i)
-    //     }, 1000);
-    // }).on('mouseup', function () {
-    //     console.log(i)
-    //     clearTimeout(timeoutId);
-    // });
     pushedDown() {
         this.timeoutId = setTimeout(() => {
             this.buttonIsDown = true
@@ -75,15 +65,40 @@ class Button extends Modul {
     }
     ellenorzes() {
         let ok = false
-        if(this.decision === "hold" && this.buttonIsDown === true){
-
+        if (this.solution === "hold" && this.buttonIsDown === true) {
+            if (this.indicatorColor === "blue") {
+                if (this.timeContains('4')) {
+                    ok = true
+                }
+            }
+            else if (this.indicatorColor === "white") {
+                if (this.timeContains('1')) {
+                    ok = true
+                }
+            }
+            else if (this.indicatorColor === "yellow") {
+                if (this.timeContains('5')) {
+                    ok = true
+                }
+            }
+            else {
+                if (this.timeContains('1')) {
+                    ok = true
+                }
+            }
+        }
+        else if(this.solution === "relase"){
+            ok = true
         }
         return ok
     }
     timeContains(num) {
-        let val = this.szulo.bomba.idoModul.getTime()
-        if (val.includes(num)) {
-            return true
+        let includesNumber = false
+        let val = this.bomba.idoModul.getTime()
+        let string = val.toString().split('')
+        if (string.includes(num)) {
+            includesNumber = true
         }
+        return includesNumber
     }
 }

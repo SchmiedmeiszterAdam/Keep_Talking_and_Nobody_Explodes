@@ -11,8 +11,13 @@ class Bomba {
         this.batteries = 2
     }
     modulesCheck() {
-        this.modulokKesz++
-        if (this.modulokKesz === this.modules.length) {
+        let db = 0
+        for (let i = 0; i < this.modules.length; i++) {
+            if(this.modules[i].getTeljesitve()){
+                db++
+            }
+        }
+        if (db === this.modules.length) {
             this.idoModul.stop()
         }
     }
