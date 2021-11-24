@@ -1,42 +1,45 @@
 let idoIras
 class Time {
-    constructor(elem,szulo) {
+    constructor(elem, szulo, perc, masodperc) {
         this.elem = elem
         this.szulo = szulo
+        this.ido = perc
+        this.masodperc = masodperc
         this.szamolas()
     }
     szamolas() {
-        let ido = 5
-        let masodperc = 0
-        if (masodperc < 10) {
-            $("#ido").text(ido + ":0" + masodperc)
+        if (this.masodperc < 10) {
+            $("#ido").text(this.ido + ":0" + this.masodperc)
         }
         else {
-            $("#ido").text(ido + ":" + masodperc)
+            $("#ido").text(this.ido + ":" + this.masodperc)
         }
-        setTimeout(function () {
-            idoKijelzes()
+        setTimeout(()=> {
+            this.idoKijelzes()
         }, 2000)
-        function idoKijelzes() {
-            idoIras = setInterval(function () {
-                masodperc--
-                if (masodperc === -1) {
-                    ido--
-                    masodperc = 59
-                }
-                if (masodperc < 10) {
-                    $("#ido").text(ido + ":0" + masodperc)
-                }
-                else {
-                    $("#ido").text(ido + ":" + masodperc)
-                }
-                if (ido === 0 && masodperc === 0) {
-                    clearInterval(idoIras)
-                }
-            }, 1000)
-        }
     }
-    stop(){
+    idoKijelzes() {
+        idoIras = setInterval(()=> {
+            this.masodperc--
+            if (this.masodperc === -1) {
+                this.ido--
+                this.masodperc = 59
+            }
+            if (this.masodperc < 10) {
+                $("#ido").text(this.ido + ":0" + this.masodperc)
+            }
+            else {
+                $("#ido").text(this.ido + ":" + this.masodperc)
+            }
+            if (this.ido === 0 && this.masodperc === 0) {
+                clearInterval(idoIras)
+            }
+        }, 1000)
+    }
+    stop() {
         clearInterval(idoIras)
+    }
+    getTime() {
+        return this.masodperc + "" + this.ido
     }
 }
