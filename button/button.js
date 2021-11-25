@@ -18,8 +18,10 @@ class Button extends Modul {
         this.decision()
 
         this.button.on("mousedown", () => {
+            this.button.addClass("button-pushed-down")
             this.timeoutId = setTimeout(() => { this.pushedDown() }, 1000);
         }).on("mouseup", () => {
+            this.button.addClass("button-release")
             this.released()
         })
     }
@@ -47,12 +49,14 @@ class Button extends Modul {
         }
     }
     pushedDown() {
+        
         this.timeoutId = setTimeout(() => {
             this.buttonIsDown = true
             this.indicator.css("background-color", "blue")
         }, 1000)
     }
     released() {
+        
         this.indicator.css("background-color", "black")
         clearTimeout(this.timeoutId);
         if (this.ellenorzes()) {

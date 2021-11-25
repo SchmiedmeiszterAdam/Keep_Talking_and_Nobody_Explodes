@@ -105,3 +105,44 @@ main {
     top: -5px;
     right: -5px;
 }
+
+nav{
+    position: absolute;
+    background-color: rgba(138,144,156,0.1);
+    display: grid;
+    place-items: center;
+    z-index: 20;
+}
+nav ul li{
+    list-style-type: none;
+    color: white;
+    font-size: 25px;
+}
+#bomb-rotation-up{
+    width: 90%;
+    height: 30px;
+    top: -40px;
+    left: 5%
+}
+#bomb-rotation-down{
+    width: 90%;
+    height: 30px;
+    bottom: -40px;
+    left: 5%
+}
+#bomb-rotation-left{
+    width: 30px;
+    height: 90%;
+    top: 5%;
+    left: -40px;
+}
+#bomb-rotation-right{
+    width: 30px;
+    height: 90%;
+    top: 5%;
+    right: -40px;
+}
+nav:hover{
+    background-color: rgba(138,144,156,0.4);
+    cursor: pointer;
+}

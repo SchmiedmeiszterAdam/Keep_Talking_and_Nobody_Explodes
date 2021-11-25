@@ -25,10 +25,38 @@
     justify-content: space-evenly;
     align-items: center;
 }
+.button-container{
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-items: center;
+}
 .button-button{
     display: grid;
     place-items: center;
     width: 100%;
     aspect-ratio: 1/1;
     border-radius: 50%;
+}
+.button-pushed-down{
+    animation: button-pushing-down 0.2s forwards;
+}
+.button-release{
+    animation: button-release 0.1s forwards;
+}
+@keyframes button-pushing-down{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 90%;
+    }
+}
+@keyframes button-release{
+    0%{
+        width: 90%;
+    }
+    100%{
+        width: 100%;
+    }
 }
