@@ -107,7 +107,7 @@ main {
 }
 
 nav{
-    position: absolute;
+    position: fixed;
     background-color: rgba(138,144,156,0.1);
     display: grid;
     place-items: center;
@@ -119,28 +119,29 @@ nav ul li{
     font-size: 25px;
 }
 #bomb-rotation-up{
+    
     width: 90%;
     height: 30px;
-    top: -40px;
+    top: 0px;
     left: 5%
 }
 #bomb-rotation-down{
     width: 90%;
     height: 30px;
-    bottom: -40px;
+    bottom: 0px;
     left: 5%
 }
 #bomb-rotation-left{
     width: 30px;
     height: 90%;
     top: 5%;
-    left: -40px;
+    left: 0px;
 }
 #bomb-rotation-right{
     width: 30px;
     height: 90%;
     top: 5%;
-    right: -40px;
+    right: 0;
 }
 nav:hover{
     background-color: rgba(138,144,156,0.4);

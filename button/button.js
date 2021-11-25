@@ -21,7 +21,11 @@ class Button extends Modul {
             this.button.addClass("button-pushed-down")
             this.timeoutId = setTimeout(() => { this.pushedDown() }, 1000);
         }).on("mouseup", () => {
+            this.button.removeClass("button-pushed-down")
             this.button.addClass("button-release")
+            setTimeout(()=>{
+                this.button.removeClass("button-release")
+            },200)
             this.released()
         })
     }
