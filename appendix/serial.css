@@ -1,0 +1,29 @@
+.serial-modul{
+    width: 220px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.serial-texet{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    color: white;
+    display: grid;
+    place-items: center;
+}
+.serial-number-container{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    display: grid;
+    place-items: center;
+}
+.serial-number{
+    font-size: 35px;
+    letter-spacing: 12px;
+    text-align: center;
+}

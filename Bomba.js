@@ -19,9 +19,10 @@ class Bomba {
         this.indicators = []
         this.lefSide = this.elem.find("#bal-oldal")
         this.rightSide = this.elem.find("#jobb-oldal")
-        this.topSide = this.elem.find("#teteje-oldal")
-        this.bottomSide = this.elem.find("#alja-oldal")
+        this.topSide = this.elem.find("#teteje")
+        this.bottomSide = this.elem.find("#alja")
         this.appendix()
+        this.elem.find(".serial-number").html(this.szeriszam)
     }
     modulesCheck() {
         let db = 0
@@ -86,6 +87,7 @@ class Bomba {
                 serial += abc[Math.floor(Math.random() * abc.length)]
             }
         }
+        $("#templates .serial-modul").clone().appendTo(this.topSide)
         this.szeriszam = serial
 
 

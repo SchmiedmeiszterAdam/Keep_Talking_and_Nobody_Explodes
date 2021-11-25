@@ -163,6 +163,8 @@ nav:hover{
 #teteje,#alja{
     position: absolute;
     display: none;
+    align-items: center;
+    justify-content: center;
     height: 20%;
     width: 100%;
     background-color: rgb(138, 144, 156);
