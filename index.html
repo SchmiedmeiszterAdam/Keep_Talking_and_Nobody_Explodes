@@ -32,6 +32,7 @@
     <!-- JS -->
     <script src="Bomba.js"></script>
     <script src="script.js"></script>
+    <script src="rotation.js"></script>
     <title>Document</title>
 </head>
 
@@ -58,143 +59,148 @@
             </ul>
         </nav>
         <div id="bomba">
-            <div id="templates">
-                <div class="modul memory hover">
-                    <div class="kesz"></div>
-                    <div class="memory-bal">
-                        <div class="memory-kijelzo-tarolo">
-                            <h1 class="memory-kijelzo"></h1>
-                        </div>
-                        <div class="memory-gombok">
-                        </div>
-                    </div>
-                    <div class="memory-jobb">
-                        <div class="memory-statusz-jelzo-tarolo">
-                            <div class="memory-statusz-jelzo memory-statusz-jelzo-1"></div>
-                            <div class="memory-statusz-jelzo memory-statusz-jelzo-2"></div>
-                            <div class="memory-statusz-jelzo memory-statusz-jelzo-3"></div>
-                            <div class="memory-statusz-jelzo memory-statusz-jelzo-4"></div>
-                            <div class="memory-statusz-jelzo memory-statusz-jelzo-5"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modul whos-on-first hover">
-                    <div class="whos-on-elemek">
-                        <div class="whos-on-bal">
-                            <div class="whos-on-kijelzo-tarolo">
-                                <div class="whos-on-kijelzo">
-                                    <h1 class="whos-on-szo"></h1>
-                                </div>
-                            </div>
-                            <div class="whos-on-gombok">
-                            </div>
-                        </div>
-                        <div class="whos-on-jobb">
-                            <div class="whos-on-status">
-                                <div class="whos-on-status-jelzo whos-on-status-jelzo-3"></div>
-                                <div class="whos-on-status-jelzo whos-on-status-jelzo-2"></div>
-                                <div class="whos-on-status-jelzo whos-on-status-jelzo-1"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul venting-gas hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul capacitor hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul knobs hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul simple-wires hover">
-                    <div class="kesz"></div>
-                    <div class="bal-sor">
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                    </div>
-                    <div class="jobb-sor">
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                        <div class="csatlakozo"></div>
-                    </div>
-                    <div class="wires">
-                    </div>
-                </div>
-                <div class="modul button hover">
-                    <div class="button-left">
-                        <div class="button-container">
-                        <div class="button-button">
-                            <h2 class="button-text"></h2>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="button-right">
-                        <div class="button-color-indicator"></div>
-                    </div>
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul keypads hover">
-                    <div class="kesz"></div>
-                    <div class="keypads-tarolo">
-                    </div>
-                </div>
-                <div id="ido-modul" class="modul">
-                    <div id="strikes">
-                        <div id="strike-1">X</div>
-                        <div id="strike-2">X</div>
-                    </div>
-                    <div id="ido-kijelzo">
-                        <h2 id="ido"></h2>
-                    </div>
-                </div>
-                <div class="modul simon-says hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul morse-code hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul complicated-wires hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul wire-sequences hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul maze hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="modul password hover">
-                    <div class="kesz"></div>
-                </div>
-                <div class="ures">
-                    <div class="ures-tarolo">
-                        <div class="ures-csik"></div>
-                        <div class="ures-csik"></div>
-                        <div class="ures-csik"></div>
-                        <div class="ures-csik"></div>
-                        <div class="ures-csik"></div>
-                        <div class="ures-csik"></div>
-                        <div class="ures-csik"></div>
-                        <div class="ures-csik"></div>
-                    </div>
-                    <div class="ures-pocok ures-pocok-1"></div>
-                    <div class="ures-pocok ures-pocok-2"></div>
-                    <div class="ures-pocok ures-pocok-3"></div>
-                    <div class="ures-pocok ures-pocok-4"></div>
-                </div>
-            </div>
             <div id="eloresz">
             </div>
             <div id="hatresz">
-                
+            </div>
+            <div id="jobb-oldal"></div>
+            <div id="bal-oldal"></div>
+            <div id="teteje"></div>
+            <div id="alja"></div>
+        </div>
+
+
+        <div id="templates">
+            <div class="modul memory hover">
+                <div class="kesz"></div>
+                <div class="memory-bal">
+                    <div class="memory-kijelzo-tarolo">
+                        <h1 class="memory-kijelzo"></h1>
+                    </div>
+                    <div class="memory-gombok">
+                    </div>
+                </div>
+                <div class="memory-jobb">
+                    <div class="memory-statusz-jelzo-tarolo">
+                        <div class="memory-statusz-jelzo memory-statusz-jelzo-1"></div>
+                        <div class="memory-statusz-jelzo memory-statusz-jelzo-2"></div>
+                        <div class="memory-statusz-jelzo memory-statusz-jelzo-3"></div>
+                        <div class="memory-statusz-jelzo memory-statusz-jelzo-4"></div>
+                        <div class="memory-statusz-jelzo memory-statusz-jelzo-5"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modul whos-on-first hover">
+                <div class="whos-on-elemek">
+                    <div class="whos-on-bal">
+                        <div class="whos-on-kijelzo-tarolo">
+                            <div class="whos-on-kijelzo">
+                                <h1 class="whos-on-szo"></h1>
+                            </div>
+                        </div>
+                        <div class="whos-on-gombok">
+                        </div>
+                    </div>
+                    <div class="whos-on-jobb">
+                        <div class="whos-on-status">
+                            <div class="whos-on-status-jelzo whos-on-status-jelzo-3"></div>
+                            <div class="whos-on-status-jelzo whos-on-status-jelzo-2"></div>
+                            <div class="whos-on-status-jelzo whos-on-status-jelzo-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="kesz"></div>
+            </div>
+            <div class="modul venting-gas hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="modul capacitor hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="modul knobs hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="modul simple-wires hover">
+                <div class="kesz"></div>
+                <div class="bal-sor">
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                </div>
+                <div class="jobb-sor">
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                    <div class="csatlakozo"></div>
+                </div>
+                <div class="wires">
+                </div>
+            </div>
+            <div class="modul button hover">
+                <div class="button-left">
+                    <div class="button-container">
+                        <div class="button-button">
+                            <h2 class="button-text"></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-right">
+                    <div class="button-color-indicator"></div>
+                </div>
+                <div class="kesz"></div>
+            </div>
+            <div class="modul keypads hover">
+                <div class="kesz"></div>
+                <div class="keypads-tarolo">
+                </div>
+            </div>
+            <div id="ido-modul" class="modul">
+                <div id="strikes">
+                    <div id="strike-1">X</div>
+                    <div id="strike-2">X</div>
+                </div>
+                <div id="ido-kijelzo">
+                    <h2 id="ido"></h2>
+                </div>
+            </div>
+            <div class="modul simon-says hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="modul morse-code hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="modul complicated-wires hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="modul wire-sequences hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="modul maze hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="modul password hover">
+                <div class="kesz"></div>
+            </div>
+            <div class="ures">
+                <div class="ures-tarolo">
+                    <div class="ures-csik"></div>
+                    <div class="ures-csik"></div>
+                    <div class="ures-csik"></div>
+                    <div class="ures-csik"></div>
+                    <div class="ures-csik"></div>
+                    <div class="ures-csik"></div>
+                    <div class="ures-csik"></div>
+                    <div class="ures-csik"></div>
+                </div>
+                <div class="ures-pocok ures-pocok-1"></div>
+                <div class="ures-pocok ures-pocok-2"></div>
+                <div class="ures-pocok ures-pocok-3"></div>
+                <div class="ures-pocok ures-pocok-4"></div>
             </div>
         </div>
     </main>
