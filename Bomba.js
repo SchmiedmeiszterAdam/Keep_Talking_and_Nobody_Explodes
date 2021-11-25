@@ -14,8 +14,9 @@ class Bomba {
         this.gyerek = $("#eloresz")
         this.modulokKesz = 0
         this.moduleSzam = 0
-        this.batteries
+        this.batteries = 0
         this.portok
+        this.indicators = []
         this.lefSide = this.elem.find("#bal-oldal")
         this.rightSide = this.elem.find("#jobb-oldal")
         this.topSide = this.elem.find("#teteje-oldal")
@@ -66,12 +67,28 @@ class Bomba {
     }
     appendix() {
         let indicatorNumber = Math.floor(Math.random() * 3)
+        let serial = ""
+        const abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for (let i = 0; i < indicatorNumber; i++) {
             let givenIndicator = Math.floor(Math.random() * indicators.length)
             const indicator = $("#templates .indicator").clone().appendTo(this.rightSide)
             let lit = Math.floor(Math.random() * 2)
             const i = new Indicator(indicator, indicators[givenIndicator], lit)
+            this.indicators.push(i)
         }
+
+        for (let i = 0; i < 6; i++) {
+            if(i === 2 || i === 5){
+                let number = Math.floor(Math.random() * 10)
+                serial += number.toString()
+            }
+            else{
+                serial += abc[Math.floor(Math.random() * abc.length)]
+            }
+        }
+        this.szeriszam = serial
+
+
         let portNumber = Math.floor(Math.random() * 3)
         // for (let i = 0; i < portNumber.length; i++) {
         //     this.lefRight
