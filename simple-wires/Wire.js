@@ -9,7 +9,7 @@ class Wire extends Modul {
     constructor(elem, id,szulo) {
         super(elem, id,szulo)
         this.wires = []
-        this.bombaSerialNumber = this.bomba.getSerialNumber()
+        this.bombaSerialNumber = this.bomba.szeriszam
         let db = Math.floor(Math.random() * 4) + 3
         let szuloELem = $(this.elem.find('.wires'))
         for (let i = 1; i <= db; i++) {

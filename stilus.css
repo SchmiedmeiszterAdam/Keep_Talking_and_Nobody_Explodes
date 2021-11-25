@@ -156,6 +156,9 @@ nav:hover{
     background-color: rgb(138, 144, 156);
     border-radius: 30px;
     left: calc(50% - 10%);
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 #teteje,#alja{
     position: absolute;

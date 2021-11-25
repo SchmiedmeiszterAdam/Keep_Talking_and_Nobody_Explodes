@@ -1,19 +1,31 @@
 let timeModulePosition = Math.floor(Math.random() * 4)
+const ports = [{ "template": "#templates .dvi-d", "name": "DVI-D" },
+{ "template": "#templates .parallel", "name": "Parallel" },
+{ "template": "#templates .ps-2", "name": "PS/2" },
+{ "template": "#templates .serial", "name": "Serial" },
+{ "template": "#templates .stereo-rca", "name": "Stereo RCA" },]
+const indicators = ["SND", "CLR", "CAR", "IND", "FRQ", "SIG", "NSA", "MSA", "TRN", "BOB", "FRK"]
 class Bomba {
     constructor(elem) {
         this.elem = elem
         this.modules = []
-        this.szeriszam = "sf345t2"
+        this.szeriszam
         this.strikes = 0
         this.gyerek = $("#eloresz")
         this.modulokKesz = 0
         this.moduleSzam = 0
-        this.batteries = 2
+        this.batteries
+        this.portok
+        this.lefSide = this.elem.find("#bal-oldal")
+        this.rightSide = this.elem.find("#jobb-oldal")
+        this.topSide = this.elem.find("#teteje-oldal")
+        this.bottomSide = this.elem.find("#alja-oldal")
+        this.appendix()
     }
     modulesCheck() {
         let db = 0
         for (let i = 0; i < this.modules.length; i++) {
-            if(this.modules[i].getTeljesitve()){
+            if (this.modules[i].getTeljesitve()) {
                 db++
             }
         }
@@ -52,7 +64,18 @@ class Bomba {
             console.log("BUMM")
         }
     }
-    getSerialNumber() {
-        return this.szeriszam
+    appendix() {
+        let indicatorNumber = Math.floor(Math.random() * 3)
+        for (let i = 0; i < indicatorNumber; i++) {
+            let givenIndicator = Math.floor(Math.random() * indicators.length)
+            const indicator = $("#templates .indicator").clone().appendTo(this.rightSide)
+            let lit = Math.floor(Math.random() * 2)
+            const i = new Indicator(indicator, indicators[givenIndicator], lit)
+        }
+        let portNumber = Math.floor(Math.random() * 3)
+        // for (let i = 0; i < portNumber.length; i++) {
+        //     this.lefRight
+        // }
+        let batteriesNumber = Math.floor(Math.random() * 4)
     }
 }

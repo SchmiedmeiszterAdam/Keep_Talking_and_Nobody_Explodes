@@ -9,7 +9,6 @@ $(function () {
 
     function rotateUp() {
         upDownCounter++
-        console.log(upDownCounter)
         if (upDownCounter === 2) {
             $("#bomb-rotation-up").css("display", "none")
             $("#teteje").css("display", "block")
@@ -40,7 +39,6 @@ $(function () {
     }
     function rotateDown() {
         upDownCounter--
-        console.log(upDownCounter)
         if (upDownCounter === 0) {
             $("#bomb-rotation-down").css("display", "none")
             $("#alja").css("display", "block")
@@ -85,7 +83,6 @@ $(function () {
         sideRotate()
     }
     function sideRotate() {
-        console.log(sidetCounter)
         if (sidetCounter === 0) {
             $("#jobb-oldal").css("display", "none")
             $("#bal-oldal").css("display", "none")
@@ -94,7 +91,7 @@ $(function () {
         else if (sidetCounter === 1) {
             $("#eloresz").css("display", "none")
             $("#hatresz").css("display", "none")
-            $("#bal-oldal").css("display", "block")
+            $("#bal-oldal").css("display", "grid")
         }
         else if (sidetCounter === 2) {
             $("#jobb-oldal").css("display", "none")
@@ -104,7 +101,7 @@ $(function () {
         else {
             $("#eloresz").css("display", "none")
             $("#hatresz").css("display", "none")
-            $("#jobb-oldal").css("display", "block")
+            $("#jobb-oldal").css("display", "grid")
         }
     }
 })
