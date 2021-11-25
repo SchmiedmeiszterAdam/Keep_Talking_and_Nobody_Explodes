@@ -47,7 +47,7 @@ $(function () {
             $("#eloresz").css("display", "none")
             $("#hatresz").css("display", "none")
         }
-        else {flex
+        else {
             $("#teteje").css("display", "none")
             if (sidetCounter === 0) {
                 $("#eloresz").css("display", "grid")
