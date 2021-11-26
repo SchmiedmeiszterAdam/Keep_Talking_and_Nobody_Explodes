@@ -96,5 +96,18 @@ class Bomba {
         //     this.lefRight
         // }
         let batteriesNumber = Math.floor(Math.random() * 4)
+        for (let i = 0; i < batteriesNumber; i++) {
+            this.batteries++
+        }
+    }
+    litIndicator(name){
+        for (let i = 0; i < this.indicators.length; i++) {
+            if(this.indicators[i].getName() === name && this.indicators[i].getLit() === 0){
+                return true
+            }
+            else{
+                return false
+            }
+        }
     }
 }

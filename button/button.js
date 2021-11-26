@@ -36,10 +36,10 @@ class Button extends Modul {
         else if (this.bomba.batteries > 1 && this.buttonText === "DETONATE") {
             this.solution = "relase"
         }
-        else if (this.indicatorColor === "white" && this.bomba.car === "lit") {
+        else if (this.indicatorColor === "white" &&  this.bomba.litIndicator("CAR")) {
             this.solution = "hold"
         }
-        else if (this.bomba.batteries > 2 && this.bomba.frk === "lit") {
+        else if (this.bomba.batteries > 2 && this.bomba.litIndicator("FRK")) {
             this.solution = "relase"
         }
         else if (this.color === "yellow") {
