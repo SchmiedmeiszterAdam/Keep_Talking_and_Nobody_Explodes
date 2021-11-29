@@ -1,5 +1,14 @@
 let timeModulePosition = Math.floor(Math.random() * 4)
-const ports = [{ "template": "#templates .dvi-d", "name": "DVI-D" },
+const appendSlots = [
+"#jobb-oldal-bal-felso-appendix",
+"#jobb-oldal-bal-also-appendix",
+"#jobb-oldal-jobb-felso-appendix",
+"#jobb-oldal-jobb-also-appendix",
+"#bal-oldal-bal-felso-appendix",
+"#bal-oldal-bal-also-appendix",
+"#bal-oldal-jobb-felso-appendix",
+"#bal-oldal-jobb-also-appendix"]
+const ports = [{ "template": "#templates .dvi-d","name": "DVI-D" },
 { "template": "#templates .parallel", "name": "Parallel" },
 { "template": "#templates .ps-2", "name": "PS/2" },
 { "template": "#templates .serial", "name": "Serial" },
@@ -8,19 +17,18 @@ const indicators = ["SND", "CLR", "CAR", "IND", "FRQ", "SIG", "NSA", "MSA", "TRN
 class Bomba {
     constructor(elem) {
         this.elem = elem
+        this.elem.find("#eloresz").empty()
+        this.elem.find("#hatresz").empty()
+        this.elem.find(".appendix").empty()
         this.modules = []
-        this.szeriszam
+        this.szeriszam = ""
         this.strikes = 0
         this.gyerek = $("#eloresz")
         this.modulokKesz = 0
         this.moduleSzam = 0
         this.batteries = 0
-        this.portok
+        this.portok = []
         this.indicators = []
-        this.lefSide = this.elem.find("#bal-oldal")
-        this.rightSide = this.elem.find("#jobb-oldal")
-        this.topSide = this.elem.find("#teteje")
-        this.bottomSide = this.elem.find("#alja")
         this.appendix()
         this.elem.find(".serial-number").html(this.szeriszam)
     }
@@ -67,34 +75,41 @@ class Bomba {
         }
     }
     appendix() {
+        const serial = $("#templates .serial-modul").clone().appendTo(this.elem.find(this.givePlaceToApped()))
+        let s = new SerialNumber(serial,this)
         let indicatorNumber = Math.floor(Math.random() * 3)
-        let serial = ""
-        const abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        
         for (let i = 0; i < indicatorNumber; i++) {
             let givenIndicator = Math.floor(Math.random() * indicators.length)
-            const indicator = $("#templates .indicator").clone().appendTo(this.rightSide)
+            const indicator = $("#templates .indicator").clone().appendTo(this.elem.find(this.givePlaceToApped()))
             let lit = Math.floor(Math.random() * 2)
             const i = new Indicator(indicator, indicators[givenIndicator], lit)
             this.indicators.push(i)
         }
-
-        for (let i = 0; i < 6; i++) {
-            if(i === 2 || i === 5){
-                let number = Math.floor(Math.random() * 10)
-                serial += number.toString()
-            }
-            else{
-                serial += abc[Math.floor(Math.random() * abc.length)]
-            }
-        }
-        $("#templates .serial-modul").clone().appendTo(this.topSide)
-        this.szeriszam = serial
-
-
         let portNumber = Math.floor(Math.random() * 3)
         // for (let i = 0; i < portNumber.length; i++) {
-        //     this.lefRight
+        //     
         // }
         let batteriesNumber = Math.floor(Math.random() * 4)
+        for (let i = 0; i < batteriesNumber; i++) {
+            this.batteries++
+        }
+    }
+    givePlaceToApped(){
+        let place = appendSlots[Math.floor(Math.random()*appendSlots.length)]
+        while(!$(place).children().length == 0){
+            place = appendSlots[Math.floor(Math.random()*appendSlots.length)]
+        }
+        return place
+    }
+    litIndicator(name) {
+        for (let i = 0; i < this.indicators.length; i++) {
+            if (this.indicators[i].getName() === name && this.indicators[i].getLit() === 0) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
     }
 }

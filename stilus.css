@@ -63,111 +63,156 @@ main {
     background-color: rgb(97, 65, 65);
     border-radius: 50%;
 }
-.ures{
+
+.ures {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
 }
-.ures-pocok{
+
+.ures-pocok {
     position: absolute;
-    background-color: rgb(143,70,38);
+    background-color: rgb(143, 70, 38);
     box-shadow: 0 0 2px 1px black;
     width: 20px;
     height: 20px;
     border-radius: 50%;
 }
-.ures-tarolo{
+
+.ures-tarolo {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(148,73,39);
+    background-color: rgb(148, 73, 39);
 }
-.ures-csik{
+
+.ures-csik {
     width: calc(100% / 17);
     height: 100%;
-    background-color: rgb(194,101,55);
+    background-color: rgb(194, 101, 55);
 }
-.ures-pocok-1{
+
+.ures-pocok-1 {
     top: -5px;
     left: -5px;
 }
-.ures-pocok-2{
+
+.ures-pocok-2 {
     bottom: -5px;
     left: -5px;
 }
-.ures-pocok-3{
+
+.ures-pocok-3 {
     bottom: -5px;
     right: -5px;
 }
-.ures-pocok-4{
+
+.ures-pocok-4 {
     top: -5px;
     right: -5px;
 }
 
-nav{
+nav {
     position: fixed;
-    background-color: rgba(138,144,156,0.1);
+    background-color: rgba(138, 144, 156, 0.1);
     display: grid;
     place-items: center;
     z-index: 20;
 }
-nav ul li{
+
+nav ul li {
     list-style-type: none;
     color: white;
     font-size: 25px;
 }
-#bomb-rotation-up{
-    
+
+#bomb-rotation-up {
+
     width: 90%;
     height: 30px;
     top: 0px;
     left: 5%
 }
-#bomb-rotation-down{
+
+#bomb-rotation-down {
     width: 90%;
     height: 30px;
     bottom: 0px;
     left: 5%
 }
-#bomb-rotation-left{
+
+#bomb-rotation-left {
     width: 30px;
     height: 90%;
     top: 5%;
     left: 0px;
 }
-#bomb-rotation-right{
+
+#bomb-rotation-right {
     width: 30px;
     height: 90%;
     top: 5%;
     right: 0;
 }
-nav:hover{
-    background-color: rgba(138,144,156,0.4);
+
+nav:hover {
+    background-color: rgba(138, 144, 156, 0.4);
     cursor: pointer;
 }
 
-#bal-oldal,#jobb-oldal{
+.oldal {
     position: absolute;
     display: none;
     height: 100%;
-    width: 20%;
+    width: 30%;
     background-color: rgb(138, 144, 156);
     border-radius: 30px;
-    left: calc(50% - 10%);
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+    left: calc(50% - 15%);
+    grid-template-columns: 1fr 1fr;
 }
-#teteje,#alja{
+
+.oldal-fel-oldal {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.fel-oldal-also {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.fel-oldal-felso {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.oldal-appendix {
+    width: 100%;
+    height: 80%;
+    display: grid;
+    place-items: center;
+}
+.oldal-appendix>*{
+    transform-origin: center;
+    transform: rotate(90deg);
+}
+
+#teteje, #alja {
     position: absolute;
     display: none;
     align-items: center;
     justify-content: center;
-    height: 20%;
+    height: 30%;
     width: 100%;
     background-color: rgb(138, 144, 156);
     border-radius: 30px;
-    top: 40%;
+    top: 35%;
 }

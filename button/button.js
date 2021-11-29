@@ -19,7 +19,7 @@ class Button extends Modul {
 
         this.button.on("mousedown", () => {
             this.button.addClass("button-pushed-down")
-            this.timeoutId = setTimeout(() => { this.pushedDown() }, 1000);
+            this.timeoutId = setTimeout(() => { this.pushedDown() }, 1500);
         }).on("mouseup", () => {
             this.button.removeClass("button-pushed-down")
             this.button.addClass("button-release")
@@ -36,10 +36,10 @@ class Button extends Modul {
         else if (this.bomba.batteries > 1 && this.buttonText === "DETONATE") {
             this.solution = "relase"
         }
-        else if (this.indicatorColor === "white" && this.bomba.car === "lit") {
+        else if (this.indicatorColor === "white" &&  this.bomba.litIndicator("CAR")) {
             this.solution = "hold"
         }
-        else if (this.bomba.batteries > 2 && this.bomba.frk === "lit") {
+        else if (this.bomba.batteries > 2 && this.bomba.litIndicator("FRK")) {
             this.solution = "relase"
         }
         else if (this.color === "yellow") {
@@ -53,14 +53,10 @@ class Button extends Modul {
         }
     }
     pushedDown() {
-        
-        this.timeoutId = setTimeout(() => {
             this.buttonIsDown = true
-            this.indicator.css("background-color", "blue")
-        }, 1000)
+            this.indicator.css("background-color", this.indicatorColor)
     }
     released() {
-        
         this.indicator.css("background-color", "black")
         clearTimeout(this.timeoutId);
         if (this.ellenorzes()) {
@@ -95,7 +91,7 @@ class Button extends Modul {
                 }
             }
         }
-        else if(this.solution === "relase"){
+        else if(this.solution === "relase" && this.buttonIsDown === false){
             ok = true
         }
         return ok

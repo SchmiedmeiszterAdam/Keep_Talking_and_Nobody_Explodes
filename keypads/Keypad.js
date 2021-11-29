@@ -1,15 +1,16 @@
-const szimbolumcolumn = [{ "ertek": ["28-balloon", "13-at", "30-upsidedowny", "12-squigglyn", "7-squidknife", "9-hookn", "23-leftc"] },
-{ "ertek": ["16-euro", "28-balloon", "23-leftc", "26-cursive", "3-hollowstar", "9-hookn", "20-questionmark"] },
-{ "ertek": ["1-copyright", "8-pumpkin", "26-cursive", "5-doublek", "15-meltedthree", "30-upsidedowny", "3-hollowstar"] },
-{ "ertek": ["11-six", "21-paragraph", "31-bt", "7-squidknife", "5-doublek", "20-questionmark", "4-smileyface"] },
-{ "ertek": ["24-pitchfork", "4-smileyface", "31-bt", "22-rightc", "21-paragraph", "19-dragon", "2-filledstar"] },
-{ "ertek": ["11-six", "16-euro", "27-tracks", "14-ae", "24-pitchfork", "18-nwithhat", "6-omega"] }]
+const szimbolumcolumn = [
+["28-balloon", "13-at", "30-upsidedowny", "12-squigglyn", "7-squidknife", "9-hookn", "23-leftc"],
+["16-euro", "28-balloon", "23-leftc", "26-cursive", "3-hollowstar", "9-hookn", "20-questionmark"],
+["1-copyright", "8-pumpkin", "26-cursive", "5-doublek", "15-meltedthree", "30-upsidedowny", "3-hollowstar"],
+["11-six", "21-paragraph", "31-bt", "7-squidknife", "5-doublek", "20-questionmark", "4-smileyface"],
+["24-pitchfork", "4-smileyface", "31-bt", "22-rightc", "21-paragraph", "19-dragon", "2-filledstar"],
+["11-six", "16-euro", "27-tracks", "14-ae", "24-pitchfork", "18-nwithhat", "6-omega"]]
 
 class Keypad extends Modul {
     constructor(elem, id, szulo) {
         super(elem, id, szulo)
         this.szuloElem = this.elem.find(".keypads-tarolo")
-        this.adottSzimbolumOszlop = szimbolumcolumn[Math.floor(Math.random() * szimbolumcolumn.length)].ertek
+        this.adottSzimbolumOszlop = szimbolumcolumn[Math.floor(Math.random() * szimbolumcolumn.length)]
         this.gombok = []
         this.kattintasSzamol = 0
 
