@@ -1,14 +1,14 @@
 let timeModulePosition = Math.floor(Math.random() * 4)
 const appendSlots = [
-"#jobb-oldal-bal-felso-appendix",
-"#jobb-oldal-bal-also-appendix",
-"#jobb-oldal-jobb-felso-appendix",
-"#jobb-oldal-jobb-also-appendix",
-"#bal-oldal-bal-felso-appendix",
-"#bal-oldal-bal-also-appendix",
-"#bal-oldal-jobb-felso-appendix",
-"#bal-oldal-jobb-also-appendix"]
-const ports = [{ "template": "#templates .dvi-d","name": "DVI-D" },
+    "#jobb-oldal-bal-felso-appendix",
+    "#jobb-oldal-bal-also-appendix",
+    "#jobb-oldal-jobb-felso-appendix",
+    "#jobb-oldal-jobb-also-appendix",
+    "#bal-oldal-bal-felso-appendix",
+    "#bal-oldal-bal-also-appendix",
+    "#bal-oldal-jobb-felso-appendix",
+    "#bal-oldal-jobb-also-appendix"]
+const ports = [{ "template": "#templates .dvi-d", "name": "DVI-D" },
 { "template": "#templates .parallel", "name": "Parallel" },
 { "template": "#templates .ps-2", "name": "PS/2" },
 { "template": "#templates .serial", "name": "Serial" },
@@ -76,9 +76,9 @@ class Bomba {
     }
     appendix() {
         const serial = $("#templates .serial-modul").clone().appendTo(this.elem.find(this.givePlaceToApped()))
-        let s = new SerialNumber(serial,this)
+        let s = new SerialNumber(serial, this)
         let indicatorNumber = Math.floor(Math.random() * 3)
-        
+
         for (let i = 0; i < indicatorNumber; i++) {
             let givenIndicator = Math.floor(Math.random() * indicators.length)
             const indicator = $("#templates .indicator").clone().appendTo(this.elem.find(this.givePlaceToApped()))
@@ -95,13 +95,14 @@ class Bomba {
             this.batteries++
         }
     }
-    givePlaceToApped(){
-        let place = appendSlots[Math.floor(Math.random()*appendSlots.length)]
-        while(!$(place).children().length == 0){
-            place = appendSlots[Math.floor(Math.random()*appendSlots.length)]
+    givePlaceToApped() {
+        let place = appendSlots[Math.floor(Math.random() * appendSlots.length)]
+        while (!$(place).children().length == 0) {
+            place = appendSlots[Math.floor(Math.random() * appendSlots.length)]
         }
         return place
     }
+
     litIndicator(name) {
         for (let i = 0; i < this.indicators.length; i++) {
             if (this.indicators[i].getName() === name && this.indicators[i].getLit() === 0) {
