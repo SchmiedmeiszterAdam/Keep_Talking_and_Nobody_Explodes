@@ -7,15 +7,10 @@ class SimonSays extends Modul {
         this.szerepeltSzinek = []
         this.szuloElem = this.elem.find(".simon-says-gombok")
         this.interval
+        this.interval2
         this.szinSzamlalo = 0
-
         this.gombokLetrehozasa()
         this.ujGombKivalasztas()
-
-        this.elem.on("click", () => {
-            clearInterval(this.interval)
-            this.ujGombKivalasztas()
-        })
     }
 
     ujGombKivalasztas() {
@@ -23,12 +18,15 @@ class SimonSays extends Modul {
         let adottGomb = Math.floor(Math.random() * this.gombok.length)
         this.szerepeltSzinek.push(this.gombok[adottGomb])
         this.mutat()
+        this.interval2 = setInterval(() => {
+            this.mutat()
+        }, 6000)
     }
     mutat() {
-        this.interval = setInterval(()=>{this.gombVillogtatas()}, 800)
+        this.szinSzamlalo = 0
+        this.interval = setInterval(() => { this.gombVillogtatas() }, 800)
     }
     gombVillogtatas() {
-        console.log("HELLO")
         this.szerepeltSzinek[this.szinSzamlalo].gombVilagit()
         setTimeout(() => {
             this.szerepeltSzinek[this.szinSzamlalo].gombVisszaAllitas()
@@ -36,10 +34,11 @@ class SimonSays extends Modul {
                 clearInterval(this.interval)
                 this.szinSzamlalo = 0
             }
-            else{
+            else {
                 this.szinSzamlalo++
             }
         }, 400)
+
     }
     gombokLetrehozasa() {
         const gombSzinek = ["red", "blue", "green", "yellow"]
@@ -59,6 +58,11 @@ class SimonSaysGombok {
         this.szulo = szulo
         this.szin = szin
         this.vilagosSzin = vilagosSzin
+        this.elem.on("click", () => {
+            clearInterval(this.szulo.interval)
+            clearInterval(this.szulo.interval2)
+            this.szulo.ujGombKivalasztas()
+        })
     }
     gombVilagit() {
         this.elem.css("background-color", this.vilagosSzin)
