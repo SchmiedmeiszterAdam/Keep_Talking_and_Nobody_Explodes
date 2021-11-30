@@ -23,7 +23,7 @@ class SimonSays extends Modul {
         this.mutat()
         this.interval2 = setInterval(() => {
             this.mutat()
-            ellenorzesSzamlolo = 0
+            this.ellenorzesSzamlolo = 0
         }, 6000)
     }
     mutat() {
@@ -64,7 +64,6 @@ class SimonSays extends Modul {
         else{
             this.serialNumberContainVowel = false
         }
-        console.log(this.serialNumberContainVowel)
      }
     gombokLetrehozasa() {
         const gombSzinek = ["red", "blue", "green", "yellow"]
