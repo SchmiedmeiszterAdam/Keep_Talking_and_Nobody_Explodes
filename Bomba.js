@@ -113,4 +113,7 @@ class Bomba {
             }
         }
     }
+    getStrikes(){
+        return this.strikes
+    }
 }

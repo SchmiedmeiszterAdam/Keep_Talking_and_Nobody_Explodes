@@ -2,7 +2,7 @@ class SimonSays extends Modul {
     constructor(elem, id, szulo) {
         super(elem, id, szulo)
         this.round = Math.floor(Math.random() * 3) + 3
-        this.roundSzamlalo = 1
+        this.roundSzamlalo = 0
         this.gombok = []
         this.szerepeltSzinek = []
         this.szuloElem = this.elem.find(".simon-says-gombok")
@@ -10,7 +10,8 @@ class SimonSays extends Modul {
         this.interval2
         this.szinSzamlalo = 0
         this.serialNumberContainVowel
-        this.ellenorzesSzamlolo
+        this.ellenorzesSzamlolo = 0
+        this.joSzamlalo = 0
         this.countVowel()
         this.gombokLetrehozasa()
         this.ujGombKivalasztas()
@@ -44,27 +45,164 @@ class SimonSays extends Modul {
         }, 400)
 
     }
-    ellenorzes(){
-        if(this.serialNumberContainVowel){
-
+    ellenorzes(pushedButton) {
+        clearInterval(this.interval)
+        clearInterval(this.interval2)
+        this.interval2 = setInterval(() => {
+            this.mutat()
+        }, 6000)
+        let szin = pushedButton.getSzin()
+        console.log(szin, this.ellenorzesSzamlolo)
+        if (this.serialNumberContainVowel) {
+            if (this.bomba.getStrikes() === 0) {
+                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "blue") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "red") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "yellow") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "green") {
+                    this.joSzamlalo++
+                }
+                else {
+                    this.sendFault()
+                    this.ellenorzesSzamlolo = 0
+                    this.joSzamlalo = 0
+                }
+            }
+            else if (this.bomba.getStrikes() === 1) {
+                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "yellow") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "green") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "blue") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "red") {
+                    this.joSzamlalo++
+                }
+                else {
+                    this.sendFault()
+                    this.ellenorzesSzamlolo = 0
+                    this.joSzamlalo = 0
+                }
+            }
+            else {
+                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "green") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "red") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "yellow") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "blue") {
+                    this.joSzamlalo++
+                }
+                else {
+                    this.sendFault()
+                    this.ellenorzesSzamlolo = 0
+                    this.joSzamlalo = 0
+                }
+            }
         }
-        this.ellenorzesSzamlolo++
+        else {
+            if (this.bomba.getStrikes() === 0) {
+                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "blue") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "yellow") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "green") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "red") {
+                    this.joSzamlalo++
+                }
+                else {
+                    this.sendFault()
+                    this.ellenorzesSzamlolo = 0
+                    this.joSzamlalo = 0
+                }
+            }
+            else if (this.bomba.getStrikes() === 1) {
+                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "red") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "blue") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "yellow") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "green") {
+                    this.joSzamlalo++
+                }
+                else {
+                    this.sendFault()
+                    this.ellenorzesSzamlolo = 0
+                    this.joSzamlalo = 0
+                }
+            }
+            else {
+                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "yellow") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "green") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "blue") {
+                    this.joSzamlalo++
+                }
+                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "red") {
+                    this.joSzamlalo++
+                }
+                else {
+                    this.sendFault()
+                    this.ellenorzesSzamlolo = 0
+                    this.joSzamlalo = 0
+                }
+            }
+        }
+        if (this.joSzamlalo != 0) {
+            this.ellenorzesSzamlolo++
+        }
+        if (this.joSzamlalo === this.szerepeltSzinek.length) {
+            clearInterval(this.interval)
+            clearInterval(this.interval2)
+            this.ujGombKivalasztas()
+            this.ellenorzesSzamlolo = 0
+            this.joSzamlalo = 0
+            this.roundSzamlalo++
+        }
+        if (this.roundSzamlalo === this.round) {
+            this.setTeljesitve()
+            clearInterval(this.interval)
+            clearInterval(this.interval2)
+        }
     }
     countVowel() {
         const vowels = ['A', 'E', 'I', 'O', 'U'];
         let counts = 0;
         for (let i = 0; i < vowels.length; i++) {
-           if (vowels.includes(this.bomba.szeriszam[i])) {
-              counts++;
-           }
+            if (vowels.includes(this.bomba.szeriszam[i])) {
+                counts++;
+            }
         }
-        if(counts > 0){
+        if (counts > 0) {
             this.serialNumberContainVowel = true
         }
-        else{
+        else {
             this.serialNumberContainVowel = false
         }
-     }
+    }
     gombokLetrehozasa() {
         const gombSzinek = ["red", "blue", "green", "yellow"]
         const villagosSzinek = ["pink", "lightblue", "limegreen", "rgb(255, 255, 97)"]
@@ -84,9 +222,7 @@ class SimonSaysGombok {
         this.szin = szin
         this.vilagosSzin = vilagosSzin
         this.elem.on("click", () => {
-            clearInterval(this.szulo.interval)
-            clearInterval(this.szulo.interval2)
-            this.szulo.ujGombKivalasztas()
+            this.szulo.ellenorzes(this)
         })
     }
     gombVilagit() {
