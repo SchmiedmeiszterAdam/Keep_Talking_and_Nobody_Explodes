@@ -52,123 +52,27 @@ class SimonSays extends Modul {
             this.mutat()
         }, 6000)
         let szin = pushedButton.getSzin()
-        console.log(szin, this.ellenorzesSzamlolo)
         if (this.serialNumberContainVowel) {
             if (this.bomba.getStrikes() === 0) {
-                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "blue") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "red") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "yellow") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "green") {
-                    this.joSzamlalo++
-                }
-                else {
-                    this.sendFault()
-                    this.ellenorzesSzamlolo = 0
-                    this.joSzamlalo = 0
-                }
+                this.ellenorzesSeged(szin, "blue", "red", "yellow", "green")
             }
             else if (this.bomba.getStrikes() === 1) {
-                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "yellow") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "green") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "blue") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "red") {
-                    this.joSzamlalo++
-                }
-                else {
-                    this.sendFault()
-                    this.ellenorzesSzamlolo = 0
-                    this.joSzamlalo = 0
-                }
+                this.ellenorzesSeged(szin, "yellow", "green", "blue", "red")
             }
             else {
-                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "green") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "red") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "yellow") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "blue") {
-                    this.joSzamlalo++
-                }
-                else {
-                    this.sendFault()
-                    this.ellenorzesSzamlolo = 0
-                    this.joSzamlalo = 0
-                }
+                this.ellenorzesSeged(szin, "green", "red", "yellow", "blue")
             }
         }
         else {
             if (this.bomba.getStrikes() === 0) {
-                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "blue") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "yellow") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "green") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "red") {
-                    this.joSzamlalo++
-                }
-                else {
-                    this.sendFault()
-                    this.ellenorzesSzamlolo = 0
-                    this.joSzamlalo = 0
-                }
+                this.joSzamlalo = 0
+                this.ellenorzesSeged(szin, "blue", "yellow", "green", "red")
             }
             else if (this.bomba.getStrikes() === 1) {
-                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "red") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "blue") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "yellow") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "green") {
-                    this.joSzamlalo++
-                }
-                else {
-                    this.sendFault()
-                    this.ellenorzesSzamlolo = 0
-                    this.joSzamlalo = 0
-                }
+                this.ellenorzesSeged(szin, "red", "blue", "yellow", "green")
             }
             else {
-                if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === "yellow") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === "green") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === "blue") {
-                    this.joSzamlalo++
-                }
-                else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === "red") {
-                    this.joSzamlalo++
-                }
-                else {
-                    this.sendFault()
-                    this.ellenorzesSzamlolo = 0
-                    this.joSzamlalo = 0
-                }
+                this.ellenorzesSeged(szin, "yellow", "green", "blue", "red")
             }
         }
         if (this.joSzamlalo != 0) {
@@ -188,6 +92,25 @@ class SimonSays extends Modul {
             clearInterval(this.interval2)
         }
     }
+    ellenorzesSeged(szin, szin1, szin2, szin3, szin4) {
+        if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === szin1) {
+            this.joSzamlalo++
+        }
+        else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === szin2) {
+            this.joSzamlalo++
+        }
+        else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === szin3) {
+            this.joSzamlalo++
+        }
+        else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === szin4) {
+            this.joSzamlalo++
+        }
+        else {
+            this.sendFault()
+            this.ellenorzesSzamlolo = 0
+            this.joSzamlalo = 0
+        }
+    }
     countVowel() {
         const vowels = ['A', 'E', 'I', 'O', 'U'];
         let counts = 0;
@@ -204,22 +127,25 @@ class SimonSays extends Modul {
         }
     }
     gombokLetrehozasa() {
-        const gombSzinek = ["red", "blue", "green", "yellow"]
-        const villagosSzinek = ["pink", "lightblue", "limegreen", "rgb(255, 255, 97)"]
+        const gombSzinNevek = ["red", "blue", "green", "yellow"]
+        const gombSzinek = ["rgb(150,1,21)","rgb(0,1,148)","rgb(44,176,12)","rgb(215,175,0)"]
+        const villagosSzinek = ["rgb(218,67,36)", "rgb(20,100,208)", "rgb(46, 254, 52)", "rgb(247, 244, 62)"]
         for (let index = 0; index < 4; index++) {
-            const gombElem = $("<div class='" + gombSzinek[index] + "-gomb simon-says-gomb'></div>")
+            const gombElem = $("<div class='" + gombSzinNevek[index] + "-gomb simon-says-gomb'></div>")
             const ujelem = $(gombElem).appendTo(this.szuloElem)
-            const gomb = new SimonSaysGombok(ujelem, index, this, gombSzinek[index], villagosSzinek[index])
+            const gomb = new SimonSaysGombok(ujelem, index, this, gombSzinNevek[index], villagosSzinek[index],gombSzinek[index])
             this.gombok.push(gomb)
         }
     }
 }
 class SimonSaysGombok {
-    constructor(elem, id, szulo, szin, vilagosSzin) {
+    constructor(elem, id, szulo, szinNev, vilagosSzin,szin) {
         this.elem = elem
         this.id = id
         this.szulo = szulo
+        this.szinNev = szinNev
         this.szin = szin
+        this.gombVisszaAllitas()
         this.vilagosSzin = vilagosSzin
         this.elem.on("click", () => {
             this.szulo.ellenorzes(this)
@@ -232,10 +158,6 @@ class SimonSaysGombok {
         this.elem.css("background-color", this.szin)
     }
     getSzin() {
-        return this.szin
+        return this.szinNev
     }
 }
-//<div class="piros-gomb simon-says-gomb"></div>
-/* <div class="kek-gomb simon-says-gomb"></div>
-<div class="zold-gomb simon-says-gomb"></div>
-<div class="sarga-gomb simon-says-gomb"></div> */
