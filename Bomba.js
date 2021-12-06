@@ -71,6 +71,7 @@ class Bomba {
             this.strike2.css("color", "red")
         }
         else if (this.strikes === 3) {
+            this.idoModul.stop()
             console.log("BUMM")
         }
     }

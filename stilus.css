@@ -63,7 +63,17 @@ main {
     background-color: rgb(97, 65, 65);
     border-radius: 50%;
 }
-
+.kesz-vilagos{
+    position: absolute;
+    content: '';
+    width: 30%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: lightgreen;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    filter: blur(3px);
+}
 .ures {
     display: flex;
     align-items: center;

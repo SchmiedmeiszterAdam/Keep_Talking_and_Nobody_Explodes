@@ -37,7 +37,8 @@ class Modul {
     setTeljesitve() {
         this.bomba.modulesCheck()
         this.teljesitve = true
-        this.led.css("background-color","green")
+        this.led.css("background-color","rgb(25,239,81)")
+        this.led.append("<div class = 'kesz-vilagos'></div>")
     }
     getTeljesitve() {
         return this.teljesitve

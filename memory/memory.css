@@ -1,52 +1,138 @@
 @charset "utf-8";
-.memory{ 
+
+.memory {
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
 }
-.memory-bal{
+
+.memory-bal {
     width: 80%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-.memory-jobb{
+
+.memory-jobb {
     width: 15%;
     height: 75%;
     margin-bottom: 10px;
-    display:flex;
+    display: flex;
     align-items: flex-end;
 }
-.memory-statusz-jelzo-tarolo{
-    height:100%;
-    width:100%;
-    background-color: rgb(33,31,36);
-    display:flex;
+
+.memory-statusz-jelzo-tarolo {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(33, 31, 36);
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
-.memory-kijelzo-tarolo{
-    width:100%;
-    height:60%;
-    background-color: black;
 
+.szegecsek {
+    position: absolute;
+    width: 18px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: rgb(125, 120, 106);
 }
-.memory-statusz-jelzo{
-    width:60%;
+
+.szegecs-1 {
+    top: 10px;
+    left: 10px;
+}
+
+.szegecs-2 {
+    bottom: 10px;
+    left: 10px;
+}
+
+.szegecs-3 {
+    bottom: 10px;
+    right: 10px;
+}
+
+.szegecs-4 {
+    top: 10px;
+    right: 10px;
+}
+.memory-kijelzo-tarolo, .memory-kijelzo-tarolo *{
+    display: grid;
+    place-items: center;
+}
+.memory-kijelzo-tarolo {
+    width: 100%;
+    height: 60%;
+    background-color: rgb(91, 88, 88);
+    position: relative;
+}
+
+.memory-kijelzo-kulso {
+    width: 75%;
+    height: 90%;
+    background-color: rgb(114, 119, 120);
+    border-radius: 5px;
+}
+
+.memory-kijelzo-kozepso {
+    width: 80%;
+    height: 70%;
+    background-color: rgb(31, 40, 39);
+}
+
+.memory-kijelzo-belso {
+    width: 80%;
+    height: 90%;
+    background: linear-gradient(to bottom, transparent 96%, white 99%),
+        linear-gradient(to right, rgb(46,83,66) 96%, white 99%);
+    background-size: 20px 17.59px;
+    position: relative;
+}
+.memory-kijelzo-belso::after,.memory-kijelzo-belso::before{
+    content: '';
+    position: absolute;
+}
+.memory-kijelzo-belso::after{
+    width: 8px;
+    height: 100%;
+    background: rgb(151,99,155);
+    left: 50;
+    top: 0;
+}
+.memory-kijelzo-belso::before{
+    width: 100%;
+    height: 8px;
+    background: rgb(57,131,136);
+    left: 0;
+    top: 50;
+}
+
+.memory-statusz-jelzo {
+    width: 60%;
     height: 10%;
-    background-color: rgb(29,19,27);
+    background-color: rgb(29, 19, 27);
 }
-.memory-gombok{
-    width:100%;
-    height:40%;
+
+.memory-gombok {
+    width: 100%;
+    height: 35%;
     background-color: seagreen;
-    display:flex;
+    display: flex;
 
 }
-.memory-gomb{
-    width:100%;
-    height:100%;
+
+.memory-gomb {
+    width: 100%;
+    height: 100%;
     background-color: orchid;
 }
-.memory-kijelzo{
-color:white;
+
+.memory-kijelzo {
+    color: white;
+    font-size: 120px;
+    position: absolute;
+    z-index: 10;
 }
