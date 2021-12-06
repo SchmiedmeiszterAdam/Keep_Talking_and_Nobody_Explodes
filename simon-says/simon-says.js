@@ -32,6 +32,7 @@ class SimonSays extends Modul {
         this.interval = setInterval(() => { this.gombVillogtatas() }, 800)
     }
     gombVillogtatas() {
+        console.log("HELLO")
         this.szerepeltSzinek[this.szinSzamlalo].gombVilagit()
         setTimeout(() => {
             this.szerepeltSzinek[this.szinSzamlalo].gombVisszaAllitas()
@@ -65,7 +66,6 @@ class SimonSays extends Modul {
         }
         else {
             if (this.bomba.getStrikes() === 0) {
-                this.joSzamlalo = 0
                 this.ellenorzesSeged(szin, "blue", "yellow", "green", "red")
             }
             else if (this.bomba.getStrikes() === 1) {
