@@ -20,58 +20,79 @@
 
 .whos-on-jobb {
     width: 15%;
-    height: 60%;
+    height: 65%;
     margin-bottom: 10px;
 }
 
 .whos-on-kijelzo-tarolo {
     width: 90%;
-    height: 30%;
+    height: 25%;
 }
 
 .whos-on-gombok {
     width: 100%;
-    height: 70%;
-    background-color: rgb(31,30,36);
+    height: 75%;
+    background-color: rgb(31, 30, 36);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
+    border: 3px solid rgb(90, 90, 90);
 }
 
 .whos-on-gomb {
-    width: 90%;
-    height: 85%;
-    background: rgb(238,208,156);
-    box-shadow: 0 0 5px 2px rgb(226, 206, 171);
+    width: 85%;
+    height: 70%;
+    background: rgb(238, 208, 156);
+    box-shadow: 0 0 3px 2px rgb(226, 206, 171);
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    color: rgb(51,47,32);
+    font-size: 13px;
 }
 
 .whos-on-kijelzo {
     width: 100%;
     height: 100%;
-    background-color: rgb(115,114,119);
-    display:grid;
+    background-color: rgb(115, 114, 119);
+    display: grid;
     place-items: center;
+    border: 3px solid rgb(90, 90, 90);
 }
-.whos-on-status{
-    width:100%;
-    height:100%;
-    background-color: rgb(33,31,36);
-    display:flex;
+
+.whos-on-status {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(33, 31, 36);
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
 }
+
+.whos-on-kijelzo-belso {
+    width: 80%;
+    height: 80%;
+    background-color: rgb(13, 16, 23);
+    display: grid;
+    place-items: center;
+    border-radius: 2px;
+}
+
 .whos-on-szo {
     text-align: center;
     width: 80%;
     height: 70%;
     color: white;
     background-color: rgb(85, 101, 116);
-    /* box-shadow: 0 0 10px 10px black; */
-    border: 10px solid rgb(13,16,23);
+    display: grid;
+    place-items: center;
+    border-radius: 2px;
 }
-.whos-on-status-jelzo{
-    width:60%;
-    height: 15%;
-    background-color: rgb(29,19,27);
+
+.whos-on-status-jelzo {
+    width: 60%;
+    height: 10%;
+    box-shadow: 0px 0px 1px 1px white;
+    background-color: rgb(29, 19, 27);
 }
