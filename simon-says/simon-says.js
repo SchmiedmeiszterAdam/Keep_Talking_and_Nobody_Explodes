@@ -22,6 +22,7 @@ class SimonSays extends Modul {
         let adottGomb = Math.floor(Math.random() * this.gombok.length)
         this.szerepeltSzinek.push(this.gombok[adottGomb])
         this.mutat()
+        clearInterval(this.interval2)
         this.interval2 = setInterval(() => {
             this.mutat()
             this.ellenorzesSzamlolo = 0
@@ -29,10 +30,10 @@ class SimonSays extends Modul {
     }
     mutat() {
         this.szinSzamlalo = 0
+        clearInterval(this.interval)
         this.interval = setInterval(() => { this.gombVillogtatas() }, 800)
     }
     gombVillogtatas() {
-        console.log("HELLO")
         this.szerepeltSzinek[this.szinSzamlalo].gombVilagit()
         setTimeout(() => {
             this.szerepeltSzinek[this.szinSzamlalo].gombVisszaAllitas()
