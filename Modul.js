@@ -1,12 +1,12 @@
 class Modul {
-    constructor(elem,id,bomba) {
+    constructor(elem, id, bomba) {
         this.teljesitve = false
         this.bomba = bomba
         this.elem = elem
         this.id = id
         this.aktiv = false
         this.led = this.elem.find('.kesz')
-    
+
         // this.elem.on("mouseenter", () => {
         //     if (!this.aktiv) {
         //         this.elem.addClass("hover-class")
@@ -37,13 +37,22 @@ class Modul {
     setTeljesitve() {
         this.bomba.modulesCheck()
         this.teljesitve = true
-        this.led.css("background-color","rgb(25,239,81)")
+        this.led.css("background-color", "rgb(25,239,81)")
         this.led.append("<div class = 'kesz-vilagos'></div>")
     }
     getTeljesitve() {
         return this.teljesitve
     }
-    sendFault(){
+    sendFault() {
+        this.led.css("background", "red")
+        setTimeout(() => {
+            if (this.teljesitve) {
+                this.led.css("background-color", "rgb(25,239,81)")
+            }
+            else {
+                this.led.css("background", "rgb(97, 65, 65)")
+            }
+        }, 500)
         this.bomba.fault()
     }
 }

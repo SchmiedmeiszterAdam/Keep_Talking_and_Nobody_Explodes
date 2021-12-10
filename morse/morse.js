@@ -1,20 +1,20 @@
 const words = [
-    { "name": "shell", "hz": 3.505 },
-    { "name": "halls", "hz": 3.515 },
-    { "name": "slick", "hz": 3.522 },
-    { "name": "trick", "hz": 3.532 },
-    { "name": "boxes", "hz": 3.535 },
-    { "name": "leaks", "hz": 3.542 },
-    { "name": "strobe", "hz": 3.545 },
-    { "name": "bistro", "hz": 3.552 },
-    { "name": "flick", "hz": 3.555 },
-    { "name": "bombs", "hz": 3.565 },
-    { "name": "break", "hz": 3.572 },
-    { "name": "brick", "hz": 3.575 },
-    { "name": "steak", "hz": 3.582 },
-    { "name": "sting", "hz": 3.592 },
-    { "name": "vector", "hz": 3.595 },
-    { "name": "beats", "hz": 3.600 },
+    { "name": "shell", "hz": '3.505' },
+    { "name": "halls", "hz": '3.515' },
+    { "name": "slick", "hz": '3.522' },
+    { "name": "trick", "hz": '3.532' },
+    { "name": "boxes", "hz": '3.535' },
+    { "name": "leaks", "hz": '3.542' },
+    { "name": "strobe", "hz": '3.545' },
+    { "name": "bistro", "hz": '3.552' },
+    { "name": "flick", "hz": '3.555' },
+    { "name": "bombs", "hz": '3.565' },
+    { "name": "break", "hz": '3.572' },
+    { "name": "brick", "hz": '3.575' },
+    { "name": "steak", "hz": '3.582' },
+    { "name": "sting", "hz": '3.592' },
+    { "name": "vector", "hz": '3.595' },
+    { "name": "beats", "hz": '3.600' },
 ]
 const letters = [
     { "name": "A", "code": '01' },
@@ -43,15 +43,41 @@ class Morse extends Modul {
         this.skalaJelzo = this.elem.find(".morse-mhz-skala-jelzo")
         this.gomb = this.elem.find(".morse-ok")
         this.kijelzo = this.elem.find(".morse-mhz-szoveg")
+        this.bal = this.elem.find(".morse-mhz-bal")
+        this.jobb = this.elem.find(".morse-mhz-jobb")
+        this.hzLeptetes = 0
         this.codes
         this.szamlalo = 0
         this.szoAdas()
+        console.log(this.frekvrencia)
         this.villogtat()
+        this.bal.on("click", () => {
+            if (this.hzLeptetes > 0) {
+                this.hzLeptetes--
+                this.hzLeptet()
+            }
+        })
+        this.jobb.on("click", () => {
+            if (this.hzLeptetes < words.length - 1) {
+                this.hzLeptetes++
+                this.hzLeptet()
+            }
+        })
+        this.gomb.on("click", () => {
+            console.log(this.frekvrencia, words[this.hzLeptetes].hz)
+            if(this.frekvrencia == words[this.hzLeptetes].hz){
+                this.setTeljesitve()
+                clearInterval(this.interval)
+            }
+            else{
+                this.sendFault()
+            }
+        })
     }
     szoAdas() {
         let a = Math.floor(Math.random() * words.length)
-        this.szo = words[6].name
-        this.frekvrencia = words[6].hz
+        this.szo = words[a].name
+        this.frekvrencia = words[a].hz
     }
     villogtat() {
         this.szamlalo = 0
@@ -78,9 +104,9 @@ class Morse extends Modul {
     }
     codeIras(code) {
         let szamlalo = 0
-        let interval
-        clearInterval(interval)
-        interval = setInterval(() => {
+        this.interval
+        clearInterval(this.interval)
+        this.interval = setInterval(() => {
             this.lampa.css("background-color", "rgb(252,223,72)")
             if (code[szamlalo] === '0') {
                 setTimeout(() => {
@@ -94,11 +120,14 @@ class Morse extends Modul {
             }
             szamlalo++
             if (szamlalo === code.length) {
-                clearInterval(interval)
+                clearInterval(this.interval)
                 setTimeout(() => {
                     this.leptet()
                 }, 1500)
             }
         }, 900)
+    }
+    hzLeptet() {
+        this.kijelzo.html(words[this.hzLeptetes].hz + " MHz")
     }
 }
