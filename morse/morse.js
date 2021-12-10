@@ -49,7 +49,6 @@ class Morse extends Modul {
         this.codes
         this.szamlalo = 0
         this.szoAdas()
-        console.log(this.frekvrencia)
         this.villogtat()
         this.bal.on("click", () => {
             if (this.hzLeptetes > 0) {
@@ -64,7 +63,6 @@ class Morse extends Modul {
             }
         })
         this.gomb.on("click", () => {
-            console.log(this.frekvrencia, words[this.hzLeptetes].hz)
             if(this.frekvrencia == words[this.hzLeptetes].hz){
                 this.setTeljesitve()
                 clearInterval(this.interval)
