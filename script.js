@@ -4,7 +4,7 @@ let modulePossibilitys = [{ "template": "#templates .simple-wires", "className":
 { "template": "#templates .memory", "className": Memory },
 { "template": "#templates .button", "className": Button },
 { "template": "#templates .simon-says", "className": SimonSays },
-{ "template": "#templates .morse-code", "className": SimonSays }
+{ "template": "#templates .morse-code", "className": Morse }
 ]
 $(function () {
     const bombTemplate = $("#bomba")
