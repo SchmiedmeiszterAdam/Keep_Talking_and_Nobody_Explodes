@@ -129,5 +129,6 @@ class Morse extends Modul {
     }
     hzLeptet() {
         this.kijelzo.html(words[this.hzLeptetes].hz + " MHz")
+        this.skalaJelzo.css("left", this.hzLeptetes *23.1 + "px")
     }
 }
