@@ -63,7 +63,8 @@ main {
     background-color: rgb(97, 65, 65);
     border-radius: 50%;
 }
-.kesz-vilagos{
+
+.kesz-vilagos {
     position: absolute;
     content: '';
     width: 30%;
@@ -74,6 +75,7 @@ main {
     left: calc(50% - 5px);
     filter: blur(3px);
 }
+
 .ures {
     display: flex;
     align-items: center;
@@ -176,31 +178,39 @@ nav:hover {
     display: none;
     height: 100%;
     width: 30%;
-    background-color: rgb(138, 144, 156);
-    border-radius: 30px;
     left: calc(50% - 15%);
-    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
 }
 
 .oldal-fel-oldal {
-    width: 100%;
+    width: 50%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(138, 144, 156);
+    border-radius: 20px;
 }
 
 .fel-oldal-also {
     width: 100%;
-    height: 100%;
+    height: 49%;
     display: flex;
     align-items: flex-start;
 }
-
+.oldal-fel-oldal-bal{
+    border-right: 6px solid rgb(88, 96, 114);
+}
+.oldal-fel-oldal-jobb{
+    border-left: 6px solid rgb(88, 96, 114);
+}
 .fel-oldal-felso {
     display: flex;
     align-items: flex-end;
     width: 100%;
-    height: 100%;
+    height: 49%;
 }
 
 .oldal-appendix {
@@ -209,7 +219,8 @@ nav:hover {
     display: grid;
     place-items: center;
 }
-.oldal-appendix>*{
+
+.oldal-appendix>* {
     transform-origin: center;
     transform: rotate(90deg);
 }
@@ -219,22 +230,121 @@ nav:hover {
     display: none;
     height: 40%;
     width: 100%;
-    background-color: rgb(138, 144, 156);
-    border-radius: 30px;
     top: 30%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
-.fel-oldal{
+
+.fel-oldal {
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: rgb(138, 144, 156);
 }
-.fel-oldal-bal,.fel-oldal-kozep,.fel-oldal-jobb{
-    width: 100%;
+
+.fel-oldal-fel {
+    border-bottom: 6px solid rgb(88, 96, 114);
+}
+
+.fel-oldal-le {
+    border-top: 6px solid rgb(88, 96, 114);
+}
+
+.fel-oldal-bal, .fel-oldal-kozep, .fel-oldal-jobb {
+    width: 31%;
     height: 100%;
+}
+
+.fel-oldal-bal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.fel-oldal-jobb {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.fel-oldal-kozep {
     display: grid;
     place-items: center;
+}
+
+#teteje .valaszto, #alja .valaszto {
+    width: 30px;
+    height: 95%;
+}
+.valaszto{
+    background-color: rgb(165, 181, 176);
+}
+.csat {
+    content: '';
+    position: absolute;
+    background-color: rgb(160, 104, 60);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#teteje .csat, #alja .csat {
+    height: 70%;
+    aspect-ratio: 1/3;
+    flex-direction: column;
+}
+
+#bal-oldal .csat, #jobb-oldal .csat {
+    width: 70%;
+    aspect-ratio: 3/1;
+    left: 15%;
+}
+
+#bal-oldal .csat-1, #jobb-oldal .csat-1 {
+    top: 5%;
+}
+
+#bal-oldal .csat-2, #jobb-oldal .csat-2 {
+    bottom: 5%;
+}
+#bal-oldal .valaszto,#jobb-oldal .valaszto{
+    height: 30px;
+    width: 95%;
+}
+#teteje .csat-1, #alja .csat-1 {
+    left: 5%;
+}
+
+#teteje .csat-2, #alja .csat-2 {
+    right: 5%;
+}
+.csavar{
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: rgb(140, 140, 145);
+    position: relative;
+}
+#teteje .csavar, #alja .csavar {
+    width: 25%;
+}
+#bal-oldal .csavar, #jobb-oldal .csavar {
+    height: 25%;
+}
+
+.csavar::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    background-color: rgb(72, 65, 60);
+    transform: rotate(45deg);
 }

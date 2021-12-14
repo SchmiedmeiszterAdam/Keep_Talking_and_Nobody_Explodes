@@ -29,6 +29,7 @@ class SimonSays extends Modul {
     }
     mutat() {
         this.szinSzamlalo = 0
+        clearInterval(this.interval)
         this.interval = setInterval(() => { this.gombVillogtatas() }, 800)
     }
     gombVillogtatas() {

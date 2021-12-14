@@ -21,13 +21,13 @@ $(function () {
                 $("#eloresz").css("display", "grid")
             }
             else if (sideCounter === 1) {
-                $("#bal-oldal").css("display", "grid")
+                $("#bal-oldal").css("display", "flex")
             }
             else if (sideCounter === 2) {
                 $("#hatresz").css("display", "grid")
             }
             else {
-                $("#jobb-oldal").css("display", "grid")
+                $("#jobb-oldal").css("display", "flex")
             }
         }
         if (upDownCounter > 0) {
@@ -49,13 +49,13 @@ $(function () {
                 $("#eloresz").css("display", "grid")
             }
             else if (sideCounter === 1) {
-                $("#bal-oldal").css("display", "block")
+                $("#bal-oldal").css("display", "flex")
             }
             else if (sideCounter === 2) {
                 $("#hatresz").css("display", "grid")
             }
             else {
-                $("#jobb-oldal").css("display", "block")
+                $("#jobb-oldal").css("display", "flex")
             }
         }
         if (upDownCounter < 2) {
@@ -88,7 +88,7 @@ $(function () {
             allButtonHide()
             $("#bomb-rotation-left").css("display", "grid")
             $("#bomb-rotation-right").css("display", "grid")
-            $("#bal-oldal").css("display", "grid")
+            $("#bal-oldal").css("display", "flex")
         }
         else if (sideCounter === 2) {
             allButtonShow()
@@ -96,7 +96,7 @@ $(function () {
         }
         else {
             allButtonHide()
-            $("#jobb-oldal").css("display", "grid")
+            $("#jobb-oldal").css("display", "flex")
             $("#bomb-rotation-left").css("display", "grid")
             $("#bomb-rotation-right").css("display", "grid")
         }
