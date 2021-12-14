@@ -13,7 +13,7 @@ $(function () {
         if (upDownCounter === 2) {
             allButtonHide()
             $("#bomb-rotation-down").css("display", "grid")
-            $("#teteje").css("display", "flex")
+            $("#teteje").css("display", "grid")
         }
         else {
             allButtonShow()
@@ -41,7 +41,7 @@ $(function () {
         if (upDownCounter === 0) {
             allButtonHide()
             $("#bomb-rotation-up").css("display", "grid")
-            $("#alja").css("display", "flex")
+            $("#alja").css("display", "grid")
         }
         else {
             allButtonShow()

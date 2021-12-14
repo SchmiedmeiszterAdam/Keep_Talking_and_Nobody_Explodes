@@ -5,7 +5,7 @@ const szinek = [
     { "name": "blue", "color": "rgb(55,93,175)" },
     { "name": "red", "color": "rgb(246, 10, 7)" }]
 let joDrot = 0
-class Wire extends Modul {
+class SimpleWire extends Modul {
     constructor(elem, id,szulo) {
         super(elem, id,szulo)
         this.wires = []

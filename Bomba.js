@@ -7,7 +7,14 @@ const appendSlots = [
     "#bal-oldal-bal-felso-appendix",
     "#bal-oldal-bal-also-appendix",
     "#bal-oldal-jobb-felso-appendix",
-    "#bal-oldal-jobb-also-appendix"]
+    "#bal-oldal-jobb-also-appendix",
+    "#teteje-felso-bal-appendix",
+    "#teteje-felso-kozep-appendix",
+    "#teteje-felso-jobb-appendix",
+    "#alja-felso-bal-appendix",
+    "#alja-felso-kozep-appendix",
+    "#alja-felso-jobb-appendix",
+]
 const ports = [{ "template": "#templates .dvi-d", "name": "DVI-D" },
 { "template": "#templates .parallel", "name": "Parallel" },
 { "template": "#templates .ps-2", "name": "PS/2" },

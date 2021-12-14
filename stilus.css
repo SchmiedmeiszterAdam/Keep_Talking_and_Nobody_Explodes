@@ -139,7 +139,6 @@ nav ul li {
 }
 
 #bomb-rotation-up {
-
     width: 90%;
     height: 30px;
     top: 0px;
@@ -218,11 +217,22 @@ nav:hover {
 #teteje, #alja {
     position: absolute;
     display: none;
-    align-items: center;
-    justify-content: center;
-    height: 30%;
+    grid-template-columns: 1fr;
+    height: 40%;
     width: 100%;
     background-color: rgb(138, 144, 156);
     border-radius: 30px;
-    top: 35%;
+    top: 30%;
+}
+.fel-oldal{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.fel-oldal-bal,.fel-oldal-kozep,.fel-oldal-jobb{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
 }

@@ -18,13 +18,15 @@
     <link rel="stylesheet" href="appendix/indicator.css">
     <link rel="stylesheet" href="appendix/serial.css">
     <link rel="stylesheet" href="simon-says/simon-says.css">
+    <link rel="stylesheet" href="maze/maze.css">
     <link rel="stylesheet" href="morse/morse.css">
+    <link rel="stylesheet" href="password/password.css">
     <!-- JS -->
     <script src="Modul.js"></script>
     <!-- WIRES -->
-    <script src="simple-wires/Wire.js"></script>
+    <script src="simple-wires/Simple-wire.js"></script>
     <!-- TIME -->
-    <script src="time-module/time-modul.js"></script>
+    <script src="time-module/Time-modul.js"></script>
     <!-- WHOS-ON-FIRST -->
     <script src="who's_on_first/Who's-on-first.js"></script>
     <!-- KEYPADS -->
@@ -32,13 +34,17 @@
     <!-- MEMORY -->
     <script src="memory/Memory.js"></script>
     <!-- BUTTON -->
-    <script src="button/button.js"></script>
+    <script src="button/Button.js"></script>
     <!-- APPENDIX -->
     <script src="appendix/Indicator.js"></script>
     <!-- SIMON-SAYS -->
-    <script src="simon-says/simon-says.js"></script>
+    <script src="simon-says/Simon-says.js"></script>
+    <!-- MAZE -->
+    <script src="maze/Maze.js"></script>
     <!-- MORSE -->
-    <script src="morse/morse.js"></script>
+    <script src="morse/Morse.js"></script>
+    <!-- PASSWORD -->
+    <script src="password/Password.js"></script>
     <!-- JS -->
     <script src="Bomba.js"></script>
     <script src="script.js"></script>
@@ -110,9 +116,52 @@
                 </div>
             </div>
             <div id="teteje">
+                <div class="fel-oldal">
+                    <div class="fel-oldal-bal">
+                        <div id="teteje-felso-bal-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                    <div class="fel-oldal-kozep">
+                        <div id="teteje-felso-kozep-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                    <div class="fel-oldal jobb">
+                        <div id="teteje-felso-jobb-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                </div>
+                <div class="fel-oldal">
+                    <div class="fel-oldal-bal">
+                        <div id="teteje-also-bal-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                    <div class="fel-oldal-kozep">
+                        <div id="teteje-also-kozep-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                    <div class="fel-oldal jobb">
+                        <div id="teteje-also-jobb-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                </div>
             </div>
             <div id="alja">
-
+                <div class="fel-oldal">
+                    <div class="fel-oldal-bal">
+                        <div id="alja-felso-bal-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                    <div class="fel-oldal-kozep">
+                        <div id="alja-felso-kozep-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                    <div class="fel-oldal-jobb">
+                        <div id="alja-felso-jobb-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                </div>
+                <div class="fel-oldal">
+                    <div class="fel-oldal-bal">
+                        <div id="alja-also-bal-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                    <div class="fel-oldal-kozep">
+                        <div id="alja-also-kozep-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                    <div class="fel-oldal jobb">
+                        <div id="alja-also-jobb-appendix" class="felso-appendix appendix"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -266,19 +315,19 @@
                             <div class="morse-lampa-jobb-csatlakozo"></div>
                         </div>
                     </div>
-                        <div class="morse-mhz-tarolo">
-                            <div class="morse-mhz-skala-tarolo">
-                                <div class="morse-mhz-skala-jelzo"></div>
-                                <div class="morse-mhz-skala"></div>
-                            </div>
-                            <div class="morse-mhz-jelzo-tarolo">
-                                <div class="morse-mhz-bal"></div>
-                                <div class="morse-mhz-kijelzo">
-                                    <h2 class="morse-mhz-szoveg">3.505 MHz</h2>
-                                </div>
-                                <div class="morse-mhz-jobb"></div>
-                            </div>
+                    <div class="morse-mhz-tarolo">
+                        <div class="morse-mhz-skala-tarolo">
+                            <div class="morse-mhz-skala-jelzo"></div>
+                            <div class="morse-mhz-skala"></div>
                         </div>
+                        <div class="morse-mhz-jelzo-tarolo">
+                            <div class="morse-mhz-bal"></div>
+                            <div class="morse-mhz-kijelzo">
+                                <h2 class="morse-mhz-szoveg">3.505 MHz</h2>
+                            </div>
+                            <div class="morse-mhz-jobb"></div>
+                        </div>
+                    </div>
                     <div class="morse-gomb-tarolo">
                         <input type="button" value="TX" class="morse-ok">
                     </div>
@@ -291,9 +340,53 @@
                 <div class="kesz"></div>
             </div>
             <div class="modul maze hover">
+                <div class="maze-tarolo">
+                    <div class="maze-gombok maze-gomb-1 up-down"></div>
+                    <div class="maze-gombok maze-gomb-2 left-right"></div>
+                    <div class="maze-gombok maze-gomb-3 left-right"></div>
+                    <div class="maze-gombok maze-gomb-4 up-down"></div>
+                    <div class="maze-kulso-tarolo">
+                        <div class="maze-kozepso-tarolo">
+                            <div class="maze-belso-tarolo">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="kesz"></div>
             </div>
             <div class="modul password hover">
+                <div class="password-tarolo">
+                    <div class="password-up-gombok-tarolo">
+                        <div class="password-gombok up-1 up"></div>
+                        <div class="password-gombok up-2 up"></div>
+                        <div class="password-gombok up-3 up"></div>
+                        <div class="password-gombok up-4 up"></div>
+                        <div class="password-gombok up-5 up"></div>
+                    </div>
+                    <div class="password-kulso-tarolo">
+                        <div class="password-belso-tarolo">
+                            <div class="betu-tarolo">
+                                <div class="betu-belso-tarolo"><h1 class="betu betu-1"></h1></div>
+                                <div class="betu-belso-tarolo"><h1 class="betu betu-2"></h1></div>
+                                <div class="betu-belso-tarolo"><h1 class="betu betu-3"></h1></div>
+                                <div class="betu-belso-tarolo"><h1 class="betu betu-4"></h1></div>
+                                <div class="betu-belso-tarolo"><h1 class="betu betu-5"></h1></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="password-down-gombok-tarolo">
+                        <div class="password-gombok down-1 down"></div>
+                        <div class="password-gombok down-2 down"></div>
+                        <div class="password-gombok down-3 down"></div>
+                        <div class="password-gombok down-4 down"></div>
+                        <div class="password-gombok down-5 down"></div>
+                    </div>
+                    <div class="submit-gomb">
+                        <input type="button" value="SUBMIT" class="submit">
+                    </div>
+
+                </div>
                 <div class="kesz"></div>
             </div>
             <div class="ures">
