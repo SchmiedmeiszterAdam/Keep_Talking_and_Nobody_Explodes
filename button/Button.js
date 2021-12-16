@@ -1,8 +1,8 @@
 buttonColors = ["white", "blue", "red", "yellow"]
 buttonTexts = ["ABORT", "HOLD", "DETONATE", "PRESS"]
 class Button extends Modul {
-    constructor(elem, id, szulo) {
-        super(elem, id, szulo)
+    constructor(elem, szulo) {
+        super(elem, szulo)
         this.indicator = this.elem.find(".button-color-indicator")
         this.indicatorColor = buttonColors[Math.floor(Math.random() * buttonColors.length)]
         this.color = buttonColors[Math.floor(Math.random() * buttonColors.length)]

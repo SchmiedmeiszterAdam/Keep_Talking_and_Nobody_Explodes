@@ -5,6 +5,7 @@ class Time {
         this.perc = perc
         this.masodperc = masodperc
         this.idoIras
+        this.kijelzo = this.elem.find("#ido")
         this.szamolas()
     }
     szamolas() {
@@ -35,7 +36,7 @@ class Time {
         if (this.masodperc < 10) {
             masodperc = "0" + this.masodperc
         }
-        $("#ido").text(perc + ":" + masodperc)
+        $(this.kijelzo).text(perc + ":" + masodperc)
     }
     stop() {
         clearInterval(this.idoIras)

@@ -37,8 +37,8 @@ const letters = [
     { "name": "X", "code": '1001' }
 ]
 class Morse extends Modul {
-    constructor(elem, id, szulo) {
-        super(elem, id, szulo)
+    constructor(elem, szulo) {
+        super(elem, szulo)
         this.lampa = this.elem.find(".morse-lampa")
         this.skalaJelzo = this.elem.find(".morse-mhz-skala-jelzo")
         this.gomb = this.elem.find(".morse-ok")

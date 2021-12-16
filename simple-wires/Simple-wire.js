@@ -6,8 +6,8 @@ const szinek = [
     { "name": "red", "color": "rgb(246, 10, 7)" }]
 let joDrot = 0
 class SimpleWire extends Modul {
-    constructor(elem, id, szulo) {
-        super(elem, id, szulo)
+    constructor(elem, szulo) {
+        super(elem, szulo)
         this.wires = []
         this.bombaSerialNumber = this.bomba.szeriszam
         let db = Math.floor(Math.random() * 4) + 3
@@ -156,16 +156,9 @@ class OneWire {
         this.elem.on("click", () => {
             if (!this.elvagva) {
                 if (this.getJoDrot()) {
-                    this.szulo.led.css("background-color", "green")
                     this.szulo.setTeljesitve()
                 }
-                else if (!this.szulo.getTeljesitve()) {
-                    this.szulo.led.css("background-color", "red")
-                    this.szulo.sendFault()
-                }
-                if (this.szulo.getTeljesitve() && !this.getJoDrot()) {
-                    this.szulo.led.css("background-color", "red")
-                    setTimeout(() => { this.szulo.led.css("background-color", "green") }, 1000)
+                else{
                     this.szulo.sendFault()
                 }
                 this.elem.append("<div class = 'wire-seged'><div class = 'wire-elvagva'></div></div>")

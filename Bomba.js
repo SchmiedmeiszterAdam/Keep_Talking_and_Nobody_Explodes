@@ -1,4 +1,3 @@
-let timeModulePosition = Math.floor(Math.random() * 4)
 const appendSlots = [
     "#jobb-oldal-bal-felso-appendix",
     "#jobb-oldal-bal-also-appendix",
@@ -50,21 +49,41 @@ class Bomba {
             this.idoModul.stop()
         }
     }
-    createModule(moduleTemplate, moduleName) {
-        if (this.moduleSzam > 4) {
-            this.gyerek = $("#hatresz")
+    createModules(modules, perc, masodperc) {
+        this.keveres(modules)
+        let timeModulePosition = Math.floor(Math.random() * 6)
+        modules.push(modules[timeModulePosition])
+        modules[timeModulePosition] = { "template": "#templates #ido-modul", "className": Time }
+        for (let i = 0; i < modules.length; i++) {
+            if (modules[i].template == "#templates .button") {
+                let hely = Math.floor(Math.random() * 5)
+                while (modules[hely].template == "#templates .button" || modules[hely].template == "#templates #ido-modul") {
+                    hely = Math.floor(Math.random() * 5)
+                }
+                let modul = modules[hely]
+                modules[hely] = modules[i]
+                modules[i] = modul
+            }
         }
-        if (this.moduleSzam === timeModulePosition || timeModulePosition === 5) {
-            const timeModul = $("#templates #ido-modul").prependTo(this.gyerek)
-            const time = new Time(timeModul, this, 5, 0)
-            this.idoModul = time
-            this.strike1 = $(this.idoModul.elem.find("#strike-1"))
-            this.strike2 = $(this.idoModul.elem.find("#strike-2"))
+        let newModule
+        let module
+        for (let k = 0; k < modules.length; k++) {
+            if (modules[k].template == "#templates #ido-modul") {
+                newModule = $(modules[k].template).clone().prependTo(this.gyerek)
+                module = new modules[k].className(newModule, this, perc, masodperc)
+                this.idoModul = module
+                this.strike1 = $(this.idoModul.elem.find("#strike-1"))
+                this.strike2 = $(this.idoModul.elem.find("#strike-2"))
+            }
+            else {
+                newModule = $(modules[k].template).clone().prependTo(this.gyerek)
+                module = new modules[k].className(newModule, this)
+                this.modules.push(module)
+            }
+            if (k === 5) {
+                this.gyerek = $("#hatresz")
+            }
         }
-        const newModule = $(moduleTemplate).clone().prependTo(this.gyerek)
-        const module = new moduleName(newModule, this.moduleSzam, this)
-        this.modules.push(module)
-        this.moduleSzam++
     }
     fault() {
         this.strikes++
@@ -133,4 +152,19 @@ class Bomba {
     getStrikes() {
         return this.strikes
     }
+    keveres(tomb) {
+        var currentIndex = tomb.length, randomIndex;
+
+        while (currentIndex != 0) {
+
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [tomb[currentIndex], tomb[randomIndex]] = [
+                tomb[randomIndex], tomb[currentIndex]];
+        }
+
+        return tomb;
+    }
+
 }

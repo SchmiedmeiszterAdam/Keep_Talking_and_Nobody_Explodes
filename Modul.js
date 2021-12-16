@@ -1,9 +1,8 @@
 class Modul {
-    constructor(elem, id, bomba) {
+    constructor(elem, bomba) {
         this.teljesitve = false
         this.bomba = bomba
         this.elem = elem
-        this.id = id
         this.aktiv = false
         this.led = this.elem.find('.kesz')
 
@@ -45,9 +44,11 @@ class Modul {
     }
     sendFault() {
         this.led.css("background", "red")
+        this.elem.find(".kesz-vilagos").css("background-color","pink")
         setTimeout(() => {
             if (this.teljesitve) {
                 this.led.css("background-color", "rgb(25,239,81)")
+                this.elem.find(".kesz-vilagos").css("background-color","lightgreen")
             }
             else {
                 this.led.css("background", "rgb(97, 65, 65)")

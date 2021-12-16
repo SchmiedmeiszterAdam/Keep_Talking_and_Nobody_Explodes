@@ -1,7 +1,7 @@
 
 class Memory extends Modul {
-    constructor(elem, id, szulo) {
-        super(elem, id, szulo)
+    constructor(elem, szulo) {
+        super(elem, szulo)
         this.kijelzo = this.elem.find(".memory-kijelzo")
         this.statuszLed1 = this.elem.find(".memory-statusz-jelzo-1")
         this.statuszLed2 = this.elem.find(".memory-statusz-jelzo-2")

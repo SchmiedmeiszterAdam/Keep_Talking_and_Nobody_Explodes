@@ -7,8 +7,8 @@ const szimbolumcolumn = [
     ["11-six", "16-euro", "27-tracks", "14-ae", "24-pitchfork", "18-nwithhat", "6-omega"]]
 
 class Keypad extends Modul {
-    constructor(elem, id, szulo) {
-        super(elem, id, szulo)
+    constructor(elem, szulo) {
+        super(elem, szulo)
         this.szuloElem = this.elem.find(".keypads-tarolo")
         this.adottSzimbolumOszlop = szimbolumcolumn[Math.floor(Math.random() * szimbolumcolumn.length)]
         this.gombok = []

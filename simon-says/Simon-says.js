@@ -1,6 +1,6 @@
 class SimonSays extends Modul {
-    constructor(elem, id, szulo) {
-        super(elem, id, szulo)
+    constructor(elem, szulo) {
+        super(elem, szulo)
         this.round = Math.floor(Math.random() * 3) + 3
         this.roundSzamlalo = 0
         this.gombok = []

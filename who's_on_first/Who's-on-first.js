@@ -57,8 +57,8 @@ const foSzavak = [
     { "name": "C", "hely": 1 },
     { "name": "CEE", "hely": 5 }]
 class WhosOnFirst extends Modul {
-    constructor(elem, id, szulo) {
-        super(elem, id, szulo)
+    constructor(elem, szulo) {
+        super(elem, szulo)
         this.szo = this.elem.find(".whos-on-szo")
         this.gombokSzuloElem = this.elem.find(".whos-on-gombok")
         this.jelzo1 = this.elem.find(".whos-on-status-jelzo-1")

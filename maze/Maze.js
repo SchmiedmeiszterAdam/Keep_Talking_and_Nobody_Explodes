@@ -121,8 +121,8 @@ const mazes = [
    5:semmi
  */
 class Maze extends Modul {
-    constructor(elem, id, szulo) {
-        super(elem, id, szulo)
+    constructor(elem, szulo) {
+        super(elem, szulo)
         this.szektors = []
         this.maze = mazes[Math.floor(Math.random() * mazes.length)]
         this.vilagitoSzektor1 = 0
