@@ -1,12 +1,12 @@
-buttonColors =["white","blue","red","yellow"]
-buttonTexts = ["ABORT","HOLD","DETONATE","PRESS"]
+buttonColors = ["white", "blue", "red", "yellow"]
+buttonTexts = ["ABORT", "HOLD", "DETONATE", "PRESS"]
 class Button extends Modul {
     constructor(elem, id, szulo) {
         super(elem, id, szulo)
         this.indicator = this.elem.find(".button-color-indicator")
-        this.indicatorColor = buttonColors[Math.floor(Math.random()*buttonColors.length)]
-        this.color = buttonColors[Math.floor(Math.random()*buttonColors.length)]
-        this.buttonText = buttonTexts[Math.floor(Math.random()*buttonTexts.length)]
+        this.indicatorColor = buttonColors[Math.floor(Math.random() * buttonColors.length)]
+        this.color = buttonColors[Math.floor(Math.random() * buttonColors.length)]
+        this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)]
         this.button = this.elem.find(".button-button")
         this.buttonIsDown = false
         this.text = this.elem.find(".button-text")
@@ -23,9 +23,9 @@ class Button extends Modul {
         }).on("mouseup", () => {
             this.button.removeClass("button-pushed-down")
             this.button.addClass("button-release")
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.button.removeClass("button-release")
-            },200)
+            }, 200)
             this.released()
         })
     }
@@ -36,7 +36,7 @@ class Button extends Modul {
         else if (this.bomba.batteries > 1 && this.buttonText === "DETONATE") {
             this.solution = "relase"
         }
-        else if (this.indicatorColor === "white" &&  this.bomba.litIndicator("CAR")) {
+        else if (this.indicatorColor === "white" && this.bomba.litIndicator("CAR")) {
             this.solution = "hold"
         }
         else if (this.bomba.batteries > 2 && this.bomba.litIndicator("FRK")) {
@@ -53,8 +53,8 @@ class Button extends Modul {
         }
     }
     pushedDown() {
-            this.buttonIsDown = true
-            this.indicator.css("background-color", this.indicatorColor)
+        this.buttonIsDown = true
+        this.indicator.css("background-color", this.indicatorColor)
     }
     released() {
         this.indicator.css("background-color", "black")
@@ -91,7 +91,7 @@ class Button extends Modul {
                 }
             }
         }
-        else if(this.solution === "relase" && this.buttonIsDown === false){
+        else if (this.solution === "relase" && this.buttonIsDown === false) {
             ok = true
         }
         return ok

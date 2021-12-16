@@ -1,45 +1,46 @@
-let idoIras
 class Time {
     constructor(elem, szulo, perc, masodperc) {
         this.elem = elem
         this.szulo = szulo
-        this.ido = perc
+        this.perc = perc
         this.masodperc = masodperc
+        this.idoIras
         this.szamolas()
     }
     szamolas() {
-        if (this.masodperc < 10) {
-            $("#ido").text(this.ido + ":0" + this.masodperc)
-        }
-        else {
-            $("#ido").text(this.ido + ":" + this.masodperc)
-        }
-        setTimeout(()=> {
+        this.idKiIras()
+        setTimeout(() => {
             this.idoKijelzes()
         }, 2000)
     }
     idoKijelzes() {
-        idoIras = setInterval(()=> {
+        this.idoIras = setInterval(() => {
             this.masodperc--
             if (this.masodperc === -1) {
-                this.ido--
+                this.perc--
                 this.masodperc = 59
             }
-            if (this.masodperc < 10) {
-                $("#ido").text(this.ido + ":0" + this.masodperc)
-            }
-            else {
-                $("#ido").text(this.ido + ":" + this.masodperc)
-            }
-            if (this.ido === 0 && this.masodperc === 0) {
-                clearInterval(idoIras)
+            this.idKiIras()
+            if (this.perc === 0 && this.masodperc === 0) {
+                this.stop()
             }
         }, 1000)
     }
+    idKiIras(){
+        let masodperc = this.masodperc
+        let perc = this.perc
+        if (this.perc < 10) {
+            perc = "0" + this.perc
+        }
+        if (this.masodperc < 10) {
+            masodperc = "0" + this.masodperc
+        }
+        $("#ido").text(perc + ":" + masodperc)
+    }
     stop() {
-        clearInterval(idoIras)
+        clearInterval(this.idoIras)
     }
     getTime() {
-        return this.masodperc + "" + this.ido
+        return this.masodperc + "" + this.perc
     }
 }
