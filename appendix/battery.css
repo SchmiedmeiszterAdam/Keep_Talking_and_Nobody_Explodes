@@ -1,6 +1,5 @@
 @charset "utf-8";
-
-.double-battery {
+.double-battery,.simple-battery {
     width: 250px;
     height: 90px;
     background-color: rgb(76, 100, 143);
@@ -11,7 +10,7 @@
     position: relative;
 }
 
-.double-battery::before {
+.double-battery::before,.simple-battery::before {
     content: '';
     position: absolute;
     width: 8px;
@@ -21,17 +20,18 @@
     left: 2px;
 }
 
-.double-battery-tarolo {
+.double-battery-tarolo,.simple-battery-tarolo {
     width: 88%;
     height: 90%;
     background-color: rgb(33, 42, 59);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
 }
-
+.double-battery-tarolo{
+    flex-direction: column;
+}
 .double-battery-felso-tarolo, .double-battery-also-tarolo {
     height: 48%;
     width: 100%;
@@ -88,4 +88,38 @@
     height: 80%;
     top: 10%;
     right: -3px;
+}
+
+/* SIMPLE */
+.simple-battery-sarga{
+    height: 98%;
+    width: 10%;
+    background-color: rgb(237, 164, 30);
+}
+.simple-battery-piros{
+    height: 95%;
+    width: 70%;
+    background-color: rgb(188, 68, 63);
+}
+.simple-battery-tarolo::after, .simple-battery-tarolo::before{
+    position: absolute;
+    content: '';
+    background-color: rgb(169, 170, 169);
+}
+
+.simple-battery-tarolo::after{
+    width: 6px;
+    height: 60%;
+    top: 20%;
+    left: -5px;
+}
+
+.simple-battery-tarolo::before{
+    width: 4px;
+    height: 80%;
+    top: 10%;
+    right: -3px;
+}
+.simple-battery-tarolo{
+    position: relative;
 }

@@ -200,12 +200,15 @@ nav:hover {
     display: flex;
     align-items: flex-start;
 }
-.oldal-fel-oldal-bal{
+
+.oldal-fel-oldal-bal {
     border-right: 6px solid rgb(88, 96, 114);
 }
-.oldal-fel-oldal-jobb{
+
+.oldal-fel-oldal-jobb {
     border-left: 6px solid rgb(88, 96, 114);
 }
+
 .fel-oldal-felso {
     display: flex;
     align-items: flex-end;
@@ -216,8 +219,9 @@ nav:hover {
 .oldal-appendix {
     width: 100%;
     height: 80%;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .oldal-appendix>* {
@@ -283,9 +287,11 @@ nav:hover {
     width: 30px;
     height: 95%;
 }
-.valaszto{
+
+.valaszto {
     background-color: rgb(165, 181, 176);
 }
+
 .csat {
     content: '';
     position: absolute;
@@ -314,10 +320,12 @@ nav:hover {
 #bal-oldal .csat-2, #jobb-oldal .csat-2 {
     bottom: 5%;
 }
-#bal-oldal .valaszto,#jobb-oldal .valaszto{
+
+#bal-oldal .valaszto, #jobb-oldal .valaszto {
     height: 30px;
     width: 95%;
 }
+
 #teteje .csat-1, #alja .csat-1 {
     left: 5%;
 }
@@ -325,15 +333,18 @@ nav:hover {
 #teteje .csat-2, #alja .csat-2 {
     right: 5%;
 }
-.csavar{
+
+.csavar {
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: rgb(140, 140, 145);
     position: relative;
 }
+
 #teteje .csavar, #alja .csavar {
     width: 25%;
 }
+
 #bal-oldal .csavar, #jobb-oldal .csavar {
     height: 25%;
 }
