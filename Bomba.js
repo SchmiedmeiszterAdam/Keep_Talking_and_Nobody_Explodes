@@ -98,7 +98,6 @@ class Bomba {
                 while ($("#eloresz .modul").eq(random).attr('class') === undefined) {
                     random = Math.floor(Math.random() * 5)
                 }
-                console.log($("#eloresz .modul").eq(random).attr('class'))
                 $("#eloresz .modul").eq(random).after($("#templates .ures").clone())
             }
             for (let i = 0; i < 6; i++) {
@@ -113,11 +112,10 @@ class Bomba {
         else {
             for (let i = 0; i < 12 - modules.length; i++) {
                 random = Math.floor(Math.random() * 5)
-                while ($("#eloresz .modul").eq(random).attr('class') === undefined) {
+                while ($("#hatresz .modul").eq(random).attr('class') === undefined) {
                     random = Math.floor(Math.random() * 5)
                 }
                 $("#hatresz .modul").eq(random).after($("#templates .ures").clone())
-                $("#templates .ures").clone().appendTo("#hatresz")
             }
         }
     }

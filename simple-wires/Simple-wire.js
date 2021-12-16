@@ -77,7 +77,6 @@ class SimpleWire extends Modul {
     otos() {
         if (this.utolsoDrot("black") && this.szeriszamParosParatlan() === "paratlan") {
             this.joDrot = 3
-            console.log("OK")
         }
         else if (this.pontosanAnnyiSzin(1, "red") && this.tobbMintSzin(1, "yellow")) {
             this.joDrot = 0
