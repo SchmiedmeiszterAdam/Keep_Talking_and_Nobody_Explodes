@@ -34,10 +34,10 @@ class Modul {
         return this.aktiv
     }
     setTeljesitve() {
-        this.bomba.modulesCheck()
         this.teljesitve = true
         this.led.css("background-color", "rgb(25,239,81)")
         this.led.append("<div class = 'kesz-vilagos'></div>")
+        this.bomba.modulesCheck()
     }
     getTeljesitve() {
         return this.teljesitve
