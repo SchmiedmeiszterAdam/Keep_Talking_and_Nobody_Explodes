@@ -4,22 +4,25 @@ const szinek = [
     { "name": "white", "color": "rgb(255,249,232)" },
     { "name": "blue", "color": "rgb(55,93,175)" },
     { "name": "red", "color": "rgb(246, 10, 7)" }]
-let joDrot = 0
+
 class SimpleWire extends Modul {
     constructor(elem, szulo) {
         super(elem, szulo)
         this.wires = []
         this.bombaSerialNumber = this.bomba.szeriszam
-        let db = Math.floor(Math.random() * 4) + 3
-        let szuloELem = $(this.elem.find('.wires'))
-        for (let i = 1; i <= db; i++) {
-            const ujWire = $('<div class="wire wire-' + i + '"></div>').appendTo(szuloELem)
+        this.db = Math.floor(Math.random() * 4) + 3
+        this.szuloELem = $(this.elem.find('.wires'))
+        this.joDrot
+        this.drotokLetrehozasa()
+        this.elvagandoDrotKivalasztasa()
+    }
+    drotokLetrehozasa() {
+        for (let i = 1; i <= this.db; i++) {
+            const ujWire = $('<div class="wire wire-' + i + '"></div>').appendTo(this.szuloELem)
             const wire = new OneWire(ujWire, i - 1, this)
             this.wires.push(wire)
         }
-        this.elvagandoDrotKivalasztasa()
     }
-
     elvagandoDrotKivalasztasa() {
         switch (this.wires.length) {
             case 3:
@@ -35,68 +38,69 @@ class SimpleWire extends Modul {
                 this.hatos()
                 break
         }
-        this.wires[joDrot].setJoDrot()
+        this.wires[this.joDrot].setJoDrot()
     }
     harmas() {
         if (this.nincsSzin("red")) {
-            joDrot = 1
+            this.joDrot = 1
         }
         else if (this.utolsoDrot("white")) {
-            joDrot = 2
+            this.joDrot = 2
         }
         else if (this.pontosanAnnyiSzin(2, "blue")) {
             if (this.wires[2].getColor() === "blue") {
-                joDrot = 2
+                this.joDrot = 2
             }
             else {
-                joDrot = 1
+                this.joDrot = 1
             }
         }
         else {
-            joDrot = 2
+            this.joDrot = 2
         }
     }
 
     negyes() {
         if (this.tobbMintSzin(1, "red") && this.szeriszamParosParatlan() === "paratlan") {
-            joDrot = 3
+            this.joDrot = 3
         }
         else if (this.utolsoDrot("yellow") && this.pontosanAnnyiSzin(0, "red") || this.pontosanAnnyiSzin(1, "blue")) {
-            joDrot = 0
+            this.joDrot = 0
         }
         else if (this.tobbMintSzin(1, "yellow")) {
-            joDrot = this.wires.length - 1
+            this.joDrot = this.wires.length - 1
         }
         else {
-            joDrot = 1
+            this.joDrot = 1
         }
     }
     otos() {
         if (this.utolsoDrot("black") && this.szeriszamParosParatlan() === "paratlan") {
-            joDrot = 3
+            this.joDrot = 3
+            console.log("OK")
         }
         else if (this.pontosanAnnyiSzin(1, "red") && this.tobbMintSzin(1, "yellow")) {
-            joDrot = 0
+            this.joDrot = 0
         }
         else if (this.nincsSzin("black")) {
-            joDrot = 1
+            this.joDrot = 1
         }
         else {
-            joDrot = 0
+            this.joDrot = 0
         }
     }
     hatos() {
         if (this.nincsSzin("yellow") && this.szeriszamParosParatlan() === "paratlan") {
-            joDrot = 2
+            this.joDrot = 2
         }
         else if (this.pontosanAnnyiSzin(1, "yellow") && this.tobbMintSzin(1, "white")) {
-            joDrot = 3
+            this.joDrot = 3
         }
         else if (this.nincsSzin("red")) {
-            joDrot = this.wires.length - 1
+            this.joDrot = this.wires.length - 1
         }
         else {
-            joDrot = 3
+            this.joDrot = 3
         }
     }
     pontosanAnnyiSzin(menny, szin) {
@@ -129,7 +133,12 @@ class SimpleWire extends Modul {
         return db > menny
     }
     utolsoDrot(szin) {
-        this.wires[this.wires.length - 1].getColor() === szin
+        if (this.wires[this.wires.length - 1].getColor() === szin) {
+            return true
+        }
+        else {
+            return false
+        }
     }
     szeriszamParosParatlan() {
         let utolso = this.bombaSerialNumber.substr(this.bombaSerialNumber.length - 1)
@@ -158,7 +167,7 @@ class OneWire {
                 if (this.getJoDrot()) {
                     this.szulo.setTeljesitve()
                 }
-                else{
+                else {
                     this.szulo.sendFault()
                 }
                 this.elem.append("<div class = 'wire-seged'><div class = 'wire-elvagva'></div></div>")
