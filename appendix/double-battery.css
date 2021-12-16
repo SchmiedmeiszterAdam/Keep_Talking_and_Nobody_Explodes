@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+.double-battery {
+    width: 250px;
+    height: 90px;
+    background-color: rgb(76, 100, 143);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 10px;
+    position: relative;
+}
+
+.double-battery::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 70%;
+    background-color: rgb(62,255,0);
+    top: 15%;
+    left: 2px;
+}
+
+.double-battery-tarolo {
+    width: 88%;
+    height: 90%;
+    background-color: rgb(33, 42, 59);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.double-battery-felso-tarolo, .double-battery-also-tarolo {
+    height: 48%;
+    width: 100%;
+    position: relative;
+}
+
+.double-battery-battery {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.double-battery-sarga {
+    width: 10%;
+    height: 100%;
+    background-color: rgb(237, 164, 30);
+}
+
+.double-battery-piros {
+    width: 70%;
+    height: 100%;
+    background-color: rgb(188, 68, 63);
+}
+
+.double-battery-valaszto {
+    width: 90%;
+    height: 4%;
+    background-color: rgb(76, 100, 143);
+}
+
+.double-battery-sarga:nth-child(1) {
+    border-right: 5px solid rgb(200, 145, 20);
+}
+
+.battery {
+    border-radius: 2px;
+}
+
+.double-battery-also-tarolo::after, .double-battery-felso-tarolo::after, .double-battery-also-tarolo::before, .double-battery-felso-tarolo::before {
+    position: absolute;
+    content: '';
+    background-color: rgb(169, 170, 169);
+}
+
+.double-battery-also-tarolo::after, .double-battery-felso-tarolo::after {
+    width: 6px;
+    height: 60%;
+    top: 20%;
+    left: -4px;
+}
+
+.double-battery-also-tarolo::before, .double-battery-felso-tarolo::before {
+    width: 4px;
+    height: 80%;
+    top: 10%;
+    right: -3px;
+}

@@ -94,13 +94,22 @@ class Bomba {
             const i = new Indicator(indicator, indicators[givenIndicator], lit)
             this.indicators.push(i)
         }
-        let portNumber = Math.floor(Math.random() * 3)
+        //let portNumber = Math.floor(Math.random() * 3)
         // for (let i = 0; i < portNumber.length; i++) {
         //     
         // }
-        let batteriesNumber = Math.floor(Math.random() * 4)
-        for (let i = 0; i < batteriesNumber; i++) {
-            this.batteries++
+        let batteryNumber = Math.floor(Math.random() * 4)
+        let batteryType
+        for (let i = 0; i < batteryNumber; i++) {
+            batteryType = Math.floor(Math.random() * 2)
+            if (batteryType === 0) {
+                $("#templates .double-battery").clone().appendTo(this.elem.find(this.givePlaceToApped()))
+                this.batteries +=2
+            }
+            else {
+                $("#templates .simple-battery").clone().appendTo(this.elem.find(this.givePlaceToApped()))
+                this.batteries++
+            }
         }
     }
     givePlaceToApped() {
@@ -121,7 +130,7 @@ class Bomba {
             }
         }
     }
-    getStrikes(){
+    getStrikes() {
         return this.strikes
     }
 }
