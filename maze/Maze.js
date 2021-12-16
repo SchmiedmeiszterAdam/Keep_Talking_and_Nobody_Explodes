@@ -124,7 +124,7 @@ class Maze extends Modul {
     constructor(elem, id, szulo) {
         super(elem, id, szulo)
         this.szektors = []
-        this.maze = mazes[7]
+        this.maze = mazes[Math.floor(Math.random() * mazes.length)]
         this.vilagitoSzektor1 = 0
         this.vilagitoSzektor2 = 0
         this.up = this.elem.find(".maze-gomb-1")

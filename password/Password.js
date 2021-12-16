@@ -7,20 +7,20 @@ class Password extends Modul {
         this.leLeptet = this.elem.find(".down")
         this.submitGomb = this.elem.find(".submit")
         this.szo = PasswordWords[Math.floor(Math.random() * PasswordWords.length)]
-        this.lettersPosition = [0,0,0,0,0]
+        this.lettersPosition = [0, 0, 0, 0, 0]
         this.betukLetrehozasa()
         this.kiIras()
         for (let i = 0; i < this.felLeptet.length; i++) {
-            this.elem.find(this.felLeptet[i]).on("click",()=>{
+            this.elem.find(this.felLeptet[i]).on("click", () => {
                 this.felfeleLeptet(i)
             })
         }
         for (let i = 0; i < this.leLeptet.length; i++) {
-            this.elem.find(this.leLeptet[i]).on("click",()=>{
+            this.elem.find(this.leLeptet[i]).on("click", () => {
                 this.lefeleLeptet(i)
             })
         }
-        this.submitGomb.on("click",()=>{
+        this.submitGomb.on("click", () => {
             this.ellenorzes()
         })
     }
@@ -37,7 +37,7 @@ class Password extends Modul {
                 }
                 else {
                     randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
-                    while(this.letters[j].includes(randomCharacter)){
+                    while (this.letters[j].includes(randomCharacter)) {
                         randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
                     }
                     this.letters[j][i] = randomCharacter
@@ -51,29 +51,29 @@ class Password extends Modul {
             this.elem.find(this.kijelzoBetuk[i]).html(this.letters[i][0])
         }
     }
-    lefeleLeptet(i){
+    lefeleLeptet(i) {
         this.lettersPosition[i]++
-        if(this.lettersPosition[i] === 6){
+        if (this.lettersPosition[i] === 6) {
             this.lettersPosition[i] = 0
         }
         this.elem.find(this.kijelzoBetuk[i]).html(this.letters[i][this.lettersPosition[i]])
     }
-    felfeleLeptet(i){
+    felfeleLeptet(i) {
         this.lettersPosition[i]--
-        if(this.lettersPosition[i] === -1){
+        if (this.lettersPosition[i] === -1) {
             this.lettersPosition[i] = 5
         }
         this.elem.find(this.kijelzoBetuk[i]).html(this.letters[i][this.lettersPosition[i]])
     }
-    ellenorzes(){
+    ellenorzes() {
         let szo = ""
         for (let i = 0; i < 5; i++) {
             szo += this.letters[i][this.lettersPosition[i]]
         }
-        if(szo == this.szo){
+        if (szo == this.szo) {
             this.setTeljesitve()
         }
-        else{
+        else {
             this.sendFault()
         }
     }

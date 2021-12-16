@@ -26,7 +26,7 @@ class Time {
             }
         }, 1000)
     }
-    idKiIras(){
+    idKiIras() {
         let masodperc = this.masodperc
         let perc = this.perc
         if (this.perc < 10) {

@@ -13,7 +13,7 @@ $(function () {
     let bombA = $(bombTemplate).appendTo("main")
     let bomb = new Bomba(bombA)
 
-    let bomb1 = [modulePossibilitys[0],modulePossibilitys[1],modulePossibilitys[2],modulePossibilitys[3],modulePossibilitys[4],modulePossibilitys[5],modulePossibilitys[6],modulePossibilitys[7],modulePossibilitys[8]]
+    let bomb1 = [modulePossibilitys[0], modulePossibilitys[1], modulePossibilitys[2], modulePossibilitys[3], modulePossibilitys[4], modulePossibilitys[5], modulePossibilitys[6], modulePossibilitys[7], modulePossibilitys[8]]
     keveres(bomb1)
     for (let i = 0; i < bomb1.length; i++) {
         bomb.createModule($(bomb1[i].template), bomb1[i].className)
@@ -51,5 +51,5 @@ $(function () {
 
         return tomb;
     }
-    
+
 })

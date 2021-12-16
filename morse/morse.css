@@ -1,10 +1,11 @@
 @charset "utf-8";
-.morse-code{
+
+.morse-code {
     display: grid;
     place-items: center;
 }
 
-.morse-code-tarolo{
+.morse-code-tarolo {
     width: 95%;
     height: 95%;
     display: flex;
@@ -12,102 +13,119 @@
     align-items: center;
     justify-content: space-evenly;
 }
-.morse-lampa-kulso-tarolo{
+
+.morse-lampa-kulso-tarolo {
     width: 100%;
     height: 25%;
 }
-.morse-lampa-tarolo{
+
+.morse-lampa-tarolo {
     width: 45%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.morse-lampa-bal-csatlakozo,.morse-lampa-jobb-csatlakozo{
+
+.morse-lampa-bal-csatlakozo, .morse-lampa-jobb-csatlakozo {
     width: 20%;
     height: 65%;
-    background-color: rgb(55,40,32);
+    background-color: rgb(55, 40, 32);
 }
-.morse-lampa-bal-csatlakozo{
+
+.morse-lampa-bal-csatlakozo {
     border-radius: 50px 0 0 50px;
 }
-.morse-lampa-jobb-csatlakozo{
+
+.morse-lampa-jobb-csatlakozo {
     border-radius: 0 50px 50px 0;
 }
-.morse-lampa{
+
+.morse-lampa {
     width: 50%;
     height: 65%;
-    background-color: rgb(121,65,42);
+    background-color: rgb(121, 65, 42);
     border-radius: 2px;
 }
-.morse-lampa-jobb-fem,.morse-lampa-bal-fem{
+
+.morse-lampa-jobb-fem, .morse-lampa-bal-fem {
     width: 8%;
     height: 90%;
-    background-color: rgb(92,84,91);
+    background-color: rgb(92, 84, 91);
     border-radius: 2px;
 }
-.morse-mhz-tarolo{
+
+.morse-mhz-tarolo {
     width: 100%;
     height: 40%;
     display: grid;
     place-items: center;
-    background-color: rgb(85,90,99);
+    background-color: rgb(85, 90, 99);
 }
-.morse-mhz-skala-tarolo{
+
+.morse-mhz-skala-tarolo {
     width: 90%;
     height: 40%;
     display: grid;
     position: relative;
 }
-.morse-mhz-skala-jelzo{
+
+.morse-mhz-skala-jelzo {
     width: 8px;
     height: 40px;
-    background-color: rgb(156,0,0);
+    background-color: rgb(156, 0, 0);
     position: absolute;
     top: -10px;
     left: 0;
 }
-.morse-mhz-skala{
+
+.morse-mhz-skala {
     width: 100%;
     height: 100%;
-    background-color: rgb(247,220,192);
+    background-color: rgb(247, 220, 192);
 }
-.morse-mhz-jelzo-tarolo{
+
+.morse-mhz-jelzo-tarolo {
     width: 95%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.morse-mhz-bal{
+
+.morse-mhz-bal {
     border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent; 
-    border-right:25px solid rgb(34,35,50);
+    border-bottom: 30px solid transparent;
+    border-right: 25px solid rgb(34, 35, 50);
 }
-.morse-mhz-jobb{
+
+.morse-mhz-jobb {
     border-top: 30px solid transparent;
-    border-bottom: 30px solid transparent; 
-    border-left:25px solid rgb(34,35,50);
+    border-bottom: 30px solid transparent;
+    border-left: 25px solid rgb(34, 35, 50);
 }
-.morse-mhz-kijelzo{
+
+.morse-mhz-kijelzo {
     height: 55px;
     width: 75%;
     background-color: black;
-    color: rgb(223,106,6);
+    color: rgb(223, 106, 6);
     display: grid;
     place-items: center;
     font-size: 30px;
     letter-spacing: 4px;
 }
-.morse-gomb-tarolo{
+
+.morse-gomb-tarolo {
     width: 100%;
     height: auto;
     display: grid;
     place-items: center;
 }
-.morse-ok{
+
+.morse-ok {
     width: 27%;
     aspect-ratio: 2/1;
-    background-color: rgb(193,173,140);
+    background-color: rgb(193, 173, 140);
     font-size: 30px;
 }

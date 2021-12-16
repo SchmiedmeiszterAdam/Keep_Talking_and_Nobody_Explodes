@@ -109,7 +109,7 @@ class Memory extends Modul {
                     break
                 case 5:
                     if (this.stage5(gombSzam)) {
-                        
+
                         this.eltarol(gombSzam, pozicio)
                         this.ujStage()
                     }

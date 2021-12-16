@@ -1,11 +1,12 @@
-#ido-modul{
+#ido-modul {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     background-color: rgb(26, 29, 32);
 }
-#ido-kijelzo{
+
+#ido-kijelzo {
     width: 90%;
     height: 75%;
     box-shadow: 0 0 5px 8px inset #999, 0px 0px 5px 8px #999;
@@ -14,23 +15,26 @@
     place-items: center;
     background-color: rgb(23, 5, 8);
 }
-#strikes{
+
+#strikes {
     box-shadow: 0 0 2px 5px inset #999, 0px 0px 2px 5px #999;
     border: 2px solid rgb(175, 175, 175);
     width: 40%;
     height: 20%;
-    background-color: rgb(40,8,5);
+    background-color: rgb(40, 8, 5);
     display: flex;
     font-size: 60px;
 }
-#ido{
+
+#ido {
     font-family: 'Dismay';
     color: red;
     font-size: 125px;
     letter-spacing: 15px;
     margin-left: 15px;
 }
-#strikes > *{
+
+#strikes>* {
     width: 50%;
     height: 100%;
     color: black;

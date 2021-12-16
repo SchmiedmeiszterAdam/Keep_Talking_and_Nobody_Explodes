@@ -6,15 +6,15 @@ const szinek = [
     { "name": "red", "color": "rgb(246, 10, 7)" }]
 let joDrot = 0
 class SimpleWire extends Modul {
-    constructor(elem, id,szulo) {
-        super(elem, id,szulo)
+    constructor(elem, id, szulo) {
+        super(elem, id, szulo)
         this.wires = []
         this.bombaSerialNumber = this.bomba.szeriszam
         let db = Math.floor(Math.random() * 4) + 3
         let szuloELem = $(this.elem.find('.wires'))
         for (let i = 1; i <= db; i++) {
             const ujWire = $('<div class="wire wire-' + i + '"></div>').appendTo(szuloELem)
-            const wire = new OneWire(ujWire, i - 1,this)
+            const wire = new OneWire(ujWire, i - 1, this)
             this.wires.push(wire)
         }
         this.elvagandoDrotKivalasztasa()
@@ -142,7 +142,7 @@ class SimpleWire extends Modul {
     }
 }
 class OneWire {
-    constructor(elem, id,szulo) {
+    constructor(elem, id, szulo) {
         this.id = id
         this.elem = elem
         this.joDrot = false
@@ -163,9 +163,9 @@ class OneWire {
                     this.szulo.led.css("background-color", "red")
                     this.szulo.sendFault()
                 }
-                if(this.szulo.getTeljesitve() && !this.getJoDrot()){
+                if (this.szulo.getTeljesitve() && !this.getJoDrot()) {
                     this.szulo.led.css("background-color", "red")
-                    setTimeout(()=>{this.szulo.led.css("background-color", "green")},1000)
+                    setTimeout(() => { this.szulo.led.css("background-color", "green") }, 1000)
                     this.szulo.sendFault()
                 }
                 this.elem.append("<div class = 'wire-seged'><div class = 'wire-elvagva'></div></div>")

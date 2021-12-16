@@ -161,7 +161,7 @@ class WhosOnFirstButton {
         this.elem = elem
         this.id = id
         this.szoveg = szoveg
-        this.elem.append("<h1>"+this.szoveg+"</h1>")
+        this.elem.append("<h1>" + this.szoveg + "</h1>")
         this.jo = false
         this.elem.on("click", () => {
             if (!this.szulo.getTeljesitve()) {

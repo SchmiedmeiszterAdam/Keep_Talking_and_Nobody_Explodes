@@ -63,11 +63,11 @@ class Morse extends Modul {
             }
         })
         this.gomb.on("click", () => {
-            if(this.frekvrencia == words[this.hzLeptetes].hz){
+            if (this.frekvrencia == words[this.hzLeptetes].hz) {
                 this.setTeljesitve()
                 clearInterval(this.interval)
             }
-            else{
+            else {
                 this.sendFault()
             }
         })
@@ -127,6 +127,6 @@ class Morse extends Modul {
     }
     hzLeptet() {
         this.kijelzo.html(words[this.hzLeptetes].hz + " MHz")
-        this.skalaJelzo.css("left", this.hzLeptetes *23.1 + "px")
+        this.skalaJelzo.css("left", this.hzLeptetes * 23.1 + "px")
     }
 }

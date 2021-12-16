@@ -104,7 +104,7 @@ class Bomba {
             batteryType = Math.floor(Math.random() * 2)
             if (batteryType === 0) {
                 $("#templates .double-battery").clone().appendTo(this.elem.find(this.givePlaceToApped()))
-                this.batteries +=2
+                this.batteries += 2
             }
             else {
                 $("#templates .simple-battery").clone().appendTo(this.elem.find(this.givePlaceToApped()))

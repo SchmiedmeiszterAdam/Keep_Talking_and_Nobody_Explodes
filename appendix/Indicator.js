@@ -20,7 +20,7 @@ class Indicator {
     }
 }
 class SerialNumber {
-    constructor(elem,bomb) {
+    constructor(elem, bomb) {
         this.bomb = bomb
         this.elem = elem
         this.giveText()

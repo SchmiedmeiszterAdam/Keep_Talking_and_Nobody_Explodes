@@ -128,18 +128,18 @@ class SimonSays extends Modul {
     }
     gombokLetrehozasa() {
         const gombSzinNevek = ["red", "blue", "green", "yellow"]
-        const gombSzinek = ["rgb(150,1,21)","rgb(0,1,148)","rgb(44,176,12)","rgb(215,175,0)"]
+        const gombSzinek = ["rgb(150,1,21)", "rgb(0,1,148)", "rgb(44,176,12)", "rgb(215,175,0)"]
         const villagosSzinek = ["rgb(218,67,36)", "rgb(20,100,208)", "rgb(46, 254, 52)", "rgb(247, 244, 62)"]
         for (let index = 0; index < 4; index++) {
             const gombElem = $("<div class='" + gombSzinNevek[index] + "-gomb simon-says-gomb'></div>")
             const ujelem = $(gombElem).appendTo(this.szuloElem)
-            const gomb = new SimonSaysGombok(ujelem, index, this, gombSzinNevek[index], villagosSzinek[index],gombSzinek[index])
+            const gomb = new SimonSaysGombok(ujelem, index, this, gombSzinNevek[index], villagosSzinek[index], gombSzinek[index])
             this.gombok.push(gomb)
         }
     }
 }
 class SimonSaysGombok {
-    constructor(elem, id, szulo, szinNev, vilagosSzin,szin) {
+    constructor(elem, id, szulo, szinNev, vilagosSzin, szin) {
         this.elem = elem
         this.id = id
         this.szulo = szulo
