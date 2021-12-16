@@ -51,7 +51,13 @@ class Bomba {
     }
     createModules(modules, perc, masodperc) {
         this.keveres(modules)
-        let timeModulePosition = Math.floor(Math.random() * 6)
+        let timeModulePosition
+        if (modules.length < 5) {
+            timeModulePosition = Math.floor(Math.random() * modules.length)
+        }
+        else {
+            timeModulePosition = Math.floor(Math.random() * 6)
+        }
         modules.push(modules[timeModulePosition])
         modules[timeModulePosition] = { "template": "#templates #ido-modul", "className": Time }
         for (let i = 0; i < modules.length; i++) {
@@ -65,6 +71,7 @@ class Bomba {
                 modules[i] = modul
             }
         }
+
         let newModule
         let module
         for (let k = 0; k < modules.length; k++) {
@@ -82,6 +89,35 @@ class Bomba {
             }
             if (k === 5) {
                 this.gyerek = $("#hatresz")
+            }
+        }
+        let random = Math.floor(Math.random() * 5)
+        if (modules.length < 6) {
+            for (let i = 0; i < 6 - modules.length; i++) {
+                random = Math.floor(Math.random() * 5)
+                while ($("#eloresz .modul").eq(random).attr('class') === undefined) {
+                    random = Math.floor(Math.random() * 5)
+                }
+                console.log($("#eloresz .modul").eq(random).attr('class'))
+                $("#eloresz .modul").eq(random).after($("#templates .ures").clone())
+            }
+            for (let i = 0; i < 6; i++) {
+                $("#templates .ures").clone().appendTo("#hatresz")
+            }
+        }
+        else if (modules.length === 5) {
+            for (let i = 0; i < 6; i++) {
+                $("#templates .ures").clone().appendTo("#hatresz")
+            }
+        }
+        else {
+            for (let i = 0; i < 12 - modules.length; i++) {
+                random = Math.floor(Math.random() * 5)
+                while ($("#eloresz .modul").eq(random).attr('class') === undefined) {
+                    random = Math.floor(Math.random() * 5)
+                }
+                $("#hatresz .modul").eq(random).after($("#templates .ures").clone())
+                $("#templates .ures").clone().appendTo("#hatresz")
             }
         }
     }
