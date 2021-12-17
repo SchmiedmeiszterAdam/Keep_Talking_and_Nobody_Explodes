@@ -235,41 +235,33 @@ class Maze extends Modul {
         let sablon
         let ujSzektor
         let szektor
-        let haromszogHely1 = Math.floor(Math.random() * 11)
-        let haromszogHely2 = Math.floor(Math.random() * 11)
-        while (this.maze[haromszogHely1][haromszogHely2] != 0 && this.maze[haromszogHely1][haromszogHely2] != 3) {
-            haromszogHely1 = Math.floor(Math.random() * 11)
-            haromszogHely2 = Math.floor(Math.random() * 11)
-        }
-        if (this.maze[haromszogHely1][haromszogHely2] === 0) {
-            this.maze[haromszogHely1][haromszogHely2] = 4
-            /* 4:sima szektoron van a piros háromszög */
-        }
-        else {
-            this.maze[haromszogHely1][haromszogHely2] = 6
-            /* 6:zöld körben van a piros háromszög */
-        }
         let mazeTomb = []
+        let t1 = Math.floor(Math.random() * 11)
+        let t2 = Math.floor(Math.random() * 11)
+        while (t1 % 2 != 0 || t2 % 2 != 0) {
+            t1 = Math.floor(Math.random() * 11)
+            t2 = Math.floor(Math.random() * 11)
+        }
         for (let i = 0; i < this.maze.length; i += 2) {
             for (let j = 0; j < this.maze[i].length; j += 2) {
-                if (this.maze[i][j] === 0) {
-                    sablon = $("<div class='maze-szektor'></div>")
-                    ujSzektor = sablon.appendTo(szulo)
-                    szektor = new MazeSzektor(ujSzektor)
-                } else if (this.maze[i][j] === 3) {
-                    sablon = $("<div class='maze-szektor maze-szektor-circle'></div>")
-                    ujSzektor = sablon.appendTo(szulo)
-                    szektor = new MazeSzektor(ujSzektor)
-                }
-                else if (this.maze[i][j] === 6) {
-                    sablon = $("<div class='maze-szektor-triangle maze-szektor-circle'></div>")
+                if (i == t1 && t2 == j) {
+                    if (this.maze[i][j] === 0) {
+                        sablon = $("<div class='maze-szektor-triangle'></div>")
+                    }
+                    else {
+                        sablon = $("<div class='maze-szektor-triangle maze-szektor-circle'></div>")
+                    }
                     ujSzektor = sablon.appendTo(szulo)
                     szektor = new MazeTriangle(ujSzektor)
                 }
-                else if (this.maze[i][j] === 4) {
-                    sablon = $("<div class='maze-szektor-triangle'></div>")
+                else {
+                    if (this.maze[i][j] === 0) {
+                        sablon = $("<div class='maze-szektor'></div>")
+                    } else if (this.maze[i][j] === 3) {
+                        sablon = $("<div class='maze-szektor maze-szektor-circle'></div>")
+                    }
                     ujSzektor = sablon.appendTo(szulo)
-                    szektor = new MazeTriangle(ujSzektor)
+                    szektor = new MazeSzektor(ujSzektor)
                 }
                 mazeTomb.push(szektor)
             }

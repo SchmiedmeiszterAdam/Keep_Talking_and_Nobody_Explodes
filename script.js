@@ -13,6 +13,6 @@ $(function () {
     let bombA = $(bombTemplate).appendTo("main")
     let bomb = new Bomba(bombA)
 
-    let bomb1 = [modulePossibilitys[0], modulePossibilitys[1], modulePossibilitys[2], modulePossibilitys[3],/* modulePossibilitys[4], modulePossibilitys[5], modulePossibilitys[6], modulePossibilitys[7], modulePossibilitys[8]*/]
+    let bomb1 = [modulePossibilitys[0], modulePossibilitys[1], modulePossibilitys[2], modulePossibilitys[3],modulePossibilitys[4], modulePossibilitys[5], modulePossibilitys[6], modulePossibilitys[7], modulePossibilitys[8]]
     bomb.createModules(bomb1, 5, 0)
 })
