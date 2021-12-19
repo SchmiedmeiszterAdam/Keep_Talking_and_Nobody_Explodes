@@ -93,8 +93,8 @@ main {
 }
 
 .ures-tarolo {
-    width: 100%;
-    height: 100%;
+    width: 98%;
+    height: 98%;
     display: flex;
     justify-content: space-evenly;
     background-color: rgb(148, 73, 39);
@@ -107,23 +107,23 @@ main {
 }
 
 .ures-pocok-1 {
-    top: -5px;
-    left: -5px;
+    top: 0;
+    left: 0;
 }
 
 .ures-pocok-2 {
-    bottom: -5px;
-    left: -5px;
+    bottom: 2px;
+    left: 2px;
 }
 
 .ures-pocok-3 {
-    bottom: -5px;
-    right: -5px;
+    bottom: 2px;
+    right: 2px;
 }
 
 .ures-pocok-4 {
-    top: -5px;
-    right: -5px;
+    top: 2px;
+    right: 2px;
 }
 
 nav {

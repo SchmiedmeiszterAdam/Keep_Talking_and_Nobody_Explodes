@@ -5,15 +5,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background-color: rgb(52, 56, 76);
+    background-color: rgb(56, 61, 83);
     bottom: 5px;
 }
 
 .csatlakozo {
     width: 50%;
     aspect-ratio: 1/1;
-    background-color: rgb(92, 100, 105);
+    background-color: rgb(79, 84, 86);
     border-radius: 6px;
+    position: relative;
+}
+
+.csatlakozo::after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    background-color: rgb(25,3,31);
 }
 
 .bal-sor {
@@ -47,36 +58,36 @@
 .wire-1 {
     width: 331px;
     top: 55.5px;
-    transform: rotate(9.4deg);
+    transform: rotate(9.38deg);
 }
 
 .wire-2 {
     width: 80%;
-    top: 116.8px;
-    transform: rotate(7.6deg);
+    top: 116.1px;
+    transform: rotate(7.8deg);
 }
 
 .wire-3 {
     width: 80%;
-    top: 177.5px;
-    transform: rotate(6deg);
+    top: 176.5px;
+    transform: rotate(6.3deg);
 }
 
 .wire-4 {
     width: 80%;
-    top: 238.2px;
-    transform: rotate(4.5deg);
+    top: 237.6px;
+    transform: rotate(4.6deg);
 }
 
 .wire-5 {
     width: 80%;
-    top: 298.9px;
-    transform: rotate(2.8deg);
+    top: 298px;
+    transform: rotate(3.1deg);
 }
 
 .wire-6 {
     width: 80%;
-    top: 359.6px;
+    top: 358.5px;
     transform: rotate(1.5deg);
 }
 
