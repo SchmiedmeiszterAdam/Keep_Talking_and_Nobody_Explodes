@@ -52,6 +52,12 @@
     height: 75%;
     color: red;
     font-family: 'Dismay';
+    display: grid;
+    place-items: center;
+}
+
+.knob-ido{
+    font-size: 50px;
 }
 
 .knob-also-tarolo {
@@ -135,6 +141,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transform: rotateZ(180deg);
 }
 
 .knob-bal-led-tarolo {
@@ -189,7 +196,7 @@
 .knob-led {
     width: 90%;
     aspect-ratio: 1/1;
-    background-color: green;
+    background-color: rgb(13,63,19);
     border-radius: 50%;
     border: 2px solid rgb(63, 76, 104)
 }
