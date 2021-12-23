@@ -4,12 +4,11 @@ class Time {
         this.szulo = szulo
         this.perc = perc
         this.masodperc = masodperc
-        this.idoIras
         this.kijelzo = this.elem.find("#ido")
         this.szamolas()
     }
     szamolas() {
-        this.idKiIras()
+        this.idoKiIras()
         setTimeout(() => {
             this.idoKijelzes()
         }, 2000)
@@ -21,13 +20,13 @@ class Time {
                 this.perc--
                 this.masodperc = 59
             }
-            this.idKiIras()
+            this.idoKiIras()
             if (this.perc === 0 && this.masodperc === 0) {
                 this.stop()
             }
         }, 1000)
     }
-    idKiIras() {
+    idoKiIras() {
         let masodperc = this.masodperc
         let perc = this.perc
         if (this.perc < 10) {

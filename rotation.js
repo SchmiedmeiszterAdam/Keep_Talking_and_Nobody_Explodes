@@ -20,14 +20,8 @@ $(function () {
             if (sideCounter === 0) {
                 $("#eloresz").css("display", "grid")
             }
-            else if (sideCounter === 1) {
-                $("#bal-oldal").css("display", "flex")
-            }
-            else if (sideCounter === 2) {
+            else{
                 $("#hatresz").css("display", "grid")
-            }
-            else {
-                $("#jobb-oldal").css("display", "flex")
             }
         }
         if (upDownCounter > 0) {
@@ -48,20 +42,13 @@ $(function () {
             if (sideCounter === 0) {
                 $("#eloresz").css("display", "grid")
             }
-            else if (sideCounter === 1) {
-                $("#bal-oldal").css("display", "flex")
-            }
-            else if (sideCounter === 2) {
+            else{
                 $("#hatresz").css("display", "grid")
-            }
-            else {
-                $("#jobb-oldal").css("display", "flex")
             }
         }
         if (upDownCounter < 2) {
             $("#bomb-rotation-up").css("display", "grid")
         }
-
 
     }
     function rotateLeft() {

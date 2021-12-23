@@ -1,10 +1,16 @@
+const indicators = ["SND", "CLR", "CAR", "IND", "FRQ", "SIG", "NSA", "MSA", "TRN", "BOB", "FRK"]
+const ports = [{ "template": "#templates .dvi-d", "name": "DVI-D" },
+{ "template": "#templates .parallel", "name": "Parallel" },
+{ "template": "#templates .ps-2", "name": "PS/2" },
+{ "template": "#templates .serial", "name": "Serial" },
+{ "template": "#templates .stereo-rca", "name": "Stereo RCA" },]
 class Indicator {
-    constructor(elem, text, lit) {
+    constructor(elem) {
         this.elem = elem
-        this.text = text
-        this.lit = lit
         this.light = this.elem.find(".light")
-        if (this.lit === 0) {
+        this.text = indicators[Math.floor(Math.random() * indicators.length)]
+        this.lit = Math.random() < 0.5
+        if (this.lit) {
             this.light.css("background", "white")
         }
         else {
@@ -20,23 +26,28 @@ class Indicator {
     }
 }
 class SerialNumber {
-    constructor(elem, bomb) {
-        this.bomb = bomb
-        this.elem = elem
+    constructor() {
+        this.serial = ""
         this.giveText()
     }
     giveText() {
-        let serial = ""
         const abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for (let i = 0; i < 6; i++) {
             if (i === 2 || i === 5) {
                 let number = Math.floor(Math.random() * 10)
-                serial += number.toString()
+                this.serial += number.toString()
             }
             else {
-                serial += abc[Math.floor(Math.random() * abc.length)]
+                this.serial += abc[Math.floor(Math.random() * abc.length)]
             }
         }
-        this.bomb.szeriszam = serial
+    }
+    getSerial() {
+        return this.serial
+    }
+}
+class Port {
+    constructor() {
+
     }
 }

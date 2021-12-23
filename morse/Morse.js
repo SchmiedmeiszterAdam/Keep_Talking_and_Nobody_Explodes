@@ -66,6 +66,7 @@ class Morse extends Modul {
             if (this.frekvrencia == words[this.hzLeptetes].hz) {
                 this.setTeljesitve()
                 clearInterval(this.interval)
+                clearTimeout(this.timeout)
             }
             else {
                 this.sendFault()
@@ -95,7 +96,7 @@ class Morse extends Modul {
             this.codeIras(this.codes[this.szamlalo - 1])
         }
         else {
-            setTimeout(() => {
+            this.timeout = setTimeout(() => {
                 this.villogtat()
             }, 5000)
         }

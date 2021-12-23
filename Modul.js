@@ -3,7 +3,7 @@ class Modul {
         this.teljesitve = false
         this.bomba = bomba
         this.elem = elem
-        this.aktiv = false
+        //this.aktiv = false
         this.led = this.elem.find('.kesz')
 
         // this.elem.on("mouseenter", () => {
@@ -19,20 +19,20 @@ class Modul {
         //     console.log(this.aktiv)
         // })
     }
-    setAktiv() {
-        if (this.aktiv) {
-            this.aktiv = false
-            this.elem.removeClass("aktiv")
-        }
-        else {
-            this.aktiv = true
-            this.elem.removeClass("hover-class")
-            this.elem.addClass("aktiv")
-        }
-    }
-    getAktiv() {
-        return this.aktiv
-    }
+    // setAktiv() {
+    //     if (this.aktiv) {
+    //         this.aktiv = false
+    //         this.elem.removeClass("aktiv")
+    //     }
+    //     else {
+    //         this.aktiv = true
+    //         this.elem.removeClass("hover-class")
+    //         this.elem.addClass("aktiv")
+    //     }
+    // }
+    // getAktiv() {
+    //     return this.aktiv
+    // }
     setTeljesitve() {
         this.teljesitve = true
         this.led.css("background-color", "rgb(25,239,81)")

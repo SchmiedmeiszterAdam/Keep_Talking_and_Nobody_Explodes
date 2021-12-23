@@ -26,8 +26,7 @@ class Password extends Modul {
     }
     betukLetrehozasa() {
         const alphabet = "abcdefghijklmnopqrstuvwxyz"
-        let randomCharacter
-        let random
+        let randomCharacter,random
         this.letters = [[], [], [], [], []]
         for (let j = 0; j < this.letters.length; j++) {
             random = Math.floor(Math.random() * 6)

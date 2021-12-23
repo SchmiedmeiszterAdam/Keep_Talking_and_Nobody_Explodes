@@ -1,15 +1,15 @@
-buttonColors = ["white", "blue", "red", "yellow"]
-buttonTexts = ["ABORT", "HOLD", "DETONATE", "PRESS"]
+const buttonColors = ["white", "blue", "red", "yellow"]
+const buttonTexts = ["ABORT", "HOLD", "DETONATE", "PRESS"]
 class Button extends Modul {
     constructor(elem, szulo) {
         super(elem, szulo)
         this.indicator = this.elem.find(".button-color-indicator")
+        this.button = this.elem.find(".button-button")
+        this.text = this.elem.find(".button-text")
         this.indicatorColor = buttonColors[Math.floor(Math.random() * buttonColors.length)]
         this.color = buttonColors[Math.floor(Math.random() * buttonColors.length)]
         this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)]
-        this.button = this.elem.find(".button-button")
         this.buttonIsDown = false
-        this.text = this.elem.find(".button-text")
 
         this.timeoutId = 0
         this.button.css("background-color", this.color)
@@ -75,18 +75,13 @@ class Button extends Modul {
                     ok = true
                 }
             }
-            else if (this.indicatorColor === "white") {
+            else if (this.indicatorColor === "white" || this.indicatorColor === "red") {
                 if (this.timeContains('1')) {
                     ok = true
                 }
             }
             else if (this.indicatorColor === "yellow") {
                 if (this.timeContains('5')) {
-                    ok = true
-                }
-            }
-            else {
-                if (this.timeContains('1')) {
                     ok = true
                 }
             }

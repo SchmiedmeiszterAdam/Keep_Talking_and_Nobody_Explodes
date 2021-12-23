@@ -11,9 +11,13 @@ class Keypad extends Modul {
         super(elem, szulo)
         this.szuloElem = this.elem.find(".keypads-tarolo")
         this.adottSzimbolumOszlop = szimbolumcolumn[Math.floor(Math.random() * szimbolumcolumn.length)]
-        this.gombok = []
         this.kattintasSzamol = 0
+        this.gombokLetrehozasa()
+        this.sorrendMeghatarozas()
+    }
 
+    gombokLetrehozasa() {
+        this.gombok = []
         this.kivalasztottSzimbolumok = []
         for (let index = 0; index < 4; index++) {
             let kapottSzimbolum = this.adottSzimbolumOszlop[Math.floor(Math.random() * this.adottSzimbolumOszlop.length)]
@@ -22,13 +26,11 @@ class Keypad extends Modul {
             }
             this.kivalasztottSzimbolumok.push(kapottSzimbolum)
             const gombSablon = $('<div class="keypads-gomb"><div class="keypads-gomb-indikator"></div></div>').appendTo(this.szuloElem)
-            const gomb = new KeypadButton(gombSablon, index, this, kapottSzimbolum)
-            this.gombok.push(gomb)
+            this.gombok.push(new KeypadButton(gombSablon, index, this, kapottSzimbolum))
         }
-        this.gombokSorrendben = []
-        this.sorrendMeghatarozas()
     }
     sorrendMeghatarozas() {
+        this.gombokSorrendben = []
         for (let i = 0; i < this.adottSzimbolumOszlop.length; i++) {
             for (let k = 0; k < this.kivalasztottSzimbolumok.length; k++) {
                 if (this.adottSzimbolumOszlop[i] === this.kivalasztottSzimbolumok[k]) {

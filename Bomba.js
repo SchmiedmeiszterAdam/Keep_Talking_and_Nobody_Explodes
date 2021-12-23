@@ -14,29 +14,22 @@ const appendSlots = [
     "#alja-felso-kozep-appendix",
     "#alja-felso-jobb-appendix",
 ]
-const ports = [{ "template": "#templates .dvi-d", "name": "DVI-D" },
-{ "template": "#templates .parallel", "name": "Parallel" },
-{ "template": "#templates .ps-2", "name": "PS/2" },
-{ "template": "#templates .serial", "name": "Serial" },
-{ "template": "#templates .stereo-rca", "name": "Stereo RCA" },]
-const indicators = ["SND", "CLR", "CAR", "IND", "FRQ", "SIG", "NSA", "MSA", "TRN", "BOB", "FRK"]
 class Bomba {
     constructor(elem) {
         this.elem = elem
-        this.elem.find("#eloresz").empty()
-        this.elem.find("#hatresz").empty()
-        this.elem.find(".appendix").empty()
-        this.modules = []
         this.szeriszam = ""
         this.strikes = 0
-        this.gyerek = $("#eloresz")
         this.modulokKesz = 0
         this.moduleSzam = 0
         this.batteries = 0
+        this.modules = []
         this.portok = []
         this.indicators = []
+        this.elem.find("#eloresz").empty()
+        this.elem.find("#hatresz").empty()
+        this.elem.find(".appendix").empty()
+        this.gyerek = $("#eloresz")
         this.appendix()
-        this.elem.find(".serial-number").html(this.szeriszam)
     }
     modulesCheck() {
         let db = 0
@@ -51,7 +44,7 @@ class Bomba {
     }
     createModules(modules, perc, masodperc) {
         this.keveres(modules)
-        let timeModulePosition
+        let timeModulePosition, newModule, module
         if (modules.length < 5) {
             timeModulePosition = Math.floor(Math.random() * modules.length)
         }
@@ -60,6 +53,7 @@ class Bomba {
         }
         modules.push(modules[timeModulePosition])
         modules[timeModulePosition] = { "template": "#templates #ido-modul", "className": Time }
+
         for (let i = 0; i < modules.length; i++) {
             if (modules[i].template == "#templates .button") {
                 let hely = Math.floor(Math.random() * 5)
@@ -72,8 +66,6 @@ class Bomba {
             }
         }
 
-        let newModule
-        let module
         for (let k = 0; k < modules.length; k++) {
             if (modules[k].template == "#templates #ido-modul") {
                 newModule = $(modules[k].template).clone().prependTo(this.gyerek)
@@ -136,35 +128,42 @@ class Bomba {
         }
     }
     appendix() {
-        const serial = $("#templates .serial-modul").clone().appendTo(this.elem.find(this.givePlaceToApped()))
-        let s = new SerialNumber(serial, this)
-        let indicatorNumber = Math.floor(Math.random() * 3)
-
-        for (let i = 0; i < indicatorNumber; i++) {
-            let givenIndicator = Math.floor(Math.random() * indicators.length)
+        this.createSerialNumber()
+        this.createIndicators()
+        this.createBatterys()
+    }
+    createSerialNumber() {
+        $("#templates .serial-modul").clone().appendTo(this.elem.find(this.givePlaceToApped()))
+        this.szeriszam = new SerialNumber().getSerial()
+        this.elem.find(".serial-number").html(this.szeriszam)
+    }
+    createIndicators() {
+        for (let i = 0; i < Math.floor(Math.random() * 5); i++) {
             const indicator = $("#templates .indicator").clone().appendTo(this.elem.find(this.givePlaceToApped()))
-            let lit = Math.floor(Math.random() * 2)
-            const i = new Indicator(indicator, indicators[givenIndicator], lit)
-            this.indicators.push(i)
+            this.indicators.push(new Indicator(indicator))
         }
-        //let portNumber = Math.floor(Math.random() * 3)
-        // for (let i = 0; i < portNumber.length; i++) {
-        //     
-        // }
-        let batteryNumber = Math.floor(Math.random() * 4)
-        let batteryType
-        for (let i = 0; i < batteryNumber; i++) {
-            batteryType = Math.floor(Math.random() * 2)
-            if (batteryType === 0) {
-                $("#templates .double-battery").clone().appendTo(this.elem.find(this.givePlaceToApped()))
+    }
+    createBatterys() {
+        let sablon
+        for (let i = 0; i < Math.floor(Math.random() * 5); i++) {
+            let batteryType = Math.random() < 0.5
+            if (batteryType) {
+                sablon = $("#templates .double-battery")
                 this.batteries += 2
             }
             else {
-                $("#templates .simple-battery").clone().appendTo(this.elem.find(this.givePlaceToApped()))
+                sablon = $("#templates .simple-battery")
                 this.batteries++
             }
+            sablon.clone().appendTo(this.elem.find(this.givePlaceToApped()))
         }
     }
+    createPorts() {
+        // for (let i = 0; i < Math.floor(Math.random() * 5); i++) {
+        //     
+        // }
+    }
+
     givePlaceToApped() {
         let place = appendSlots[Math.floor(Math.random() * appendSlots.length)]
         while (!$(place).children().length == 0) {
@@ -174,31 +173,25 @@ class Bomba {
     }
 
     litIndicator(name) {
-        for (let i = 0; i < this.indicators.length; i++) {
-            if (this.indicators[i].getName() === name && this.indicators[i].getLit() === 0) {
-                return true
-            }
-            else {
-                return false
-            }
+        let i = 0
+        while (i < this.indicators.length && !(this.indicators[i].getName() === name && this.indicators[i].getLit())) {
+            i++
         }
+        return i < this.indicators.length
     }
     getStrikes() {
         return this.strikes
     }
     keveres(tomb) {
-        var currentIndex = tomb.length, randomIndex;
-
+        let currentIndex = tomb.length, randomIndex;
         while (currentIndex != 0) {
-
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
-
-            [tomb[currentIndex], tomb[randomIndex]] = [
-                tomb[randomIndex], tomb[currentIndex]];
+            [tomb[currentIndex], tomb[randomIndex]] = [tomb[randomIndex], tomb[currentIndex]];
         }
-
         return tomb;
     }
-
+    getSerialNumber(){
+        return this.szeriszam
+    }
 }

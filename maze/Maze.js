@@ -123,32 +123,32 @@ const mazes = [
 class Maze extends Modul {
     constructor(elem, szulo) {
         super(elem, szulo)
-        this.szektors = []
-        this.maze = mazes[Math.floor(Math.random() * mazes.length)]
-        this.vilagitoSzektor1 = 0
-        this.vilagitoSzektor2 = 0
         this.up = this.elem.find(".maze-gomb-1")
         this.left = this.elem.find(".maze-gomb-2")
         this.right = this.elem.find(".maze-gomb-3")
         this.down = this.elem.find(".maze-gomb-4")
+        this.szektors = []
+        this.maze = mazes[Math.floor(Math.random() * mazes.length)]
+        this.vilagitoSzektor1 = 0
+        this.vilagitoSzektor2 = 0
         this.letrehoz()
         this.up.on("click", () => {
-            if (!this.teljesitve) {
+            if (!this.getTeljesitve()) {
                 this.fel()
             }
         })
         this.down.on("click", () => {
-            if (!this.teljesitve) {
+            if (!this.getTeljesitve()) {
                 this.le()
             }
         })
         this.right.on("click", () => {
-            if (!this.teljesitve) {
+            if (!this.getTeljesitve()) {
                 this.jobb()
             }
         })
         this.left.on("click", () => {
-            if (!this.teljesitve) {
+            if (!this.getTeljesitve()) {
                 this.bal()
             }
         })
@@ -232,9 +232,7 @@ class Maze extends Modul {
     }
     letrehoz() {
         const szulo = this.elem.find(".maze-belso-tarolo")
-        let sablon
-        let ujSzektor
-        let szektor
+        let sablon, ujSzektor, szektor
         let mazeTomb = []
         let t1 = Math.floor(Math.random() * 11)
         let t2 = Math.floor(Math.random() * 11)

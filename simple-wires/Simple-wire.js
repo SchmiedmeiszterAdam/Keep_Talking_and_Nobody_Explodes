@@ -8,10 +8,10 @@ const szinek = [
 class SimpleWire extends Modul {
     constructor(elem, szulo) {
         super(elem, szulo)
-        this.wires = []
-        this.bombaSerialNumber = this.bomba.szeriszam
-        this.db = Math.floor(Math.random() * 4) + 3
         this.szuloELem = $(this.elem.find('.wires'))
+        this.wires = []
+        this.bombaSerialNumber = this.bomba.getSerialNumber()
+        this.db = Math.floor(Math.random() * 4) + 3
         this.joDrot
         this.drotokLetrehozasa()
         this.elvagandoDrotKivalasztasa()
@@ -48,12 +48,7 @@ class SimpleWire extends Modul {
             this.joDrot = 2
         }
         else if (this.pontosanAnnyiSzin(2, "blue")) {
-            if (this.wires[2].getColor() === "blue") {
-                this.joDrot = 2
-            }
-            else {
-                this.joDrot = 1
-            }
+            this.joDrot = this.utolsoSzinDrot("blue")
         }
         else {
             this.joDrot = 2
@@ -62,7 +57,8 @@ class SimpleWire extends Modul {
 
     negyes() {
         if (this.tobbMintSzin(1, "red") && this.szeriszamParosParatlan() === "paratlan") {
-            this.joDrot = 3
+            this.joDrot = this.utolsoSzinDrot("red")
+            console.log("ez")
         }
         else if (this.utolsoDrot("yellow") && this.pontosanAnnyiSzin(0, "red") || this.pontosanAnnyiSzin(1, "blue")) {
             this.joDrot = 0
@@ -103,6 +99,9 @@ class SimpleWire extends Modul {
         }
     }
     pontosanAnnyiSzin(menny, szin) {
+        return this.seged(szin) === menny
+    }
+    seged(szin) {
         let db = 0
         let i = 0
         while (i < this.wires.length && db != 2) {
@@ -111,7 +110,7 @@ class SimpleWire extends Modul {
             }
             i++
         }
-        return db === menny
+        return db
     }
     nincsSzin(szin) {
         let i = 0
@@ -120,16 +119,9 @@ class SimpleWire extends Modul {
         }
         return i === this.wires.length
     }
+
     tobbMintSzin(menny, szin) {
-        let db = 0
-        let i = 0
-        while (i < this.wires.length && db != 2) {
-            if (this.wires[i].getColor() === szin) {
-                db++
-            }
-            i++
-        }
-        return db > menny
+        return this.seged(szin) > menny
     }
     utolsoDrot(szin) {
         if (this.wires[this.wires.length - 1].getColor() === szin) {
@@ -138,6 +130,14 @@ class SimpleWire extends Modul {
         else {
             return false
         }
+    }
+    utolsoSzinDrot(szin) {
+        let i = 3;
+        while (this.wires[i].getColor() != szin) {
+            i--
+        }
+        console.log(i)
+        return i
     }
     szeriszamParosParatlan() {
         let utolso = this.bombaSerialNumber.substr(this.bombaSerialNumber.length - 1)

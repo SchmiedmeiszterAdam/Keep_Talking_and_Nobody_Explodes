@@ -61,29 +61,16 @@ class WhosOnFirst extends Modul {
         super(elem, szulo)
         this.szo = this.elem.find(".whos-on-szo")
         this.gombokSzuloElem = this.elem.find(".whos-on-gombok")
-        this.jelzo1 = this.elem.find(".whos-on-status-jelzo-1")
-        this.jelzo2 = this.elem.find(".whos-on-status-jelzo-2")
-        this.jelzo3 = this.elem.find(".whos-on-status-jelzo-3")
-
+        this.jelzok = this.elem.find(".whos-on-status").children()
         this.gombok = []
-        this.fazis = 0
         this.szerepeltSzavak = []
+        this.fazis = 0
         this.gombFeliratAdas()
         this.joEldontes()
     }
     fazisLeptetes() {
+        $(this.jelzok[this.fazis]).css("background", "rgb(176,235,129)")
         this.fazis++
-        switch (this.fazis) {
-            case 1:
-                this.jelzo1.css("background", "rgb(176,235,129)")
-                break
-            case 2:
-                this.jelzo2.css("background", "rgb(176,235,129)")
-                break
-            case 3:
-                this.jelzo3.css("background", "rgb(176,235,129)")
-                break
-        }
         if (this.fazis === 3) {
             this.setTeljesitve()
         }
@@ -140,7 +127,6 @@ class WhosOnFirst extends Modul {
         this.gombokSzuloElem.empty()
         for (let index = 0; index < 6; index++) {
             let adottSzo = szavak[Math.floor(Math.random() * szavak.length)].name
-
             while (this.szerepeltSzavak.includes(adottSzo)) {
                 adottSzo = szavak[Math.floor(Math.random() * szavak.length)].name
             }
@@ -153,7 +139,6 @@ class WhosOnFirst extends Modul {
         this.szo.html(this.foSzo.name)
         this.joGombHely = this.foSzo.hely
     }
-    //$(window).on("")
 }
 class WhosOnFirstButton {
     constructor(elem, id, szoveg, szulo) {
@@ -167,7 +152,6 @@ class WhosOnFirstButton {
             if (!this.szulo.getTeljesitve()) {
                 if (this.jo) {
                     this.szulo.fazisLeptetes()
-
                 }
                 else {
                     this.szulo.sendFault()
@@ -184,9 +168,5 @@ class WhosOnFirstButton {
     }
     setJo() {
         this.jo = true
-    }
-    kattint() {
-        let esemeny = new CustomEvent("gombKattintas", { detail: this })
-        window.dispatchEvent(esemeny)
     }
 }

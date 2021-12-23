@@ -9,8 +9,8 @@ class Knob extends Modul {
         super(elem, szulo)
         this.nyil = this.elem.find(".knob-nyil")
         this.time = this.elem.find(".knob-ido")
-        this.nyilForgatasSzamlalo = 0
         this.mainModule = this.elem.find(".knob-kor-belso-tarolo")
+        this.nyilForgatasSzamlalo = 0
         this.leds = []
         this.rightPosition
         this.timer
@@ -57,7 +57,6 @@ class Knob extends Modul {
     }
     randomRotate() {
         let angle = (Math.floor(Math.random() * 4) * 90)
-        console.log(angle)
         $({ deg: 0 }).animate(
             { deg: angle },
             {

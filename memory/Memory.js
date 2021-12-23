@@ -10,7 +10,6 @@ class Memory extends Modul {
         this.statuszLed5 = this.elem.find(".memory-statusz-jelzo-5")
         this.szuloElem = this.elem.find(".memory-gombok")//az adott Modul memory gombok divje 
         this.gombok = this.elem.find(".memory-gombok")
-        this.szerepeltSzamok
         this.stage = 0
         this.ujStage()
         this.kijelzoSzam
@@ -22,18 +21,17 @@ class Memory extends Modul {
         this.kijelzo.html(this.kijelzoSzam)
     }
     gombokLetrehozasa() {
-        this.szerepeltSzamok = []
+        let szerepeltSzamok = []
         this.szuloElem.empty()
         for (let index = 0; index < 4; index++) {
             let szam = Math.floor(Math.random() * 4) + 1
-            while (this.szerepeltSzamok.includes(szam)) { //jegyezd meg az includes függvényt!!!!!!
+            while (szerepeltSzamok.includes(szam)) { //jegyezd meg az includes függvényt!!!!!!
                 szam = Math.floor(Math.random() * 4) + 1
 
             }
-            const gombSablon = $("<div class='memory-gomb'><h1 class='memory-gomb-felirat'></h1></div>")
-            const gombok = gombSablon.appendTo(this.szuloElem)//(".memory-gombok") 4, 8, 12
-            const ujgomb = new MemoryButton(gombok, index, this, szam)
-            this.szerepeltSzamok.push(szam)
+            const gombok = $("<div class='memory-gomb'><h1 class='memory-gomb-felirat'></h1></div>").appendTo(this.szuloElem)//(".memory-gombok") 4, 8, 12
+            new MemoryButton(gombok, index, this, szam)
+            szerepeltSzamok.push(szam)
         }
     }
     ujStage() {

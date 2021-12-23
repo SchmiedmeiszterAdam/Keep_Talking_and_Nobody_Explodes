@@ -1,17 +1,17 @@
 class SimonSays extends Modul {
     constructor(elem, szulo) {
         super(elem, szulo)
-        this.round = Math.floor(Math.random() * 3) + 3
-        this.roundSzamlalo = 0
-        this.gombok = []
-        this.szerepeltSzinek = []
         this.szuloElem = this.elem.find(".simon-says-gombok")
-        this.interval
-        this.interval2
+        this.round = Math.floor(Math.random() * 3) + 3
+        this.szerepeltSzinek = []
+        this.gombok = []
+        this.roundSzamlalo = 0
         this.szinSzamlalo = 0
-        this.serialNumberContainVowel
         this.ellenorzesSzamlolo = 0
         this.joSzamlalo = 0
+        this.interval
+        this.interval2
+        this.serialNumberContainVowel
         this.countVowel()
         this.gombokLetrehozasa()
         this.ujGombKivalasztas()
@@ -115,16 +115,11 @@ class SimonSays extends Modul {
         const vowels = ['A', 'E', 'I', 'O', 'U'];
         let counts = 0;
         for (let i = 0; i < vowels.length; i++) {
-            if (vowels.includes(this.bomba.szeriszam[i])) {
+            if (vowels.includes(this.bomba.getSerialNumber()[i])) {
                 counts++;
             }
         }
-        if (counts > 0) {
-            this.serialNumberContainVowel = true
-        }
-        else {
-            this.serialNumberContainVowel = false
-        }
+        this.serialNumberContainVowel = counts > 0
     }
     gombokLetrehozasa() {
         const gombSzinNevek = ["red", "blue", "green", "yellow"]
@@ -145,8 +140,8 @@ class SimonSaysGombok {
         this.szulo = szulo
         this.szinNev = szinNev
         this.szin = szin
-        this.gombVisszaAllitas()
         this.vilagosSzin = vilagosSzin
+        this.gombVisszaAllitas()
         this.elem.on("click", () => {
             this.szulo.ellenorzes(this)
         })
