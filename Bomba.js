@@ -16,11 +16,10 @@ const appendSlots = [
 ]
 class Bomba {
     constructor(elem) {
+        this.kesz = false
         this.elem = elem
         this.szeriszam = ""
         this.strikes = 0
-        this.modulokKesz = 0
-        this.moduleSzam = 0
         this.batteries = 0
         this.modules = []
         this.portok = []
@@ -40,6 +39,7 @@ class Bomba {
         }
         if (db === this.modules.length) {
             this.idoModul.stop()
+            this.kesz = true
         }
     }
     createModules(modules, perc, masodperc) {

@@ -101,6 +101,6 @@ class Knob extends Modul {
         setTimeout(() => {
             clearInterval(this.timer)
             this.start()
-        }, 10000)
+        }, 20000)
     }
 }
