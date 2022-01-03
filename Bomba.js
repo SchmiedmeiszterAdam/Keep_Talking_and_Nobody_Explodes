@@ -16,10 +16,11 @@ const appendSlots = [
 ]
 class Bomba {
     constructor(elem) {
-        this.kesz = false
         this.elem = elem
         this.szeriszam = ""
         this.strikes = 0
+        this.modulokKesz = 0
+        this.moduleSzam = 0
         this.batteries = 0
         this.modules = []
         this.portok = []
@@ -39,7 +40,6 @@ class Bomba {
         }
         if (db === this.modules.length) {
             this.idoModul.stop()
-            this.kesz = true
         }
     }
     createModules(modules, perc, masodperc) {
@@ -56,9 +56,9 @@ class Bomba {
 
         for (let i = 0; i < modules.length; i++) {
             if (modules[i].template == "#templates .button") {
-                let hely = Math.floor(Math.random() * 5)
+                let hely = Math.floor(Math.random() * modules.length)
                 while (modules[hely].template == "#templates .button" || modules[hely].template == "#templates #ido-modul") {
-                    hely = Math.floor(Math.random() * 5)
+                    hely = Math.floor(Math.random() * modules.length)
                 }
                 let modul = modules[hely]
                 modules[hely] = modules[i]
@@ -127,6 +127,9 @@ class Bomba {
             console.log("BUMM")
         }
     }
+    getBatterysNumber(){
+        return this.batteries
+    }
     appendix() {
         this.createSerialNumber()
         this.createIndicators()
@@ -193,5 +196,15 @@ class Bomba {
     }
     getSerialNumber(){
         return this.szeriszam
+    }
+    serialNumberContainVowel() {
+        const vowels = ['A', 'E', 'I', 'O', 'U'];
+        let counts = 0;
+        for (let i = 0; i < vowels.length; i++) {
+            if (vowels.includes(this.szeriszam[i])) {
+                counts++;
+            }
+        }
+        return counts > 0
     }
 }

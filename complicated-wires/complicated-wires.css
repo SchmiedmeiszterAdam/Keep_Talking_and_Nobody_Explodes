@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+.complicated-wires-tarolo {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.complicated-wires-felso-tarolo {
+    width: 75%;
+    height: 25%;
+    background-color: rgb(116, 113, 125);
+    margin: 20px 0 0 5px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.complicated-wires-led-tarolo {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 2px;
+}
+
+.complicated-wires-led {
+    width: 9%;
+    aspect-ratio: 1/1;
+    background-color: black;
+    border-radius: 50%;
+    border: 3px solid rgb(67, 65, 70);
+    transform: rotateX(20deg);
+}
+
+.complicated-wires-felso-csatlakozo-tarolo,.complicated-wires-also-csatlakozo-tarolo {
+    width: 93%;
+    background-color: black;
+    border: 5px solid rgb(62, 59, 84);
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.complicated-wires-felso-csatlakozo-tarolo{
+    height: 25%;
+}
+.complicated-wires-felso-csatlakozo-valaszto,.complicated-wires-also-csatlakozo-valaszto {
+    width: 5px;
+    height: 105%;
+    background-color: rgb(62, 59, 84);
+}
+
+.complicated-wires-also-tarolo {
+    width: 90%;
+    height: 25%;
+    background-color: rgb(60, 60, 66);
+    margin: 0 0 10px 5px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.complicated-wires-also-csatlakozo-tarolo{
+    height: 20%;
+}
+.complicated-wires-simbolum-tarolo{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.complicated-wires-simbolum{
+    width: 12%;
+    aspect-ratio: 1/1;
+    background-color: rgb(143,115,79);
+    border-radius: 4px;
+}
+.complicated-wires-star{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.complicated-wires-star::after{
+    content: '★';
+    position: absolute;
+    font-size: 40px;
+    left: calc(50% - 16.665px);
+    top: -8px;
+}
+.complicated-wires-wire{
+    position: absolute;
+    width: 12px;
+    top: 73px;
+    transform-origin: top;
+    border-radius: 3px;
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    background-position: 0% 0%;
+    display: grid;
+    place-items: center;
+}
+.complicated-wire-1{
+    left: 30px;
+    transform: rotateZ(-2deg);
+    height: 257px;
+}
+.complicated-wire-2{
+    left: 82px;
+    transform: rotateZ(-3.5deg);
+    height: 258px;
+}
+.complicated-wire-3{
+    left: 130px;
+    transform: rotateZ(-5.5deg);
+    height: 259px;
+}
+.complicated-wire-4{
+    left: 178px;
+    transform: rotateZ(-8deg);
+    height: 261px;
+}
+.complicated-wire-5{
+    left: 227px;
+    transform: rotateZ(-10deg);
+    height: 263px;
+}
+.complicated-wire-6{
+    left: 276px;
+    transform: rotateZ(-12.6deg);
+    height: 266px;
+}
+.wire-hover {
+    box-shadow: 0 0 1px 1px inset yellow, 0px 0px 1px 1px yellow;
+    cursor: pointer;
+}
+.wire-cut{
+    width: 110%;
+    height: 40px;
+    background-color: rgb(138, 144, 156);
+}

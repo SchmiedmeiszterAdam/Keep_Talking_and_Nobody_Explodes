@@ -36,7 +36,7 @@ class Password extends Modul {
                 }
                 else {
                     randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
-                    while (this.letters[j].includes(randomCharacter) && randomCharacter == this.szo[j]) {
+                    while (this.letters[j].includes(randomCharacter) && randomCharacter === this.szo[j]) {
                         randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
                     }
                     this.letters[j][i] = randomCharacter

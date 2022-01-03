@@ -1,0 +1,131 @@
+.venting-gas-tarolo {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(55, 60, 77);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.venting-gas-felso-tarolo {
+    width: 95%;
+    height: 25%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: rgb(24, 24, 24);
+}
+
+.venting-gas-csik-tarolo {
+    width: calc(100% / 3);
+    height: 100%;
+    background-color: rgb(59, 55, 75);
+    display: grid;
+    place-items: center;
+}
+
+.venting-gas-ido-kulso-tarolo {
+    width: calc(100% / 3);
+    height: 80%;
+    background-color: rgb(168, 181, 163);
+    display: grid;
+    place-items: center;
+}
+
+.venting-gas-csik {
+    width: 90%;
+    height: 70%;
+    margin: 0 auto;
+    background-color: rgb(37, 32, 47);
+    background-repeat: repeat-y;
+    background-size: 100% 100px;
+    background-position: 0% 0%;
+    background-image: repeating-linear-gradient(-45deg, rgb(37, 32, 47), rgb(37, 32, 47) 10px, rgb(170, 140, 37) 10px, rgb(170, 140, 37) 20px);
+}
+
+.venting-gas-ido-belso-tarolo {
+    background-color: black;
+    width: 90%;
+    height: 75%;
+    color: red;
+    font-family: 'Dismay';
+    display: grid;
+    place-items: center;
+}
+
+.venting-gas-ido {
+    font-size: 50px;
+}
+
+.venting-gas-kulso-also-tarolo {
+    width: 95%;
+    height: 75%;
+    display: grid;
+    place-items: center;
+    background-color: rgb(24, 24, 24);
+}
+
+.venting-gas-kozepso-also-tarolo {
+    width: 100%;
+    height: 99%;
+    border-radius: 15px;
+    background-color: rgb(216, 150, 110);
+    display: flex;
+    justify-content: center;
+}
+
+.venting-gas-belso-also-tarolo {
+    width: 70%;
+    height: 85%;
+    background-color: rgb(178, 141, 103);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+}
+
+.venting-gas-kijelzo-tarolo {
+    width: 80%;
+    height: 60%;
+    background-color: black;
+    color: rgb(80, 227, 22);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.venting-gas-gombok {
+    width: 45%;
+    height: 25%;
+    background-color: rgb(89, 71, 56);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+}
+
+.venting-gas-gomb {
+    width: 95%;
+    aspect-ratio: 1/1;
+    background-color: rgb(178, 141, 103);
+    border-radius: 5px;
+    position: relative;
+}
+
+.Y-gomb::after, .N-gomb::after {
+    color: black;
+    font-size: 30px;
+    position: absolute;
+    top: calc(50% - 17.2px);
+    left: calc(50% - 10.84px);
+}
+
+.N-gomb::after {
+    content: "N";
+}
+
+.Y-gomb::after {
+    content: "Y";
+}

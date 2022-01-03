@@ -1,4 +1,3 @@
-
 class Memory extends Modul {
     constructor(elem, szulo) {
         super(elem, szulo)

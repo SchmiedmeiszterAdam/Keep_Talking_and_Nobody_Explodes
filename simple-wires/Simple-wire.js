@@ -10,7 +10,6 @@ class SimpleWire extends Modul {
         super(elem, szulo)
         this.szuloELem = $(this.elem.find('.wires'))
         this.wires = []
-        this.bombaSerialNumber = this.bomba.getSerialNumber()
         this.db = Math.floor(Math.random() * 4) + 3
         this.joDrot
         this.drotokLetrehozasa()
@@ -58,7 +57,6 @@ class SimpleWire extends Modul {
     negyes() {
         if (this.tobbMintSzin(1, "red") && this.szeriszamParosParatlan() === "paratlan") {
             this.joDrot = this.utolsoSzinDrot("red")
-            console.log("ez")
         }
         else if (this.utolsoDrot("yellow") && this.pontosanAnnyiSzin(0, "red") || this.pontosanAnnyiSzin(1, "blue")) {
             this.joDrot = 0
@@ -132,19 +130,18 @@ class SimpleWire extends Modul {
         }
     }
     utolsoSzinDrot(szin) {
-        let i = 3;
+        let i = this.wires.length - 1;
         while (this.wires[i].getColor() != szin) {
             i--
         }
-        console.log(i)
         return i
     }
     szeriszamParosParatlan() {
-        let utolso = this.bombaSerialNumber.substr(this.bombaSerialNumber.length - 1)
-        if (utolso % 2 === 0) {
+        let utolso = this.bomba.getSerialNumber().substr(this.bomba.getSerialNumber().length - 1)
+        if (utolso % 2 === 0 && utolso != 0) {
             return "paros"
         }
-        else {
+        else if(utolso % 2 === 1) {
             return "paratlan"
         }
     }

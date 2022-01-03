@@ -98,9 +98,10 @@ class Knob extends Modul {
                 $(this.leds[i][k]).css("background", "rgb(13,63,19)")
             }
         }
+        this.time.html("")
         setTimeout(() => {
             clearInterval(this.timer)
             this.start()
-        }, 20000)
+        }, 30000)
     }
 }

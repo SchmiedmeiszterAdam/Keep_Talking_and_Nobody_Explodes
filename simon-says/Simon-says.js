@@ -11,8 +11,6 @@ class SimonSays extends Modul {
         this.joSzamlalo = 0
         this.interval
         this.interval2
-        this.serialNumberContainVowel
-        this.countVowel()
         this.gombokLetrehozasa()
         this.ujGombKivalasztas()
     }
@@ -53,7 +51,7 @@ class SimonSays extends Modul {
             this.mutat()
         }, 6000)
         let szin = pushedButton.getSzin()
-        if (this.serialNumberContainVowel) {
+        if (this.bomba.serialNumberContainVowel()) {
             if (this.bomba.getStrikes() === 0) {
                 this.ellenorzesSeged(szin, "blue", "red", "yellow", "green")
             }
@@ -111,16 +109,7 @@ class SimonSays extends Modul {
             this.joSzamlalo = 0
         }
     }
-    countVowel() {
-        const vowels = ['A', 'E', 'I', 'O', 'U'];
-        let counts = 0;
-        for (let i = 0; i < vowels.length; i++) {
-            if (vowels.includes(this.bomba.getSerialNumber()[i])) {
-                counts++;
-            }
-        }
-        this.serialNumberContainVowel = counts > 0
-    }
+
     gombokLetrehozasa() {
         const gombSzinNevek = ["red", "blue", "green", "yellow"]
         const gombSzinek = ["rgb(150,1,21)", "rgb(0,1,148)", "rgb(44,176,12)", "rgb(215,175,0)"]
