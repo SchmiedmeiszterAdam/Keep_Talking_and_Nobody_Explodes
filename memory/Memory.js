@@ -7,6 +7,7 @@ class Memory extends Modul {
         this.statuszLed3 = this.elem.find(".memory-statusz-jelzo-3")
         this.statuszLed4 = this.elem.find(".memory-statusz-jelzo-4")
         this.statuszLed5 = this.elem.find(".memory-statusz-jelzo-5")
+        this.statusJelzok = this.elem.find(".memory-statusz-jelzo-tarolo").children()
         this.szuloElem = this.elem.find(".memory-gombok")//az adott Modul memory gombok divje 
         this.gombok = this.elem.find(".memory-gombok")
         this.stage = 0
@@ -41,80 +42,74 @@ class Memory extends Modul {
     rossz() {
         this.sendFault()
         this.stage = 0
-        this.ujStage()
         this.voltPoziciok = []
         this.voltSzamok = []
         this.osszesLedVisszaAllitas()
     }
     //background-color: rgb(29,19,27);
     osszesLedVisszaAllitas() {
-        this.statuszLed1.css("background", "rgb(29,19,27)")
-        this.statuszLed2.css("background", "rgb(29,19,27)")
-        this.statuszLed3.css("background", "rgb(29,19,27)")
-        this.statuszLed4.css("background", "rgb(29,19,27)")
-        this.statuszLed5.css("background", "rgb(29,19,27)")
+        for (let i = 0; i < this.statusJelzok.length; i++) {
+            $(this.statusJelzok[i]).css("background", "rgb(29,19,27)")
+        }
     }
     eltarol(gombSzam, pozicio) {
         this.voltSzamok.push(gombSzam)
         this.voltPoziciok.push(pozicio)
     }
     ellenorzes(gombSzam, pozicio) {
-        if (this.stage === 5) {
-            this.statuszLed1.css("background", "rgb(176,235,129)")
-            this.setTeljesitve()
-        } else {
-            switch (this.stage) {
-                case 1:
-                    if (this.stage1(pozicio)) {
-                        this.ujStage()
-                        this.statuszLed5.css("background", "rgb(176,235,129)")
-                        this.eltarol(gombSzam, pozicio)
-                    }
-                    else {
-                        this.rossz()
-                    }
-                    break
-                case 2:
-                    if (this.stage2(gombSzam, pozicio)) {
-                        this.ujStage()
-                        this.statuszLed4.css("background", "rgb(176,235,129)")
-                        this.eltarol(gombSzam, pozicio)
-                    }
-                    else {
-                        this.rossz()
-                    }
-                    break
-                case 3:
-                    if (this.stage3(gombSzam, pozicio)) {
-                        this.ujStage()
-                        this.statuszLed3.css("background", "rgb(176,235,129)")
-                        this.eltarol(gombSzam, pozicio)
-                    }
-                    else {
-                        this.rossz()
-                    }
-                    break
-                case 4:
-                    if (this.stage4(pozicio)) {
-                        this.statuszLed2.css("background", "rgb(176,235,129)")
-                        this.eltarol(gombSzam, pozicio)
-                        this.ujStage()
-                    }
-                    else {
-                        this.rossz()
-                    }
-                    break
-                case 5:
-                    if (this.stage5(gombSzam)) {
-
-                        this.eltarol(gombSzam, pozicio)
-                        this.ujStage()
-                    }
-                    else {
-                        this.rossz()
-                    }
-                    break
-            }
+        let rossz = false
+        switch (this.stage) {
+            case 1:
+                if (this.stage1(pozicio)) {
+                    this.eltarol(gombSzam, pozicio)
+                }
+                else {
+                    rossz = true
+                    this.rossz()
+                }
+                break
+            case 2:
+                if (this.stage2(gombSzam, pozicio)) {
+                    this.eltarol(gombSzam, pozicio)
+                }
+                else {
+                    rossz = true
+                    this.rossz()
+                }
+                break
+            case 3:
+                if (this.stage3(gombSzam, pozicio)) {
+                    this.eltarol(gombSzam, pozicio)
+                }
+                else {
+                    rossz = true
+                    this.rossz()
+                }
+                break
+            case 4:
+                if (this.stage4(pozicio)) {
+                    this.eltarol(gombSzam, pozicio)
+                }
+                else {
+                    rossz = true
+                    this.rossz()
+                }
+                break
+            case 5:
+                if (!this.stage5(gombSzam)) {
+                    rossz = true
+                    this.rossz()
+                }
+                else {
+                    this.setTeljesitve()
+                }
+                break
+        }
+        if (!rossz) {
+            $(this.statusJelzok[this.stage - 1]).css("background", "rgb(176,235,129)")
+        }
+        if (this.stage < 5) {
+            this.ujStage()
         }
     }
     stage1(pozicio) {
@@ -260,7 +255,9 @@ class MemoryButton {
         this.gombFelirat = this.elem.find(".memory-gomb-felirat")
         this.gombFelirat.html(this.szam)
         this.elem.on("click", () => {
-            this.szulo.ellenorzes(this.szam, this.id)
+            if (!this.szulo.getTeljesitve()) {
+                this.szulo.ellenorzes(this.szam, this.id)
+            }
         })
     }
     setJo() {

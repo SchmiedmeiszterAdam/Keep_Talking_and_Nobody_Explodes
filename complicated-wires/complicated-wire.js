@@ -116,7 +116,8 @@ class ComplicatedWireWire {
         }
     }
     cutCheck() {
-        if (((this.star && !this.lit && (!this.colors.includes("red")) && (!this.colors.includes("blue"))) || (!this.star && !this.lit && (!this.colors.includes("red")) && (!this.colors.includes("blue"))) || (this.star && !this.lit && this.colors.includes("red") && (!this.colors.includes("blue"))))
+        if (
+            ((this.star && !this.lit && (!this.colors.includes("red")) && (!this.colors.includes("blue"))) || (!this.star && !this.lit && (!this.colors.includes("red")) && (!this.colors.includes("blue"))) || (this.star && !this.lit && this.colors.includes("red") && (!this.colors.includes("blue"))))
             || (this.szulo.bomba.getBatterysNumber() >= 2 && ((this.star && this.lit && (!this.colors.includes("red")) && (!this.colors.includes("blue"))) || (this.star && this.lit && this.colors.includes("red") && (!this.colors.includes("blue"))) || (!this.star && this.lit && this.colors.includes("red") && (!this.colors.includes("blue")))))
             || (this.szeriszamParos() && ((this.lit && !this.star && this.colors.includes("red") && this.colors.includes("blue")) || ((!this.lit && !this.star && this.colors.includes("red") && this.colors.includes("blue"))) || ((!this.lit && !this.star && this.colors.includes("red") && !(this.colors.includes("blue"))))))
             || ((this.szulo.bomba.portok.includes("paralell")) && ((this.lit && this.star && this.colors.includes("blue") && !(this.colors.includes("red"))) || (this.lit && !this.star && !(this.colors.includes("red") && this.colors.includes("blue"))) || (!this.lit && this.star && this.colors.includes("red") && this.colors.includes("blue"))))
