@@ -53,19 +53,22 @@ class Bomba {
         }
         modules.push(modules[timeModulePosition])
         modules[timeModulePosition] = { "template": "#templates #ido-modul", "className": Time }
-
-        for (let i = 0; i < modules.length; i++) {
-            if (modules[i].template == "#templates .button") {
-                let hely = Math.floor(Math.random() * modules.length)
-                while (modules[hely].template == "#templates .button" || modules[hely].template == "#templates #ido-modul") {
-                    hely = Math.floor(Math.random() * modules.length)
+        console.log(modules)
+        if(modules.length > 6){
+            for (let i = 6; i < modules.length; i++) {
+                console.log(modules[i])
+                if (modules[i].template == "#templates .button") {
+                    let hely = Math.floor(Math.random() * 6)
+                    while (modules[hely].template == "#templates .button" || modules[hely].template == "#templates #ido-modul") {
+                        hely = Math.floor(Math.random() * 6)
+                    }
+                    let modul = modules[hely]
+                    modules[hely] = modules[i]
+                    modules[i] = modul
                 }
-                let modul = modules[hely]
-                modules[hely] = modules[i]
-                modules[i] = modul
             }
         }
-
+        console.log(modules)
         for (let k = 0; k < modules.length; k++) {
             if (modules[k].template == "#templates #ido-modul") {
                 newModule = $(modules[k].template).clone().prependTo(this.gyerek)
