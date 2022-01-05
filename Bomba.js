@@ -43,39 +43,33 @@ class Bomba {
         }
     }
     createModules(modules, perc, masodperc) {
-        this.keveres(modules)
-        let timeModulePosition, newModule, module
+        let timeModulePosition = Math.floor(Math.random() * 6)
+        let newModule, module, ujGombHely, kicserelModul, random, randomHely
         if (modules.length < 5) {
             timeModulePosition = Math.floor(Math.random() * modules.length)
         }
-        else {
-            timeModulePosition = Math.floor(Math.random() * 6)
-        }
+
         modules.push(modules[timeModulePosition])
         modules[timeModulePosition] = { "template": "#templates #ido-modul", "className": Time }
-        console.log(modules)
-        if(modules.length > 6){
+        if (modules.length > 6) {
             for (let i = 6; i < modules.length; i++) {
-                console.log(modules[i])
-                if (modules[i].template == "#templates .button") {
-                    let hely = Math.floor(Math.random() * 6)
-                    while (modules[hely].template == "#templates .button" || modules[hely].template == "#templates #ido-modul") {
-                        hely = Math.floor(Math.random() * 6)
+                if (modules[i].className == Button) {
+                    do {
+                        ujGombHely = Math.floor(Math.random() * 6)
                     }
-                    let modul = modules[hely]
-                    modules[hely] = modules[i]
-                    modules[i] = modul
+                    while (modules[ujGombHely].className == Button || modules[ujGombHely].className == Time)
+                    kicserelModul = modules[ujGombHely]
+                    modules[ujGombHely] = modules[i]
+                    modules[i] = kicserelModul
                 }
             }
         }
-        console.log(modules)
         for (let k = 0; k < modules.length; k++) {
-            if (modules[k].template == "#templates #ido-modul") {
+            if (modules[k].className == Time) {
                 newModule = $(modules[k].template).clone().prependTo(this.gyerek)
                 module = new modules[k].className(newModule, this, perc, masodperc)
                 this.idoModul = module
-                this.strike1 = $(this.idoModul.elem.find("#strike-1"))
-                this.strike2 = $(this.idoModul.elem.find("#strike-2"))
+                this.strikeIndicators = this.idoModul.elem.find("#strikes").children()
             }
             else {
                 newModule = $(modules[k].template).clone().prependTo(this.gyerek)
@@ -86,31 +80,37 @@ class Bomba {
                 this.gyerek = $("#hatresz")
             }
         }
-        let random = Math.floor(Math.random() * 5)
         if (modules.length < 6) {
             for (let i = 0; i < 6 - modules.length; i++) {
-                random = Math.floor(Math.random() * 5)
-                while ($("#eloresz .modul").eq(random).attr('class') === undefined) {
-                    random = Math.floor(Math.random() * 5)
+                random = Math.floor(Math.random() * this.elem.find("#eloresz").children().length - 1)
+                randomHely = Math.random() < 0.5
+                if (randomHely) {
+                    $("#eloresz > div").eq(random).after($("#templates .ures").clone())
                 }
-                $("#eloresz .modul").eq(random).after($("#templates .ures").clone())
+                else {
+                    $("#eloresz > div").eq(random).before($("#templates .ures").clone())
+                }
             }
-            for (let i = 0; i < 6; i++) {
-                $("#templates .ures").clone().appendTo("#hatresz")
-            }
+            hatreszFeltoltes()
         }
         else if (modules.length === 5) {
-            for (let i = 0; i < 6; i++) {
-                $("#templates .ures").clone().appendTo("#hatresz")
-            }
+            hatreszFeltoltes()
         }
         else {
             for (let i = 0; i < 12 - modules.length; i++) {
-                random = Math.floor(Math.random() * 5)
-                while ($("#hatresz .modul").eq(random).attr('class') === undefined) {
-                    random = Math.floor(Math.random() * 5)
+                random = Math.floor(Math.random() * this.elem.find("#hatresz").children().length)
+                randomHely = Math.random() < 0.5
+                if (randomHely) {
+                    $("#hatresz > div").eq(random).after($("#templates .ures").clone())
                 }
-                $("#hatresz .modul").eq(random).after($("#templates .ures").clone())
+                else {
+                    $("#hatresz > div").eq(random).before($("#templates .ures").clone())
+                }
+            }
+        }
+        function hatreszFeltoltes(){
+            for (let i = 0; i < 6; i++) {
+                $("#templates .ures").clone().appendTo("#hatresz")
             }
         }
     }
@@ -119,18 +119,13 @@ class Bomba {
         this.faultCheck()
     }
     faultCheck() {
-        if (this.strikes === 1) {
-            this.strike1.css("color", "red")
-        }
-        else if (this.strikes === 2) {
-            this.strike2.css("color", "red")
-        }
-        else if (this.strikes === 3) {
+        $(this.strikeIndicators[this.strikes - 1]).css("color", "red")
+        if (this.strikes === this.strikeIndicators.length + 1) {
             this.idoModul.stop()
             console.log("BUMM")
         }
     }
-    getBatterysNumber(){
+    getBatterysNumber() {
         return this.batteries
     }
     appendix() {
@@ -197,7 +192,7 @@ class Bomba {
         }
         return tomb;
     }
-    getSerialNumber(){
+    getSerialNumber() {
         return this.szeriszam
     }
     serialNumberContainVowel() {
