@@ -7,14 +7,13 @@ const ports = [{ "template": "#templates .dvi-d", "name": "DVI-D" },
 class Indicator {
     constructor(elem) {
         this.elem = elem
-        this.light = this.elem.find(".light")
         this.text = indicators[Math.floor(Math.random() * indicators.length)]
         this.lit = Math.random() < 0.5
         if (this.lit) {
-            this.light.css("background", "white")
+            this.elem.find(".light").css("background", "white")
         }
         else {
-            this.light.css("background", "black")
+            this.elem.find(".light").css("background", "black")
         }
         this.elem.find(".text").html(this.text)
     }
@@ -34,8 +33,7 @@ class SerialNumber {
         const abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for (let i = 0; i < 6; i++) {
             if (i === 2 || i === 5) {
-                let number = Math.floor(Math.random() * 10)
-                this.serial += number.toString()
+                this.serial += Math.floor(Math.random() * 10)
             }
             else {
                 this.serial += abc[Math.floor(Math.random() * abc.length)]

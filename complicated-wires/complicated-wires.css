@@ -7,6 +7,12 @@
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    position: relative;
+}
+.complicated-wires-wires-tarolo{
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 .complicated-wires-felso-tarolo {

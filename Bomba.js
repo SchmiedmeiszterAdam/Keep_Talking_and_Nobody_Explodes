@@ -147,8 +147,7 @@ class Bomba {
     createBatterys() {
         let sablon
         for (let i = 0; i < Math.floor(Math.random() * 5); i++) {
-            let batteryType = Math.random() < 0.5
-            if (batteryType) {
+            if (Math.random() < 0.5) {
                 sablon = $("#templates .double-battery")
                 this.batteries += 2
             }
@@ -183,15 +182,7 @@ class Bomba {
     getStrikes() {
         return this.strikes
     }
-    keveres(tomb) {
-        let currentIndex = tomb.length, randomIndex;
-        while (currentIndex != 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-            [tomb[currentIndex], tomb[randomIndex]] = [tomb[randomIndex], tomb[currentIndex]];
-        }
-        return tomb;
-    }
+
     getSerialNumber() {
         return this.szeriszam
     }
@@ -204,5 +195,14 @@ class Bomba {
             }
         }
         return counts > 0
+    }
+    keveres(tomb) {
+        let currentIndex = tomb.length, randomIndex;
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+            [tomb[currentIndex], tomb[randomIndex]] = [tomb[randomIndex], tomb[currentIndex]];
+        }
+        return tomb;
     }
 }

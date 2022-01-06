@@ -4,15 +4,13 @@ class ComplicatedWire extends Modul {
         super(elem, szulo)
         this.leds = this.elem.find(".complicated-wires-led-tarolo").children()
         this.simbols = this.elem.find(".complicated-wires-simbolum-tarolo").children()
-        this.container = this.elem.find(".complicated-wires-tarolo")
-        this.wires
+        this.container = this.elem.find(".complicated-wires-wires-tarolo")
         this.createWires()
     }
     createWires() {
         this.wires = []
         let randomSpaces = []
-        let wiresAmount = Math.floor(Math.random() * 3) + 4
-        for (let i = 0; i < (6 - wiresAmount); i++) {
+        for (let i = 0; i < (6 - (Math.floor(Math.random() * 3) + 4)); i++) {
             let random = Math.floor(Math.random() * 6)
             while (randomSpaces.includes(random)) {
                 random = Math.floor(Math.random() * 6)
@@ -33,22 +31,17 @@ class ComplicatedWire extends Modul {
             for (let i = 0; i < this.simbols.length; i++) {
                 $(this.simbols[i]).empty()
                 $(this.leds[i]).css("background", "black")
+                $(this.container).empty()
             }
             this.createWires()
         }
     }
     check() {
-        let s = 0
-        let k = 0
-        for (let i = 0; i < this.wires.length; i++) {
-            if (this.wires[i].mustCut === true) {
-                s++
-            }
-            if (this.wires[i].cuted == true) {
-                k++
-            }
+        let i = 0
+        while(i < this.wires.length && !(this.wires[i].getMustCut() && !this.wires[i].getCuted())){
+            i++
         }
-        if (s === k) {
+        if (i === this.wires.length) {
             this.setTeljesitve()
         }
     }
@@ -78,8 +71,8 @@ class ComplicatedWireWire {
             if (!this.cuted) {
                 $(this.elem).removeClass("wire-hover")
                 $(this.elem).append("<div class = 'wire-cut'></div>")
+                this.cuted = true
                 if (this.mustCut) {
-                    this.cuted = true
                     this.szulo.check()
                 }
                 else {
@@ -133,5 +126,11 @@ class ComplicatedWireWire {
         if (utolso % 2 === 0 && utolso != 0) {
             return true
         }
+    }
+    getMustCut(){
+        return this.mustCut
+    }
+    getCuted(){
+        return this.cuted
     }
 }

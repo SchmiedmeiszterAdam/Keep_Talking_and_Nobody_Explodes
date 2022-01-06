@@ -26,7 +26,7 @@ class Keypad extends Modul {
             }
             this.kivalasztottSzimbolumok.push(kapottSzimbolum)
             const gombSablon = $('<div class="keypads-gomb"><div class="keypads-gomb-indikator"></div></div>').appendTo(this.szuloElem)
-            this.gombok.push(new KeypadButton(gombSablon, index, this, kapottSzimbolum))
+            this.gombok.push(new KeypadButton(gombSablon, this, kapottSzimbolum))
         }
     }
     sorrendMeghatarozas() {
@@ -47,9 +47,8 @@ class Keypad extends Modul {
     }
 }
 class KeypadButton {
-    constructor(elem, id, szulo, szimbolum) {
+    constructor(elem, szulo, szimbolum) {
         this.elem = elem
-        this.id = id
         this.szulo = szulo
         this.szimbolum = szimbolum
         this.indikator = this.elem.find(".keypads-gomb-indikator")

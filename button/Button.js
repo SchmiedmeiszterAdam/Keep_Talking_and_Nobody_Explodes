@@ -5,15 +5,13 @@ class Button extends Modul {
         super(elem, szulo)
         this.indicator = this.elem.find(".button-color-indicator")
         this.button = this.elem.find(".button-button")
-        this.text = this.elem.find(".button-text")
         this.indicatorColor = buttonColors[Math.floor(Math.random() * buttonColors.length)]
         this.color = buttonColors[Math.floor(Math.random() * buttonColors.length)]
         this.buttonText = buttonTexts[Math.floor(Math.random() * buttonTexts.length)]
         this.buttonIsDown = false
-
-        this.timeoutId = 0
+        this.timeoutId
         this.button.css("background-color", this.color)
-        this.text.html(this.buttonText)
+        this.elem.find(".button-text").html(this.buttonText)
         this.solution
         this.decision()
 
@@ -70,20 +68,14 @@ class Button extends Modul {
     ellenorzes() {
         let ok = false
         if (this.solution === "hold" && this.buttonIsDown === true) {
-            if (this.indicatorColor === "blue") {
-                if (this.timeContains('4')) {
-                    ok = true
-                }
+            if (this.indicatorColor === "blue" && this.timeContains('4')) {
+                ok = true
             }
-            else if (this.indicatorColor === "white" || this.indicatorColor === "red") {
-                if (this.timeContains('1')) {
-                    ok = true
-                }
+            else if ((this.indicatorColor === "white" || this.indicatorColor === "red") && this.timeContains('1')) {
+                ok = true
             }
-            else if (this.indicatorColor === "yellow") {
-                if (this.timeContains('5')) {
-                    ok = true
-                }
+            else if (this.indicatorColor === "yellow" && this.timeContains('5')) {
+                ok = true
             }
         }
         else if (this.solution === "relase" && this.buttonIsDown === false) {
@@ -93,8 +85,8 @@ class Button extends Modul {
     }
     timeContains(num) {
         let includesNumber = false
-        let val = this.bomba.idoModul.getTime()
-        let string = val.toString().split('')
+        let string = this.bomba.idoModul.getTime().split('')
+        console.log(string)
         if (string.includes(num)) {
             includesNumber = true
         }

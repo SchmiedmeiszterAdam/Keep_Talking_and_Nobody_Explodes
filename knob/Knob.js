@@ -28,26 +28,23 @@ class Knob extends Modul {
 
     }
     findLeds() {
-        this.leds.push(this.elem.find(".knob-bal-led-tarolo").children().children())
-        this.leds.push(this.elem.find(".knob-jobb-led-tarolo").children().children())
+        let leds = []
+        leds.push(this.elem.find(".knob-bal-led-tarolo").children().children())
+        leds.push(this.elem.find(".knob-jobb-led-tarolo").children().children())
+        for (let i = 0; i < leds.length; i++) {
+            for (let k = 0; k < leds[i].length; k++) {
+                this.leds.push(leds[i][k])
+            }
+        }
     }
     lightLeds() {
         let random = Math.floor(Math.random() * configurations.length)
         this.rightPosition = configurations[random].position
         let lights = configurations[random].leds[Math.floor(Math.random() * configurations[random].leds.length)]
-        let ac = 0
-        let hc = 0
         for (let i = 0; i < lights.length; i++) {
-            if (i === 6) {
-                hc = 0
-            }
-            if (i > (lights.length - 1) / 2) {
-                ac = 1
-            }
             if (lights[i] == 1) {
-                $(this.leds[ac][hc]).css("background", "rgb(152,241,56)")
+                $(this.leds[i]).css("background", "rgb(152,241,56)")
             }
-            hc++
         }
     }
     start() {
@@ -70,6 +67,7 @@ class Knob extends Modul {
         );
     }
     startTimer() {
+        this.time.html("")
         let time = 40
         this.time.html(time)
         this.timer = setInterval(() => {
@@ -94,11 +92,8 @@ class Knob extends Modul {
     }
     next() {
         for (let i = 0; i < this.leds.length; i++) {
-            for (let k = 0; k < this.leds[i].length; k++) {
-                $(this.leds[i][k]).css("background", "rgb(13,63,19)")
-            }
+            $(this.leds[i]).css("background", "rgb(13,63,19)")
         }
-        this.time.html("")
         setTimeout(() => {
             clearInterval(this.timer)
             this.start()

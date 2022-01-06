@@ -9,7 +9,6 @@ class Password extends Modul {
         this.szo = PasswordWords[Math.floor(Math.random() * PasswordWords.length)]
         this.lettersPosition = [0, 0, 0, 0, 0]
         this.betukLetrehozasa()
-        this.kiIras()
         for (let i = 0; i < this.felLeptet.length; i++) {
             this.elem.find(this.felLeptet[i]).on("click", () => {
                 this.felfeleLeptet(i)
@@ -36,18 +35,13 @@ class Password extends Modul {
                 }
                 else {
                     randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
-                    while (this.letters[j].includes(randomCharacter) && randomCharacter === this.szo[j]) {
+                    while (this.letters[j].includes(randomCharacter) || randomCharacter === this.szo[j]) {
                         randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
                     }
                     this.letters[j][i] = randomCharacter
                 }
             }
-        }
-    }
-
-    kiIras() {
-        for (let i = 0; i < 5; i++) {
-            this.elem.find(this.kijelzoBetuk[i]).html(this.letters[i][0])
+            this.elem.find(this.kijelzoBetuk[j]).html(this.letters[j][0])
         }
     }
     lefeleLeptet(i) {

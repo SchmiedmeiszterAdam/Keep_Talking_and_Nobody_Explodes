@@ -157,7 +157,6 @@ class OneWire {
         this.szin = this.randomSzin.color
         this.szinNev = this.randomSzin.name
         this.elem.css("background-color", this.szin)
-
         this.elem.on("click", () => {
             if (!this.elvagva) {
                 if (this.getJoDrot()) {

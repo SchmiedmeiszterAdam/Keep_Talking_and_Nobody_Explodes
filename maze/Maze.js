@@ -129,8 +129,8 @@ class Maze extends Modul {
         this.down = this.elem.find(".maze-gomb-4")
         this.szektors = []
         this.maze = mazes[Math.floor(Math.random() * mazes.length)]
-        this.vilagitoSzektor1 = 0
-        this.vilagitoSzektor2 = 0
+        this.vilagitoSzektor1
+        this.vilagitoSzektor2
         this.letrehoz()
         this.up.on("click", () => {
             if (!this.getTeljesitve()) {

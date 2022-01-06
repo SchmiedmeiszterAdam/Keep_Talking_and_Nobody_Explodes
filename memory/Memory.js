@@ -2,11 +2,6 @@ class Memory extends Modul {
     constructor(elem, szulo) {
         super(elem, szulo)
         this.kijelzo = this.elem.find(".memory-kijelzo")
-        this.statuszLed1 = this.elem.find(".memory-statusz-jelzo-1")
-        this.statuszLed2 = this.elem.find(".memory-statusz-jelzo-2")
-        this.statuszLed3 = this.elem.find(".memory-statusz-jelzo-3")
-        this.statuszLed4 = this.elem.find(".memory-statusz-jelzo-4")
-        this.statuszLed5 = this.elem.find(".memory-statusz-jelzo-5")
         this.statusJelzok = this.elem.find(".memory-statusz-jelzo-tarolo").children()
         this.szuloElem = this.elem.find(".memory-gombok")//az adott Modul memory gombok divje 
         this.gombok = this.elem.find(".memory-gombok")
