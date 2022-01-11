@@ -31,12 +31,17 @@ class Keypad extends Modul {
     }
     sorrendMeghatarozas() {
         this.gombokSorrendben = []
-        for (let i = 0; i < this.adottSzimbolumOszlop.length; i++) {
-            for (let k = 0; k < this.kivalasztottSzimbolumok.length; k++) {
-                if (this.adottSzimbolumOszlop[i] === this.kivalasztottSzimbolumok[k]) {
-                    this.gombokSorrendben.push(this.kivalasztottSzimbolumok[k])
-                }
+        let i = 0
+        let k
+        while (i < this.adottSzimbolumOszlop.length && this.gombokSorrendben.length < 4) {
+            k = 0
+            while (k < this.kivalasztottSzimbolumok.length && this.adottSzimbolumOszlop[i] != this.kivalasztottSzimbolumok[k]) {
+                k++
             }
+            if(k < this.kivalasztottSzimbolumok.length){
+                this.gombokSorrendben.push(this.kivalasztottSzimbolumok[k])
+            }
+            i++
         }
     }
 

@@ -67,14 +67,8 @@ class Button extends Modul {
     }
     ellenorzes() {
         let ok = false
-        if (this.solution === "hold" && this.buttonIsDown === true) {
-            if (this.indicatorColor === "blue" && this.timeContains('4')) {
-                ok = true
-            }
-            else if ((this.indicatorColor === "white" || this.indicatorColor === "red") && this.timeContains('1')) {
-                ok = true
-            }
-            else if (this.indicatorColor === "yellow" && this.timeContains('5')) {
+        if ((this.solution === "hold" && this.buttonIsDown === true)) {
+            if (this.indicatorColor === "blue" && this.timeContains('4') || ((this.indicatorColor === "white" || this.indicatorColor === "red") && this.timeContains('1')) || (this.indicatorColor === "yellow" && this.timeContains('5'))) {
                 ok = true
             }
         }
@@ -86,7 +80,6 @@ class Button extends Modul {
     timeContains(num) {
         let includesNumber = false
         let string = this.bomba.idoModul.getTime().split('')
-        console.log(string)
         if (string.includes(num)) {
             includesNumber = true
         }

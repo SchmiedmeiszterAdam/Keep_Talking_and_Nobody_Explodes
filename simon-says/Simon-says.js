@@ -91,16 +91,7 @@ class SimonSays extends Modul {
         }
     }
     ellenorzesSeged(szin, szin1, szin2, szin3, szin4) {
-        if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === szin1) {
-            this.joSzamlalo++
-        }
-        else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === szin2) {
-            this.joSzamlalo++
-        }
-        else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === szin3) {
-            this.joSzamlalo++
-        }
-        else if (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === szin4) {
+        if ((this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "red" && szin === szin1) || (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "blue" && szin === szin2) || (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "green" && szin === szin3) || (this.szerepeltSzinek[this.ellenorzesSzamlolo].getSzin() === "yellow" && szin === szin4)) {
             this.joSzamlalo++
         }
         else {
