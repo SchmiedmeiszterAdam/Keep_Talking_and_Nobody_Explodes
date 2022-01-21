@@ -102,6 +102,7 @@ class VentingGas extends Modul {
     }
     complete() {
         clearInterval(this.interval)
+        this.aktiv = false
         $(this.idoKijelzo).html("")
         this.kijelzoreIras("VENTING","COMPLETE","")
         setTimeout(() => {

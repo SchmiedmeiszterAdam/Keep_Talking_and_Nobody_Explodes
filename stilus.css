@@ -30,8 +30,7 @@ main {
 
 #eloresz, #hatresz {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -71,6 +70,7 @@ main {
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: lightgreen;
+    inset: calc(50% - 5px);
     top: calc(50% - 5px);
     left: calc(50% - 5px);
     filter: blur(3px);
@@ -352,10 +352,7 @@ nav:hover {
 .csavar::after {
     content: '';
     position: absolute;
-    width: 50%;
-    height: 50%;
-    top: 25%;
-    left: 25%;
+    inset: 25%;
     background-color: rgb(72, 65, 60);
     transform: rotate(45deg);
 }

@@ -93,7 +93,7 @@ class Bomba {
             }
             hatreszFeltoltes()
         }
-        else if (modules.length === 5) {
+        else if (modules.length === 6) {
             hatreszFeltoltes()
         }
         else {
@@ -111,6 +111,7 @@ class Bomba {
         function hatreszFeltoltes(){
             for (let i = 0; i < 6; i++) {
                 $("#templates .ures").clone().appendTo("#hatresz")
+                console.log("A")
             }
         }
     }

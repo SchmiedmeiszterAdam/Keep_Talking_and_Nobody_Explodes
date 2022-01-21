@@ -15,7 +15,7 @@ $(function () {
     let bomb = new Bomba($("#bomba").appendTo("main"))
     let bomb1 = []
     let random
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 5; i++) {
         random = Math.floor(Math.random()*modulePossibilitys.length)
         bomb1.push(modulePossibilitys[random])
     }

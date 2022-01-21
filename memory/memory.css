@@ -92,6 +92,8 @@
         linear-gradient(to right, rgb(46, 83, 66) 96%, white 99%);
     background-size: 20px 17.59px;
     position: relative;
+    display: grid;
+    place-items: center;
 }
 
 .memory-kijelzo-belso::after, .memory-kijelzo-belso::before {
@@ -151,6 +153,5 @@
 .memory-kijelzo {
     color: white;
     font-size: 120px;
-    position: absolute;
     z-index: 10;
 }
