@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="simple-wires/simple-wires.css">
     <link rel="stylesheet" href="time-module/time-module.css">
     <link rel="stylesheet" href="kijeloles-megszuntetes.css">
-    <link rel="stylesheet" href="who's_on_first/who's-on-first.css">
+    <link rel="stylesheet" href="who's-on-first/who's-on-first.css">
     <link rel="stylesheet" href="keypads/keypads.css">
     <link rel="stylesheet" href="memory/memory.css">
     <link rel="stylesheet" href="button/button.css">
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="knob/knob.css">
     <link rel="stylesheet" href="venting-gas/venting-gas.css">
     <link rel="stylesheet" href="complicated-wires/complicated-wires.css">
+    <link rel="stylesheet" href="wire-sequences/wire-sequences.css">
     <!-- JS -->
     <script src="Modul.js"></script>
     <!-- WIRES -->
@@ -32,7 +33,7 @@
     <!-- TIME -->
     <script src="time-module/Time-modul.js"></script>
     <!-- WHOS-ON-FIRST -->
-    <script src="who's_on_first/Who's-on-first.js"></script>
+    <script src="who's-on-first/Who's-on-first.js"></script>
     <!-- KEYPADS -->
     <script src="keypads/Keypad.js"></script>
     <!-- MEMORY -->
@@ -55,6 +56,8 @@
     <script src="venting-gas/Venting-gas.js"></script>
     <!-- COMPLICATED-WIRES -->
     <script src="complicated-wires/complicated-wire.js"></script>
+    <!-- WIRE-SEQUENCES -->
+    <script src="wire-sequences/Wire-sequences.js"></script>
     <!-- JS -->
     <script src="Bomba.js"></script>
     <script src="script.js"></script>
@@ -536,19 +539,57 @@
             <div class="modul wire-sequences hover">
                 <div class="kesz"></div>
                 <div class="wire-sequences-bal">
-                    <div class="wire-sequences-kulso-tarolo">
-                        <div class="felso-gomb-tarolo"></div>
-                        <div class="wire-sequences-tarolo"></div>
-                        <div class="also-gomb-tarolo"></div>
+                    <div class="felso-gomb-tarolo wire-sequences-gomb"></div>
+                    <div class="wire-sequences-tarolo">
+                        <div class="wire-sequences-belso-tarolo">
+                            <div class="wire-sequences-belso">
+                                <div class="wire-sequences-szam-tarolo">
+                                    <h2>1</h2>
+                                    <h2>2</h2>
+                                    <h2>3</h2>
+                                </div>
+                                <div class="wire-sequences-csatlakozo-tarolo wire-sequences-csatlakozo-tarolo-bal">
+                                    <div class="wire-sequences-csatlakozo wire-sequences-csatlakozo-1"></div>
+                                    <div class="wire-sequences-csatlakozo wire-sequences-csatlakozo-2"></div>
+                                    <div class="wire-sequences-csatlakozo wire-sequences-csatlakozo-3"></div>
+                                </div>
+                            </div>
+                            <div class="wire-sequences-wire-tarolo">
+
+                            </div>
+                            <div id="wire-sequences-wire-sablonok">
+                                <div class="wire-sequences-wire-1 wire-sequences-wire wire-sequences-csatlakozo-1-wire wire-sequences-wire-egyenes"></div>
+                                <div class="wire-sequences-wire-2 wire-sequences-wire wire-sequences-csatlakozo-1-wire"></div>
+                                <div class="wire-sequences-wire-3 wire-sequences-wire wire-sequences-csatlakozo-1-wire"></div>
+                                <div class="wire-sequences-wire-4 wire-sequences-wire wire-sequences-csatlakozo-2-wire"></div>
+                                <div class="wire-sequences-wire-5 wire-sequences-wire wire-sequences-csatlakozo-2-wire wire-sequences-wire-egyenes"></div>
+                                <div class="wire-sequences-wire-6 wire-sequences-wire wire-sequences-csatlakozo-2-wire"></div>
+                                <div class="wire-sequences-wire-7 wire-sequences-wire wire-sequences-csatlakozo-3-wire"></div>
+                                <div class="wire-sequences-wire-8 wire-sequences-wire wire-sequences-csatlakozo-3-wire"></div>
+                                <div class="wire-sequences-wire-9 wire-sequences-wire wire-sequences-csatlakozo-3-wire wire-sequences-wire-egyenes"></div>
+                            </div>
+                            <div class="wire-sequences-belso">
+                                <div class="wire-sequences-csatlakozo-tarolo wire-sequences-csatlakozo-tarolo-jobb">
+                                    <div class="wire-sequences-csatlakozo wire-sequences-csatlakozo-1"></div>
+                                    <div class="wire-sequences-csatlakozo wire-sequences-csatlakozo-2"></div>
+                                    <div class="wire-sequences-csatlakozo wire-sequences-csatlakozo-3"></div>
+                                </div>
+                                <div class="wire-sequences-betu-tarolo">
+                                    <h2>A</h2>
+                                    <h2>B</h2>
+                                    <h2>C</h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="also-gomb-tarolo wire-sequences-gomb"></div>
                 </div>
                 <div class="wire-sequences-jobb">
                     <div class="wire-sequences-statusz-jelzo-tarolo">
-                        <div class="wire-sequences-statusz-jelzo memory-statusz-jelzo-1"></div>
-                        <div class="wire-sequences-statusz-jelzo memory-statusz-jelzo-2"></div>
-                        <div class="wire-sequences-statusz-jelzo memory-statusz-jelzo-3"></div>
-                        <div class="wire-sequences-statusz-jelzo memory-statusz-jelzo-4"></div>
-                        <div class="wire-sequences-statusz-jelzo memory-statusz-jelzo-5"></div>
+                        <div class="wire-sequences-statusz-jelzo"></div>
+                        <div class="wire-sequences-statusz-jelzo"></div>
+                        <div class="wire-sequences-statusz-jelzo"></div>
+                        <div class="wire-sequences-statusz-jelzo"></div>
                     </div>
                 </div>
             </div>

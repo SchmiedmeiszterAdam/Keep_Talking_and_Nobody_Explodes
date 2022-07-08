@@ -111,7 +111,6 @@ class Bomba {
         function hatreszFeltoltes(){
             for (let i = 0; i < 6; i++) {
                 $("#templates .ures").clone().appendTo("#hatresz")
-                console.log("A")
             }
         }
     }

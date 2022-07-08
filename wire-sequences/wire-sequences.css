@@ -1,0 +1,153 @@
+.wire-sequences-statusz-jelzo-tarolo {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(33, 31, 36);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.wire-sequences{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#wire-sequences-wire-sablonok > *{
+    display: none;
+}
+.wire-sequences-bal{
+    width: 60%;
+    height: 95%;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.wire-sequences-jobb{
+    width: 15%;
+    height: 60%;
+    margin: 0 10px 15px 0;
+}
+.wire-sequences-statusz-jelzo {
+    width: 60%;
+    height: 10%;
+    background-color: rgb(29, 19, 27);
+    box-shadow: 0px 0px 1px 1px white;
+}
+.wire-sequences-gomb{
+    width: 50%;
+    height: 17%;
+    background-color: rgb(175, 153, 120);
+    border-radius: 5px;
+    border: 1px solid rgb(141, 116, 79);
+}
+.wire-sequences-tarolo{
+    width: 99%;
+    height: 55%;
+    background-color: rgb(184,167,147);
+    border: 1px solid black;
+}
+.wire-sequences-belso-tarolo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(134,132,121);
+}
+.wire-sequences-belso{
+    width: calc(100% / 3);
+    height: 100%;
+    background-color: rgb(175, 153, 120);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.wire-sequences-betu-tarolo,.wire-sequences-szam-tarolo{
+    width: 30%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.wire-sequences-betu-tarolo{
+    align-items: flex-end;
+}
+.wire-sequences-betu-tarolo h2,.wire-sequences-szam-tarolo h2{
+    font-size: 25px;
+}
+.wire-sequences-csatlakozo-tarolo{
+    width: 50%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.wire-sequences-csatlakozo{
+    width: 90%;
+    aspect-ratio: 1/1;
+    background-color: rgb(35,29,35);
+    z-index: 10;
+}
+.wire-sequences-csatlakozo-1{
+    transform: rotateZ(20deg);
+}
+.wire-sequences-csatlakozo-3{
+    transform: rotateZ(-20deg);
+}
+.wire-sequences-csatlakozo-tarolo-jobb{
+    transform: rotateZ(180deg);
+}
+.wire-sequences-wire-tarolo{
+    width: calc(100% / 3);
+    height: 100%;
+    position: relative;
+}
+.wire-sequences-wire{
+    height: 15px;
+    position: absolute;
+    transform-origin: left;
+    left: -15px;
+}
+.wire-hover {
+    box-shadow: 0 0 1px 1px inset yellow, 0px 0px 1px 1px yellow;
+    cursor: pointer;
+}
+.wire-sequences-csatlakozo-1-wire{
+    top: 50px;
+}
+.wire-sequences-csatlakozo-2-wire{
+    top: 100px;
+}
+.wire-sequences-csatlakozo-3-wire{
+    top: 150px;
+}
+.wire-sequences-wire-egyenes{
+    width: 110px;
+}
+.wire-sequences-wire-2{
+    width: 130px;
+    transform: rotate(25deg);
+}
+.wire-sequences-wire-3{
+    width: 150px;
+    transform: rotate(43deg);
+}
+.wire-sequences-wire-4{
+    width: 130px;
+    transform: rotate(-25deg);
+}
+.wire-sequences-wire-6{
+    width: 130px;
+    transform: rotate(25deg);
+}
+.wire-sequences-wire-7{
+    width: 150px;
+    transform: rotate(-43deg);
+}
+.wire-sequences-wire-8{
+    width: 130px;
+    transform: rotate(-25deg);
+}

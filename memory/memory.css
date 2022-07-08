@@ -121,6 +121,7 @@
     width: 60%;
     height: 10%;
     background-color: rgb(29, 19, 27);
+    box-shadow: 0px 0px 1px 1px white;
 }
 
 .memory-gombok-kulso {
