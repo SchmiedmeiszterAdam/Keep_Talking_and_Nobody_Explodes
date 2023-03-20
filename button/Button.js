@@ -15,18 +15,36 @@ class Button extends Modul {
         this.solution
         this.decision()
 
-        this.button.on("vmousedown mousedown", () => {
-            console.log("Ad")
-            this.button.addClass("button-pushed-down")
-            this.timeoutId = setTimeout(() => { this.pushedDown() }, 1500);
-        }).on("vmouseup mouseup", () => {
-            this.button.removeClass("button-pushed-down")
-            this.button.addClass("button-release")
-            setTimeout(() => {
-                this.button.removeClass("button-release")
-            }, 200)
-            this.released()
-        })
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            var tapTimer = false;
+            this.button.bind('vmousedown vmouseup', function (event) {
+                if (event.type == 'vmousedown') {
+                    this.button.addClass("button-pushed-down")
+                    this.timeoutId = setTimeout(() => { this.pushedDown() }, 1500);
+                } else {
+                    this.button.removeClass("button-pushed-down")
+                    this.button.addClass("button-release")
+                    setTimeout(() => {
+                        this.button.removeClass("button-release")
+                    }, 200)
+                    this.released()
+                }
+            });
+        }
+        else {
+            this.button.on("mousedown", () => {
+                this.button.addClass("button-pushed-down")
+                this.timeoutId = setTimeout(() => { this.pushedDown() }, 1500);
+            }).on("mouseup", () => {
+                this.button.removeClass("button-pushed-down")
+                this.button.addClass("button-release")
+                setTimeout(() => {
+                    this.button.removeClass("button-release")
+                }, 200)
+                this.released()
+            })
+        }
     }
     decision() {
         if (this.color === "blue" && this.buttonText === "ABORT") {
