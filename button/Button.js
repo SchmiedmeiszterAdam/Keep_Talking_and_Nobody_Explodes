@@ -15,10 +15,11 @@ class Button extends Modul {
         this.solution
         this.decision()
 
-        this.button.on("mousedown", () => {
+        this.button.on("vmousedown mousedown", () => {
+            console.log("Ad")
             this.button.addClass("button-pushed-down")
             this.timeoutId = setTimeout(() => { this.pushedDown() }, 1500);
-        }).on("mouseup", () => {
+        }).on("vmouseup mouseup", () => {
             this.button.removeClass("button-pushed-down")
             this.button.addClass("button-release")
             setTimeout(() => {
